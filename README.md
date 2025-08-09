@@ -1,46 +1,208 @@
-# Getting Started with Create React App
+# 🚀 Jiffy UI Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A modern, minimal, and accessible React UI library built with TailwindCSS
 
-## Available Scripts
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/JiffytechSolutions/JiffyDemo/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/jiffy-ui.svg)](https://www.npmjs.com/package/jiffy-ui)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
-In the project directory, you can run:
+**Jiffy UI Demo** showcases a comprehensive React component library with 35+ production-ready components. Built with modern web standards, TypeScript support, and accessibility in mind.
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 🎯 **35+ Production Ready Components** - Comprehensive component library
+- 📝 **TypeScript Native** - Fully typed API with excellent DX
+- ♿ **Accessibility First** - WAI-ARIA compliant with keyboard support
+- 🚀 **React Server Components** - Compatible with Next.js 13+ and RSC
+- ⚡ **Zero Runtime Styles** - Built on TailwindCSS for optimal performance
+- 📱 **Responsive Design** - Mobile-first approach with flexible layouts
+- 🎨 **Modern Design System** - Consistent and beautiful components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Quick Start
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install jiffy-ui jiffy-icons
+```
 
-### `npm run build`
+### Basic Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import React from 'react';
+import { Button, Card, TextStyle } from 'jiffy-ui';
+import { ArrowRight } from 'jiffy-icons';
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+function App() {
+  return (
+    <Card type="Shadow">
+      <TextStyle as="h2" type="LgHeading">
+        Welcome to Jiffy UI
+      </TextStyle>
+      <Button 
+        color="Primary" 
+        icon={<ArrowRight size={16} />}
+        alignIcon="Right"
+      >
+        Get Started
+      </Button>
+    </Card>
+  );
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎮 Demo & Documentation
 
-### `npm run eject`
+🔗 **[Live Demo](https://jiffytechsolutions.github.io/JiffyDemo/)**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Explore our interactive component playground to see all components in action with live code examples.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 Available Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Layout Components
+- **Card** - Flexible containers for content
+- **Grid** - Responsive grid system
+- **HorizontalFlex / VerticalFlex** - Flexbox layout utilities
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Input Components  
+- **TextField** - Text input with validation
+- **TextArea** - Multi-line text input
+- **Checkbox** - Boolean input control
+- **CheckboxGroup** - Multiple selection groups
+- **FileUpload** - File upload component
+- **AutoComplete** - Smart input with suggestions
 
-## Learn More
+### Action Components
+- **Button** - Primary action component
+- **ButtonGroup** - Grouped button actions
+- **TextLink** - Styled text links
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Display Components
+- **TextStyle** - Typography component
+- **Accordion** - Collapsible content panels
+- **Alert** - Contextual feedback messages
+- **Sidebar** - Navigation sidebar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Icons
+- **35+ Icons** - Comprehensive icon set
+
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js 16+ 
+- npm or yarn
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/JiffytechSolutions/JiffyDemo.git
+
+# Navigate to project directory
+cd JiffyDemo
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+```
+
+### Available Scripts
+
+- `npm start` - Start development server
+- `npm build` - Build for production
+- `npm test` - Run test suite
+- `npm eject` - Eject from Create React App
+
+## 🏗️ Project Structure
+
+```
+JiffyDemo/
+├── public/
+│   ├── index.html
+│   └── assets/
+├── src/
+│   ├── Components/
+│   │   ├── Banner/           # Hero section
+│   │   ├── ComponentList/    # Component showcase  
+│   │   ├── CallToAction/     # CTA section
+│   │   ├── Header/           # Navigation
+│   │   ├── Home/             # Main page
+│   │   ├── Pannel/           # Component docs
+│   │   └── component/        # Demo components
+│   ├── assets/               # Images and static files
+│   ├── context/              # React context
+│   └── index.tsx
+├── package.json
+└── README.md
+```
+
+## 🎯 Key Features Showcase
+
+### TypeScript Support
+```tsx
+interface ButtonProps {
+  variant?: 'Primary' | 'Secondary' | 'Tertiary';
+  size?: 'Small' | 'Medium' | 'Large';
+  icon?: React.ReactNode;
+  alignIcon?: 'Left' | 'Right';
+}
+```
+
+### Responsive Design
+```jsx
+<Grid columns={{ lg: 4, md: 3, sm: 2 }} gap={{ lg: "16px" }}>
+  {components.map(component => (
+    <Card key={component.id}>{component.content}</Card>
+  ))}
+</Grid>
+```
+
+### Accessibility
+All components include:
+- Keyboard navigation support
+- Screen reader compatibility  
+- ARIA labels and roles
+- Focus management
+- High contrast support
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Create React App](https://create-react-app.dev/)
+- Styled with [TailwindCSS](https://tailwindcss.com/)
+- Icons by [Jiffy Icons](https://www.npmjs.com/package/jiffy-icons)
+- Components by [Jiffy UI](https://www.npmjs.com/package/jiffy-ui)
+
+## 📞 Support
+
+- 📧 Email: support@jiffytech.com
+- 🐛 Issues: [GitHub Issues](https://github.com/JiffytechSolutions/JiffyDemo/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/JiffytechSolutions/JiffyDemo/discussions)
+
+---
+
+<div align="center">
+
+**[🚀 Get Started](https://jiffytechsolutions.github.io/JiffyDemo/)** • **[📚 Documentation](https://jiffytechsolutions.github.io/JiffyDemo/pannel)** • **[🎮 Live Demo](https://jiffytechsolutions.github.io/JiffyDemo/)**
+
+Made with ❤️ by the Jiffy Tech Solutions team
+
+</div>

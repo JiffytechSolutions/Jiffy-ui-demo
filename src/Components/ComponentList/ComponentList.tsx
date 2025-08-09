@@ -1,5 +1,7 @@
 import { Button, Card, Grid, HorizontalFlex, TextStyle, VerticalFlex } from 'jiffy-ui'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'jiffy-icons'
 import THumbImage from '../../assets/Image(1).png'
 import autocomplete from '../../assets/Autocomplete.png'
 import checkBox from '../../assets/CheckBox.png'
@@ -14,153 +16,196 @@ const ComponentList = () => {
     const component = [
         {
             compName: "Card",
-            url: "#",
+            url: "/pannel/Card",
             image: card,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Flexible containers for displaying content with consistent styling and spacing.",
+            category: "Layout"
         },
         {
             compName: "AutoComplete",
-            url: "#",
+            url: "/pannel/AutoComplete",
             image: autocomplete,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Smart input field with auto-suggestion and search capabilities.",
+            category: "Input"
         },
         {
             compName: "Checkbox",
-            url: "#",
+            url: "/pannel/Checkbox",
             image: checkBox,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Boolean input control for single selections and toggles.",
+            category: "Input"
         },
         {
-            compName: "Checkbox group",
-            url: "#",
+            compName: "Checkbox Group",
+            url: "/pannel/CheckboxGroup",
             image: checkBoxgrp,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Multiple checkbox controls grouped together for multi-selection.",
+            category: "Input"
         },
         {
             compName: "Accordion",
-            url: "#",
+            url: "/pannel/Accordion",
             image: accordion,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Collapsible content panels for organizing information efficiently.",
+            category: "Display"
         },
         {
             compName: "Grid",
-            url: "#",
+            url: "/pannel/Grid",
             image: grid,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Responsive grid system for creating flexible layouts.",
+            category: "Layout"
         },
         {
             compName: "Sidebar",
-            url: "#",
+            url: "/pannel/Sidebar",
             image: sidebar,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Navigation sidebar with hierarchical menu structure.",
+            category: "Navigation"
         },
         {
             compName: "Alert",
-            url: "#",
+            url: "/pannel/Alert",
             image: alert,
-            description: "Used for connecting or disconnecting a store to various accounts,"
+            description: "Contextual feedback messages for user notifications.",
+            category: "Feedback"
         }
-
     ]
 
     const features = [
         {
-            title: "React server components",
-            image: card,
-            description: "All NextUI components already include the 'use client' directive, which means you can import and use them directly in your RSC."
+            title: "🚀 React Server Components",
+            icon: "🚀",
+            description: "All Jiffy UI components include proper directives and work seamlessly with React Server Components and Next.js 13+."
         },
         {
-            title: "Accessible components",
-            image: card,
-            description: "NextUI components follow the WAI-ARIA guidelines, provide keyboard support and sensible focus management."
+            title: "♿ Accessibility First",
+            icon: "♿",
+            description: "Built following WAI-ARIA guidelines with keyboard support, screen reader compatibility, and proper focus management."
         },
         {
-            title: "Focus interactions",
-            image: card,
-            description: "Focus ring will appear only when user navigates with keyboard or screen reader."
-        },
-
-        {
-            title: "TypeScript based",
-            image: card,
-            description: "Build type safe applications, NextUI has a fully-typed API to minimize the learning curve, and help you build applications."
+            title: "🎯 Focus Management",
+            icon: "🎯",
+            description: "Smart focus rings that appear only during keyboard navigation, providing clear visual feedback for accessibility."
         },
         {
-            title: "No runtime styles",
-            image: card,
-            description: "NextUI is based on Tailwind CSS, it means that there are no runtime styles, and no unnecessary classes in your bundle."
+            title: "📝 TypeScript Native",
+            icon: "📝",
+            description: "Fully typed API with comprehensive TypeScript support to catch errors early and improve developer experience."
         },
-
         {
-            title: "Beautifully designed",
-            image: card,
-            description: "NextUI components are unique and are not tied to any visual trend or design rule, which makes us unique and of course your projects as well."
+            title: "⚡ Zero Runtime Styles",
+            icon: "⚡",
+            description: "Built on TailwindCSS with no runtime CSS-in-JS overhead, ensuring optimal performance and smaller bundles."
         },
-
+        {
+            title: "🎨 Modern Design System",
+            icon: "🎨",
+            description: "Carefully crafted components with consistent design language that adapts to your brand and design requirements."
+        }
     ]
     return (
         <>
-            <section className='section-padding'>
+            {/* Components Showcase Section */}
+            <section className='components-showcase'>
                 <div className='container'>
                     <VerticalFlex gap={36}>
                         <div className='section_heading'>
-                            <VerticalFlex gap={20}>
-                                <TextStyle as='h6' type='2XlHeading' alignment='Center'>35+ Production Ready Components</TextStyle>
-                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>35+ Production Ready Components</TextStyle>
+                            <VerticalFlex gap={16}>
+                                <TextStyle as='h2' type='2XlHeading' alignment='Center'>
+                                    Explore Our Components
+                                </TextStyle>
+                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>
+                                    Discover beautifully crafted, production-ready components designed for modern React applications
+                                </TextStyle>
                             </VerticalFlex>
                         </div>
+                        
                         <div className='content_container'>
-                            <VerticalFlex gap={20}>
+                            <VerticalFlex gap={32}>
                                 <Grid gap={{ "lg": "16px" }} columns={4}>
                                     {component.map((item, index) => {
-                                        return <Card type={'Borderd'} headerTitle="">
-                                            <img src={item.image} className='responsive-image' />
-                                            <VerticalFlex gap={8}>
-                                                <TextStyle as='h5' type='LgHeading'>
-                                                    {item.compName}
-                                                </TextStyle>
-                                                <TextStyle as='p' type='LgBody' textColor='Secondary'>
-                                                    {item.description}
-                                                </TextStyle>
-                                            </VerticalFlex>
-                                        </Card>
+                                        return (
+                                            <Link to={item.url} key={index} className='component-card-link'>
+                                                <Card type={'Borderd'} headerTitle="">
+                                                    <VerticalFlex gap={16}>
+                                                        <div className='component-image-wrapper'>
+                                                            <img src={item.image} className='responsive-image' alt={item.compName} />
+                                                        </div>
+                                                        <VerticalFlex gap={8}>
+                                                            <HorizontalFlex align={{ "lg": "spaceBetween" }}>
+                                                                <TextStyle as='h5' type='LgHeading'>
+                                                                    {item.compName}
+                                                                </TextStyle>
+                                                                <span className='component-category'>{item.category}</span>
+                                                            </HorizontalFlex>
+                                                            <TextStyle as='p' type='MdBody' textColor='Secondary'>
+                                                                {item.description}
+                                                            </TextStyle>
+                                                        </VerticalFlex>
+                                                    </VerticalFlex>
+                                                </Card>
+                                            </Link>
+                                        )
                                     })}
                                 </Grid>
+                                
                                 <HorizontalFlex align={{ "lg": 'center' }}>
-                                    <Button size='Large' color='Primary' variant='Primary'>Explore more components</Button>
+                                    <Link to="/pannel">
+                                        <Button 
+                                            size='Large' 
+                                            color='Primary' 
+                                            variant='Primary'
+                                            icon={<ArrowRight size={16} />}
+                                            alignIcon='Right'
+                                        >
+                                            View All Components
+                                        </Button>
+                                    </Link>
                                 </HorizontalFlex>
                             </VerticalFlex>
                         </div>
                     </VerticalFlex>
                 </div>
             </section>
-            <section className='section-padding bg-color'>
+
+            {/* Features Section */}
+            <section className='features-section'>
                 <div className='container'>
                     <VerticalFlex gap={36}>
                         <div className='section_heading'>
-                            <VerticalFlex gap={20}>
-                                <TextStyle as='h6' type='2XlHeading' alignment='Center'>Last but not least.</TextStyle>
-                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>A fully-featured React UI library.</TextStyle>
+                            <VerticalFlex gap={16}>
+                                <TextStyle as='h2' type='2XlHeading' alignment='Center'>
+                                    Why Choose Jiffy UI?
+                                </TextStyle>
+                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>
+                                    Built with modern web standards and developer experience in mind
+                                </TextStyle>
                             </VerticalFlex>
                         </div>
+                        
                         <div className='content_container'>
-
                             <Grid gap={{ "lg": "16px" }} columns={3}>
                                 {features.map((item, index) => {
-                                    return <Card type={'Shadow'} headerTitle="">
-
-                                        <VerticalFlex gap={8}>
-                                            <TextStyle as='h5' type='LgHeading'>
-                                                {item.title}
-                                            </TextStyle>
-                                            <TextStyle as='p' type='LgBody' textColor='Secondary'>
-                                                {item.description}
-                                            </TextStyle>
-                                        </VerticalFlex>
-                                    </Card>
+                                    return (
+                                        <Card type={'Shadow'} headerTitle="" key={index}>
+                                            <VerticalFlex gap={16}>
+                                                <div className='feature-icon'>
+                                                    <span className='icon-large'>{item.icon}</span>
+                                                </div>
+                                                <VerticalFlex gap={8}>
+                                                    <TextStyle as='h5' type='LgHeading'>
+                                                        {item.title}
+                                                    </TextStyle>
+                                                    <TextStyle as='p' type='MdBody' textColor='Secondary'>
+                                                        {item.description}
+                                                    </TextStyle>
+                                                </VerticalFlex>
+                                            </VerticalFlex>
+                                        </Card>
+                                    )
                                 })}
                             </Grid>
-
                         </div>
                     </VerticalFlex>
                 </div>

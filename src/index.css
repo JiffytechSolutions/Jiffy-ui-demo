@@ -2,6 +2,207 @@
   padding: 0;
   margin: 0;
 }
+
+/* === IMPROVED HOME PAGE STYLES === */
+
+/* Container and spacing */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='m0 40l40-40h-40v40zm40 0v-40h-40l40 40z'/%3E%3C/g%3E%3C/svg%3E");
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  text-align: center;
+}
+
+.badge-text {
+  display: inline-block;
+  background: rgba(48, 94, 255, 0.1);
+  color: #305EFF;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(48, 94, 255, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #305EFF 0%, #667eea 50%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-btn-link {
+  text-decoration: none;
+}
+
+.hero-stats {
+  margin-top: 20px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Components Showcase Section */
+.components-showcase {
+  padding: 80px 0;
+  background: #fafafa;
+}
+
+.component-card-link {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.component-card-link:hover {
+  transform: translateY(-4px);
+}
+
+.component-card {
+  height: 100%;
+  transition: all 0.2s ease;
+  border: 1px solid #e4e4e4;
+}
+
+.component-card:hover {
+  border-color: #305EFF;
+  box-shadow: 0 8px 25px rgba(48, 94, 255, 0.15);
+}
+
+.component-image-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  padding: 16px;
+}
+
+.component-category {
+  background: rgba(48, 94, 255, 0.1);
+  color: #305EFF;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.feature-card {
+  height: 100%;
+  text-align: center;
+  transition: transform 0.2s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.icon-large {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #305EFF 0%, #667eea 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: white !important;
+}
+
+.installation-snippet {
+  margin-top: 16px;
+}
+
+.code-snippet {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 20px;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+}
+
+.code-snippet code {
+  color: #fff;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Home Page Layout */
+.home-page {
+  overflow-x: hidden;
+}
 li.Pixel-sideBar__listItem.Pixel-sideBar__listItem--active .Pixel-sideBar__itemBody {
   background: rgb(46 91 255 / 9%);
 }
