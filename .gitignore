@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# gh-pages cache (causes Windows issues)
+node_modules/.cache/gh-pages
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
