@@ -64,7 +64,7 @@ function App() {
       {/* <SyntaxHighlighter language="javascript" style={dark}>
         {codeString}
       </SyntaxHighlighter> */}
-      <BrowserRouter>
+      <BrowserRouter basename="/JiffyDemo">
         <Routes>
           <Route path="/" element={<Header />}>
             <Route index element={<Home />} />
