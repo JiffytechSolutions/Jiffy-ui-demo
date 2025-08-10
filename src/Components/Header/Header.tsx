@@ -1,5 +1,5 @@
 import { Hithub, Search, Menu } from 'jiffy-icons';
-import { HorizontalFlex, TextField, TextStyle, Button } from 'jiffy-ui'
+import { HorizontalFlex, TextStyle } from 'jiffy-ui'
 import React, { useState } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';

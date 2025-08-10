@@ -1,4 +1,4 @@
-import { ArrowRight, Hithub, Book, Play } from 'jiffy-icons'
+import { Play } from 'jiffy-icons'
 import { Button, HorizontalFlex, TextStyle, VerticalFlex } from 'jiffy-ui'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -21,7 +21,7 @@ const Banner = () => {
             setCurrentDemo((prev) => (prev + 1) % demoComponents.length)
         }, 2000)
         return () => clearInterval(interval)
-    }, [])
+    }, [demoComponents.length])
 
     return (
         <section className='hero-section'>

@@ -12,16 +12,11 @@
     "@types/react-dom": "^18.3.0",
     "jiffy-icons": "^0.1.2",
     "jiffy-ui": "^1.0.1",
-    "npm": "^10.8.3",
     "react": "^18.3.1",
-    "react-code-blocks": "^0.1.6",
     "react-dom": "^18.3.1",
-    "react-dom-server": "^0.0.5",
     "react-router-dom": "^6.26.1",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.5.0",
-    "rehype-pretty-code": "^0.14.0",
-    "shiki": "^1.16.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -55,5 +50,17 @@
   "devDependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
     "gh-pages": "^6.3.0"
+  },
+  "overrides": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0"
+  },
+  "resolutions": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0"
   }
 }

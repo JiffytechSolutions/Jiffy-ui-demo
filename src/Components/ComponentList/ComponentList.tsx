@@ -2,7 +2,7 @@ import { Button, Card, Grid, HorizontalFlex, TextStyle, VerticalFlex } from 'jif
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'jiffy-icons'
-import THumbImage from '../../assets/Image(1).png'
+
 import autocomplete from '../../assets/Autocomplete.png'
 import checkBox from '../../assets/CheckBox.png'
 import checkBoxgrp from '../../assets/checkboxGroup.png'
