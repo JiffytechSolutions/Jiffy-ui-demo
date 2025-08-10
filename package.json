@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jiffytechsolutions.github.io/JiffyDemo/",
+  "homepage": "http://jiffytechsolutions.github.io/Jiffy-ui-demo/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
