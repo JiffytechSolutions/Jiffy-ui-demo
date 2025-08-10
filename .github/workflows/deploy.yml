@@ -36,7 +36,7 @@ jobs:
         run: npm run build
         env:
           CI: false
-          PUBLIC_URL: /JiffyDemo
+          PUBLIC_URL: /Jiffy-ui-demo
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
