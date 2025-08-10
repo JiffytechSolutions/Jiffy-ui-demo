@@ -39,23 +39,30 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     });
 
     const setTheme = (newTheme: Theme) => {
+        console.log('Setting theme to:', newTheme);
         setThemeState(newTheme);
         localStorage.setItem('jiffy-ui-theme', newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
+        console.log('Document theme attribute set to:', document.documentElement.getAttribute('data-theme'));
     };
 
     const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        console.log('Toggling theme from', theme, 'to', newTheme);
+        setTheme(newTheme);
     };
 
     useEffect(() => {
         // Set initial theme
+        console.log('useEffect: Setting initial theme to:', theme);
         document.documentElement.setAttribute('data-theme', theme);
+        console.log('useEffect: Document theme attribute:', document.documentElement.getAttribute('data-theme'));
         
         // Listen for system theme changes
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         const handleChange = (e: MediaQueryListEvent) => {
             if (!localStorage.getItem('jiffy-ui-theme')) {
+                console.log('System theme changed to:', e.matches ? 'dark' : 'light');
                 setTheme(e.matches ? 'dark' : 'light');
             }
         };

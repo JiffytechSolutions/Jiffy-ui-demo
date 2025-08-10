@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const CallToAction = () => {
     const [copied, setCopied] = useState(false)
     const [currentStep, setCurrentStep] = useState(0)
+    const [activeTab, setActiveTab] = useState('live')
 
     const installationSteps = [
         { command: "npm install jiffy-ui jiffy-icons", description: "Install the packages" },
@@ -24,7 +25,7 @@ const CallToAction = () => {
             setCurrentStep((prev) => (prev + 1) % installationSteps.length)
         }, 3000)
         return () => clearInterval(interval)
-    }, [])
+    }, [installationSteps.length])
 
     return (
         <>
@@ -45,24 +46,129 @@ const CallToAction = () => {
                         
                         <div className='interactive-demo-container'>
                             <div className='demo-tabs'>
-                                <button className='demo-tab active'>Live Preview</button>
-                                <button className='demo-tab'>Code Example</button>
-                                <button className='demo-tab'>Props API</button>
+                                <button 
+                                    className={`demo-tab ${activeTab === 'live' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('live')}
+                                >
+                                    Live Preview
+                                </button>
+                                <button 
+                                    className={`demo-tab ${activeTab === 'code' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('code')}
+                                >
+                                    Code Example
+                                </button>
+                                <button 
+                                    className={`demo-tab ${activeTab === 'props' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('props')}
+                                >
+                                    Props API
+                                </button>
                             </div>
                             
                             <div className='demo-content'>
-                                <div className='demo-preview'>
-                                    <VerticalFlex gap={20}>
-                                        <HorizontalFlex gap={12}>
-                                            <Button color='Primary' size='Medium'>Primary</Button>
-                                            <Button variant='Secondry' size='Medium'>Secondary</Button>
-                                            <Button variant='Tertiary' size='Medium'>Tertiary</Button>
-                                        </HorizontalFlex>
+                                {activeTab === 'live' && (
+                                    <div className='demo-preview'>
+                                        <VerticalFlex gap={20}>
+                                            <HorizontalFlex gap={12}>
+                                                <Button 
+                                                    color='Primary' 
+                                                    size='Medium'
+                                                    onClick={() => alert('Primary button clicked!')}
+                                                >
+                                                    Primary
+                                                </Button>
+                                                <Button 
+                                                    variant='Secondry' 
+                                                    size='Medium'
+                                                    onClick={() => alert('Secondary button clicked!')}
+                                                >
+                                                    Secondary
+                                                </Button>
+                                                <Button 
+                                                    variant='Tertiary' 
+                                                    size='Medium'
+                                                    onClick={() => alert('Tertiary button clicked!')}
+                                                >
+                                                    Tertiary
+                                                </Button>
+                                            </HorizontalFlex>
+                                            <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
+                                                ✨ Click the buttons above to see them in action!
+                                            </TextStyle>
+                                        </VerticalFlex>
+                                    </div>
+                                )}
+                                
+                                {activeTab === 'code' && (
+                                    <div className='demo-code'>
+                                        <div className='code-example'>
+                                            <pre className='demo-code-block'>
+                                                <code>{`import { Button } from 'jiffy-ui';
+
+function MyComponent() {
+  return (
+    <div>
+      <Button color="Primary" size="Medium">
+        Primary
+      </Button>
+      <Button variant="Secondry" size="Medium">
+        Secondary  
+      </Button>
+      <Button variant="Tertiary" size="Medium">
+        Tertiary
+      </Button>
+    </div>
+  );
+}`}</code>
+                                            </pre>
+                                        </div>
                                         <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
-                                            Try hovering and clicking the buttons above!
+                                            💻 Copy this code to use in your project
                                         </TextStyle>
-                                    </VerticalFlex>
-                                </div>
+                                    </div>
+                                )}
+                                
+                                {activeTab === 'props' && (
+                                    <div className='demo-props'>
+                                        <div className='props-table'>
+                                            <VerticalFlex gap={16}>
+                                                <TextStyle as='h4' type='MdHeading' alignment='Center'>
+                                                    Button Props
+                                                </TextStyle>
+                                                <div className='props-grid'>
+                                                    <div className='prop-item'>
+                                                        <TextStyle as='span' type='SmHeading'>color</TextStyle>
+                                                        <TextStyle as='span' type='SmBody' textColor='Secondary'>
+                                                            'Primary' | 'Secondary' | 'Tertiary'
+                                                        </TextStyle>
+                                                    </div>
+                                                    <div className='prop-item'>
+                                                        <TextStyle as='span' type='SmHeading'>size</TextStyle>
+                                                        <TextStyle as='span' type='SmBody' textColor='Secondary'>
+                                                            'Small' | 'Medium' | 'Large'
+                                                        </TextStyle>
+                                                    </div>
+                                                    <div className='prop-item'>
+                                                        <TextStyle as='span' type='SmHeading'>variant</TextStyle>
+                                                        <TextStyle as='span' type='SmBody' textColor='Secondary'>
+                                                            'Primary' | 'Secondry' | 'Tertiary'
+                                                        </TextStyle>
+                                                    </div>
+                                                    <div className='prop-item'>
+                                                        <TextStyle as='span' type='SmHeading'>onClick</TextStyle>
+                                                        <TextStyle as='span' type='SmBody' textColor='Secondary'>
+                                                            () =&gt; void
+                                                        </TextStyle>
+                                                    </div>
+                                                </div>
+                                            </VerticalFlex>
+                                        </div>
+                                        <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
+                                            📚 Complete API documentation for Button component
+                                        </TextStyle>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </VerticalFlex>

@@ -810,104 +810,63 @@ section.section-padding.bg-color {
     overflow: hidden;
 }
 
-/* Enhanced CSS Variables for Theme System - shadcn/ui inspired */
+/* Simplified and Working CSS Variables for Theme System */
 :root {
-  /* Light theme colors - based on shadcn/ui design tokens */
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  --radius: 0.5rem;
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-accent: #f1f5f9;
+  --bg-hover: #e2e8f0;
   
-  /* Semantic color mappings */
-  --bg-primary: hsl(var(--background));
-  --bg-secondary: hsl(var(--secondary));
-  --bg-tertiary: hsl(var(--muted));
-  --bg-accent: hsl(var(--accent));
-  --bg-hover: hsl(var(--accent));
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-accent: #0f172a;
   
-  --text-primary: hsl(var(--foreground));
-  --text-secondary: hsl(var(--muted-foreground));
-  --text-tertiary: hsl(var(--muted-foreground) / 0.7);
-  --text-accent: hsl(var(--primary));
-  
-  --border-primary: hsl(var(--border));
-  --border-secondary: hsl(var(--border) / 0.5);
-  --border-hover: hsl(var(--ring));
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --border-hover: #94a3b8;
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   
-  --accent-primary: hsl(var(--primary));
-  --accent-secondary: hsl(var(--primary) / 0.8);
-  --accent-success: 142 76% 36%;
-  --accent-warning: 38 92% 50%;
-  --accent-error: hsl(var(--destructive));
+  --accent-primary: #0f172a;
+  --accent-secondary: #334155;
+  --accent-success: #10b981;
+  --accent-warning: #f59e0b;
+  --accent-error: #ef4444;
+  
+  --radius: 0.5rem;
 }
 
-/* Dark theme colors - based on shadcn/ui dark mode */
+/* Dark theme colors - properly working */
 [data-theme="dark"] {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-accent: #334155;
+  --bg-hover: #475569;
   
-  /* Semantic color mappings for dark mode */
-  --bg-primary: hsl(var(--background));
-  --bg-secondary: hsl(var(--secondary));
-  --bg-tertiary: hsl(var(--muted));
-  --bg-accent: hsl(var(--accent));
-  --bg-hover: hsl(var(--accent) / 0.8);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-accent: #f1f5f9;
   
-  --text-primary: hsl(var(--foreground));
-  --text-secondary: hsl(var(--muted-foreground));
-  --text-tertiary: hsl(var(--muted-foreground) / 0.7);
-  --text-accent: hsl(var(--primary));
-  
-  --border-primary: hsl(var(--border));
-  --border-secondary: hsl(var(--border) / 0.5);
-  --border-hover: hsl(var(--ring));
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --border-hover: #64748b;
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.8), 0 2px 4px -2px rgba(0, 0, 0, 0.8);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.8), 0 4px 6px -4px rgba(0, 0, 0, 0.8);
   
-  --accent-primary: hsl(var(--primary));
-  --accent-secondary: hsl(var(--primary) / 0.8);
-  --accent-success: 142 71% 45%;
-  --accent-warning: 38 92% 50%;
-  --accent-error: hsl(var(--destructive));
+  --accent-primary: #f1f5f9;
+  --accent-secondary: #cbd5e1;
+  --accent-success: #34d399;
+  --accent-warning: #fbbf24;
+  --accent-error: #f87171;
 }
 
 /* Global theme application */
@@ -920,22 +879,15 @@ body {
   color: var(--text-primary);
 }
 
-/* Enhanced Header Styles - shadcn/ui inspired */
+/* Enhanced Header Styles - working properly */
 .modern-header {
     position: sticky;
     top: 0;
     z-index: 50;
     border-bottom: 1px solid var(--border-primary);
-    background: color-mix(in srgb, var(--bg-primary) 95%, transparent);
+    background: var(--bg-primary);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    supports-backdrop-filter: blur(16px);
-}
-
-@supports not (color: color-mix(in srgb, white, black)) {
-    .modern-header {
-        background: var(--bg-primary);
-    }
 }
 
 .header-container {
@@ -1704,4 +1656,215 @@ body {
     background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
 }
 
-/* Remove old dark mode media queries as we now use CSS variables */
+/* Dark mode specific improvements */
+[data-theme="dark"] .hero-section {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .components-showcase {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .features-section {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .cta-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+/* Enhanced dark mode card styling */
+[data-theme="dark"] .component-preview {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .feature-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .feature-item:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+}
+
+/* Additional dark mode improvements */
+[data-theme="dark"] .search-results-container {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .search-highlight {
+    background: #fbbf24;
+    color: #1f2937;
+}
+
+[data-theme="dark"] .result-category {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .result-tag {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .search-suggestion {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .search-suggestion:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* Dark mode button improvements */
+[data-theme="dark"] .filter-btn {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .filter-btn.active {
+    background: var(--text-accent);
+    color: var(--bg-primary);
+}
+
+[data-theme="dark"] .filter-btn:hover {
+    background: var(--bg-accent);
+    color: var(--text-primary);
+}
+
+/* Debug styles to ensure theme switching works */
+[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+}
+
+/* Theme debug indicator removed - theme system is working properly */
+
+/* Interactive Demo Styles */
+.interactive-demo-container {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.demo-tabs {
+    display: flex;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.demo-tab {
+    flex: 1;
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    border-right: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.demo-tab:last-child {
+    border-right: none;
+}
+
+.demo-tab:hover {
+    background: var(--bg-accent);
+    color: var(--text-primary);
+}
+
+.demo-tab.active {
+    background: var(--bg-primary);
+    color: var(--text-accent);
+    border-bottom: 2px solid var(--text-accent);
+}
+
+.demo-content {
+    padding: 32px;
+    min-height: 200px;
+}
+
+.demo-preview {
+    text-align: center;
+}
+
+.demo-code {
+    text-align: center;
+}
+
+.demo-code-block {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: left;
+    overflow-x: auto;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin: 16px 0;
+}
+
+.demo-props {
+    text-align: center;
+}
+
+.props-table {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 16px 0;
+}
+
+.props-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.prop-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: calc(var(--radius) - 2px);
+}
+
+.demo-preview-section {
+    padding: 64px 0;
+    background: var(--bg-primary);
+}
+
+/* Dark mode improvements for demo */
+[data-theme="dark"] .demo-code-block {
+    background: #1e293b;
+    border-color: var(--border-primary);
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .props-table {
+    background: #1e293b;
+}
+
+[data-theme="dark"] .prop-item {
+    background: var(--bg-secondary);
+}
