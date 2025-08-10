@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <ThemeProvider>
         <SearchProvider>
-          <BrowserRouter basename="/JiffyDemo">
+          <BrowserRouter basename="/Jiffy-ui-demo">
             <Routes>
               <Route path="/" element={<Header />}>
                 <Route index element={<Home />} />
