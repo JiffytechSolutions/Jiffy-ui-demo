@@ -9,20 +9,49 @@ export const textDecorationProp = ['None', 'UnderLine', 'lineThrough'];
 export const childrenProp = ['string', 'React.ReactNode'];
 
 // Button Props
-export const btnVariantProps = ['Primary', 'Secondry', 'Tertiary', 'Link'];
-export const btnSizeProps = ['XSmall', 'Small', 'Medium', 'Large'];
+export const btnVariantProps = ['Primary', 'Secondary', 'Tertiary', 'Link', 'Ghost', 'Danger'];
+export const btnSizeProps = ['XSmall', 'Small', 'Medium', 'Large', 'XLarge'];
 export const btnColorProps = ['Primary', 'Positive', 'Negative', 'Waiting', 'Neutral'];
-export const btnIsDisabledProp = ['boolean']
-export const btniconProp = ['string', 'React.ReactNode']
+export const btnIsDisabledProp = ['boolean'];
+export const btniconProp = ['string', 'React.ReactNode'];
+export const btnSuffixIconProp = ['React.ReactNode'];
 export const btnisLoadingProp = ['boolean'];
 export const btnisFullWidthProp = ['boolean'];
 export const btniconOnlyProp = ['boolean'];
 export const btnalignIconProp = ["Left", "Right"];
 export const btnonClickProp = ['() => void'];
-export const btnchildrenProp = ['string'];
+export const btnchildrenProp = ['string', 'React.ReactNode'];
+export const btnTypeProp = ['button', 'submit', 'reset'];
+export const btnClassNameProp = ['string'];
+export const btnRoundedProp = ['boolean'];
+export const btnOutlinedProp = ['boolean'];
+export const btnElevatedProp = ['boolean'];
+export const btnCompactProp = ['boolean'];
+export const btnHrefProp = ['string'];
+export const btnTargetProp = ['string'];
+export const btnRelProp = ['string'];
+export const btnBadgeProp = ['string', 'number'];
+export const btnBadgeVariantProp = ['default', 'primary', 'success', 'warning', 'error'];
+export const btnPressedProp = ['boolean'];
+export const btnActiveProp = ['boolean'];
 // Button grp
 export const btnGrpsegmentedProp = ['boolean'];
 export const btnGrpChildrenProp = ['string', 'React.ReactNode'];
+
+// ActionList Props
+export const ActionList_trigger = ['click', 'hover', 'focus'];
+export const ActionList_placement = ['top', 'bottom', 'left', 'right', 'top-start', 'top-end', 'bottom-start', 'bottom-end'];
+export const ActionList_size = ['Small', 'Medium', 'Large'];
+export const ActionList_variant = ['Default', 'Bordered', 'Elevated'];
+export const ActionList_disabled = ['boolean'];
+export const ActionList_closeOnSelect = ['boolean'];
+export const ActionList_maxHeight = ['number'];
+export const ActionList_className = ['string'];
+export const ActionList_style = ['React.CSSProperties'];
+export const ActionList_onItemSelect = ['(item: ActionItem) => void'];
+export const ActionList_onOpenChange = ['(open: boolean) => void'];
+export const ActionList_children = ['React.ReactElement'];
+export const ActionList_items = ['(ActionItem | ActionGroup)[]'];
 // TextLink Props 
 export const TextLink_label_prop = ['string', 'React.ReactNode'];
 export const TextLink_icon_prop = ['React.ReactNode'];
@@ -105,3 +134,82 @@ export const FileUpload_onChange = ['(e: any, single?: any) => void'];
 export const FileUpload_onError = ['() => void'];
 export const FileUpload_onRemove = ['(e: any) => void'];
 export const FileUpload_isFileUploaded = ['boolean[]'];
+
+// PageTitle Props
+export const PageTitle_title = ['string', 'React.ReactNode'];
+export const PageTitle_subtitle = ['string', 'React.ReactNode'];
+export const PageTitle_showBackButton = ['boolean'];
+export const PageTitle_onBackClick = ['() => void'];
+export const PageTitle_backButtonLabel = ['string'];
+export const PageTitle_primaryAction = ['PageTitleAction'];
+export const PageTitle_secondaryActions = ['SecondaryActionItem[]'];
+export const PageTitle_badge = ['PageTitleBadge'];
+export const PageTitle_className = ['string'];
+export const PageTitle_style = ['React.CSSProperties'];
+export const PageTitle_testId = ['string'];
+
+// PageTitle Action Props
+export const PageTitleAction_label = ['string'];
+export const PageTitleAction_onClick = ['() => void'];
+export const PageTitleAction_variant = ['Primary', 'Secondary', 'Tertiary', 'Link', 'Ghost', 'Danger'];
+export const PageTitleAction_size = ['Small', 'Medium', 'Large'];
+export const PageTitleAction_icon = ['React.ReactNode'];
+export const PageTitleAction_disabled = ['boolean'];
+export const PageTitleAction_loading = ['boolean'];
+
+// PageTitle Badge Props
+export const PageTitleBadge_text = ['string'];
+export const PageTitleBadge_variant = ['default', 'primary', 'success', 'warning', 'error', 'info'];
+export const PageTitleBadge_size = ['small', 'default'];
+export const PageTitleBadge_subtle = ['boolean'];
+
+// Secondary Action Item Props
+export const SecondaryActionItem_id = ['string'];
+export const SecondaryActionItem_label = ['string'];
+export const SecondaryActionItem_onClick = ['() => void'];
+export const SecondaryActionItem_leading = ['React.ReactNode'];
+export const SecondaryActionItem_disabled = ['boolean'];
+export const SecondaryActionItem_variant = ['default', 'primary', 'secondary', 'destructive'];
+export const SecondaryActionItem_description = ['string'];
+
+// Card Props
+export const Card_variant = ['default', 'outlined', 'elevated', 'filled', 'ghost'];
+export const Card_size = ['small', 'medium', 'large'];
+export const Card_header = ['CardSection'];
+export const Card_footer = ['CardSection'];
+export const Card_children = ['React.ReactNode'];
+export const Card_padding = ['none', 'small', 'medium', 'large'];
+export const Card_radius = ['none', 'small', 'medium', 'large', 'full'];
+export const Card_interactive = ['boolean'];
+export const Card_selectable = ['boolean'];
+export const Card_selected = ['boolean'];
+export const Card_disabled = ['boolean'];
+export const Card_loading = ['boolean'];
+export const Card_className = ['string'];
+export const Card_style = ['React.CSSProperties'];
+export const Card_onClick = ['() => void'];
+export const Card_onSelectionChange = ['(selected: boolean) => void'];
+export const Card_backgroundColor = ['string'];
+export const Card_borderColor = ['string'];
+export const Card_width = ['string', 'number'];
+export const Card_height = ['string', 'number'];
+export const Card_divided = ['boolean'];
+export const Card_orientation = ['vertical', 'horizontal'];
+export const Card_ariaLabel = ['string'];
+export const Card_testId = ['string'];
+
+// Card Section Props
+export const CardSection_title = ['string'];
+export const CardSection_subtitle = ['string'];
+export const CardSection_actions = ['CardAction[]'];
+export const CardSection_content = ['React.ReactNode'];
+
+// Card Action Props
+export const CardAction_label = ['string'];
+export const CardAction_onClick = ['() => void'];
+export const CardAction_variant = ['Primary', 'Secondary', 'Tertiary', 'Ghost', 'Danger'];
+export const CardAction_size = ['Small', 'Medium', 'Large'];
+export const CardAction_disabled = ['boolean'];
+export const CardAction_loading = ['boolean'];
+export const CardAction_icon = ['React.ReactNode'];
+export const CardAction_iconPosition = ['left', 'right'];

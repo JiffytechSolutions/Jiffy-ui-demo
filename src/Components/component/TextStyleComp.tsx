@@ -1,4 +1,4 @@
-import { VerticalFlex, TextStyle, Card, HorizontalFlex, Button, Divider, Table, Tag, Badge } from 'jiffy-ui'
+import {TextStyle, Card, Button, Divider, Table, Tag, Badge, FlexLayout } from 'jiffy-ui'
 import React, { useEffect, useState } from 'react'
 import { CopyBlock, dracula } from 'react-code-blocks';
 import { TextStyleData } from '../Data/ComponenetData';
@@ -67,8 +67,8 @@ const TextStyleComp = ({ component }: any) => {
         <div className='component_left-layout'>
           <div className='component_left-layout__content'>
             {result.map((item, index) => {
-              return <VerticalFlex gap={20}>
-                <TextStyle as='h4' type='XlHeading' fontWeight='Bold'>
+              return <FlexLayout direction='column' gap={3}>
+                <TextStyle as='h4' type='XlHeading' fontWeight='bold'>
                   {item.componentName}
                 </TextStyle>
                 <TextStyle as='p' type='MdBody' textColor='Secondary'>
@@ -84,19 +84,19 @@ const TextStyleComp = ({ component }: any) => {
                     codeBlock
                   />
                 </div>
-              </VerticalFlex>
+              </FlexLayout>
             })}
-            <VerticalFlex>
+            <FlexLayout direction='column'>
               <div style={{ "height": "50px" }}></div>
               <Divider thickness={'Thinner'} type='Dashed' />
               <div style={{ "height": "50px" }}></div>
-            </VerticalFlex>
+            </FlexLayout>
             {result[0]?.PropsDetail.map((item: any, index: any) => {
               return <> {
                 item.propDemo && (<div>
 
-                  <VerticalFlex gap={12}>
-                    <TextStyle as={'h4'} type='LgHeading' fontWeight='Medium'>{item.propName}:</TextStyle>
+                  <FlexLayout direction='column' gap={3}>
+                    <TextStyle as={'h4'} type='LgHeading' fontWeight='bold'>{item.propName}:</TextStyle>
                     <div className='props_value'>
                       {(item?.propValues).map((item1: any, index: any) => {
                         return <><code>{item1}</code>{index < (item?.propValues).length - 1 && '   '}</>
@@ -107,15 +107,15 @@ const TextStyleComp = ({ component }: any) => {
                       {item.propDescription}
                     </TextStyle>
                     <div className='demo_card'>
-                      <Card headerTitle="" type={'Borderd'}>
+                      <Card variant='elevated'>
                         {item.propDemo}
-                        <HorizontalFlex align={{ "lg": "end" }}>
+                        <FlexLayout align={{ "lg": "end" }}>
                           {isShowCode === index ?
                             <Button
                               onClick={() => {
                                 ShowCode("")
                               }}
-                              variant='Secondry'
+                              variant='Secondary'
                               icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
                             >Hide code</Button>
                             :
@@ -123,11 +123,11 @@ const TextStyleComp = ({ component }: any) => {
                               onClick={() => {
                                 ShowCode(index)
                               }}
-                              variant='Secondry'
+                              variant='Secondary'
                               icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
                             >Show code</Button>
                           }
-                        </HorizontalFlex>
+                        </FlexLayout>
                       </Card>
                     </div>
                     {isShowCode === index && (
@@ -142,20 +142,20 @@ const TextStyleComp = ({ component }: any) => {
                         />
                       </div>
                     )}
-                  </VerticalFlex>
+                  </FlexLayout>
 
-                  <VerticalFlex>
+                  <FlexLayout direction='column'>
                     <div style={{ "height": "50px" }}></div>
                     <Divider thickness={'Thinner'} type='Dashed' />
                     <div style={{ "height": "50px" }}></div>
-                  </VerticalFlex>
+                  </FlexLayout>
                 </div>)
               }
               </>
             })}
 
-            <VerticalFlex gap={20}>
-              <TextStyle as='h4' type='XlHeading' fontWeight='Bold'>
+            <FlexLayout direction='column' gap={4}>
+              <TextStyle as='h4' type='XlHeading' fontWeight='bold'>
                 API Reference
               </TextStyle>
               <TextStyle as='p' type='MdBody' textColor='Secondary'>
@@ -173,7 +173,7 @@ const TextStyleComp = ({ component }: any) => {
                   {tableRow}
                 </Table>
               </div>
-            </VerticalFlex>
+            </FlexLayout>
 
           </div>
         </div>

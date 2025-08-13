@@ -1,4 +1,4 @@
-import { Button, Card, Grid, HorizontalFlex, TextStyle, VerticalFlex } from 'jiffy-ui'
+import { Button, Card, FlexLayout, Grid, TextStyle } from 'jiffy-ui'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'jiffy-icons'
@@ -149,21 +149,21 @@ const ComponentList = () => {
             {/* Interactive Components Showcase Section */}
             <section className='components-showcase'>
                 <div className='container'>
-                    <VerticalFlex gap={36}>
+                    <FlexLayout direction='column' gap={4}>
                         <div className='section_heading'>
-                            <VerticalFlex gap={16}>
-                                <TextStyle as='h2' type='2XlHeading' alignment='Center'>
+                            <FlexLayout direction='column' gap={3}>
+                                <TextStyle as='h2' type='2XlHeading' alignment='center'>
                                     Component Stories & Examples
                                 </TextStyle>
-                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>
+                                <TextStyle as='p' type='LgBody' alignment='center' textColor='Secondary'>
                                     Discover how our components work in real-world scenarios with interactive examples
                                 </TextStyle>
-                            </VerticalFlex>
+                            </FlexLayout>
                         </div>
 
                         {/* Category Filter */}
                         <div className='category-filter'>
-                            <HorizontalFlex align={{ "lg": "center" }} gap={12}>
+                            <FlexLayout align={{ "lg": "center" }} gap={2}>
                                 {categories.map((category) => (
                                     <button
                                         key={category}
@@ -173,11 +173,11 @@ const ComponentList = () => {
                                         {category}
                                     </button>
                                 ))}
-                            </HorizontalFlex>
+                            </FlexLayout>
                         </div>
                         
                         <div className='content_container'>
-                            <VerticalFlex gap={32}>
+                            <FlexLayout direction='column' gap={5}>
                                 <Grid gap={{ "lg": "16px" }} columns={4}>
                                     {filteredComponents.map((item, index) => {
                                         return (
@@ -188,8 +188,8 @@ const ComponentList = () => {
                                                 onMouseLeave={() => setHoveredComponent(null)}
                                             >
                                                 <Link to={item.url} className='component-card-link'>
-                                                    <Card type={'Borderd'} headerTitle="">
-                                                        <VerticalFlex gap={16}>
+                                                    <Card variant='elevated'>
+                                                        <FlexLayout direction='column' gap={3}>
                                                             <div className='component-image-wrapper'>
                                                                 <img src={item.image} className='responsive-image' alt={item.compName} />
                                                                 {hoveredComponent === index && (
@@ -209,13 +209,13 @@ const ComponentList = () => {
                                                                 )}
                                                             </div>
                                                             
-                                                            <VerticalFlex gap={8}>
-                                                                <HorizontalFlex align={{ "lg": "spaceBetween" }}>
+                                                            <FlexLayout direction='column' gap={2}>
+                                                                <FlexLayout>
                                                                     <TextStyle as='h5' type='LgHeading'>
                                                                         {item.compName}
                                                                     </TextStyle>
                                                                     <span className='component-category'>{item.category}</span>
-                                                                </HorizontalFlex>
+                                                                </FlexLayout>
                                                                 
                                                                 <TextStyle as='p' type='MdBody' textColor='Secondary'>
                                                                     {item.description}
@@ -230,17 +230,17 @@ const ComponentList = () => {
                                                                 
                                                                 {/* Usage Stats */}
                                                                 <div className='component-stats'>
-                                                                    <HorizontalFlex align={{ "lg": "spaceBetween" }}>
+                                                                    <FlexLayout>
                                                                         <div className='stat-item'>
                                                                             ⭐ <span className='stat-text'>{item.usage}</span>
                                                                         </div>
                                                                         <div className='stat-item'>
                                                                             👥 <span className='stat-text'>{item.downloads}</span>
                                                                         </div>
-                                                                    </HorizontalFlex>
+                                                                    </FlexLayout>
                                                                 </div>
-                                                            </VerticalFlex>
-                                                        </VerticalFlex>
+                                                            </FlexLayout>
+                                                        </FlexLayout>
                                                     </Card>
                                                 </Link>
                                             </div>
@@ -248,7 +248,7 @@ const ComponentList = () => {
                                     })}
                                 </Grid>
                                 
-                                <HorizontalFlex align={{ "lg": 'center' }}>
+                                <FlexLayout align={{ "lg": 'center' }}>
                                     <Link to="/pannel">
                                         <Button 
                                             size='Large' 
@@ -260,52 +260,52 @@ const ComponentList = () => {
                                             Explore Interactive Playground
                                         </Button>
                                     </Link>
-                                </HorizontalFlex>
-                            </VerticalFlex>
+                                </FlexLayout>
+                            </FlexLayout>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </section>
 
             {/* Features Section */}
             <section className='features-section'>
                 <div className='container'>
-                    <VerticalFlex gap={36}>
+                    <FlexLayout direction='column' gap={4}>
                         <div className='section_heading'>
-                            <VerticalFlex gap={16}>
-                                <TextStyle as='h2' type='2XlHeading' alignment='Center'>
+                            <FlexLayout direction='column' gap={2}>
+                                <TextStyle as='h2' type='2XlHeading' alignment='center'>
                                     Why Choose Jiffy UI?
                                 </TextStyle>
-                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>
+                                <TextStyle as='p' type='LgBody' alignment='center' textColor='Secondary'>
                                     Built with modern web standards and developer experience in mind
                                 </TextStyle>
-                            </VerticalFlex>
+                            </FlexLayout>
                         </div>
                         
                         <div className='content_container'>
                             <Grid gap={{ "lg": "16px" }} columns={3}>
                                 {features.map((item, index) => {
                                     return (
-                                        <Card type={'Shadow'} headerTitle="" key={index}>
-                                            <VerticalFlex gap={16}>
+                                        <Card variant='elevated'  key={index}>
+                                            <FlexLayout direction='column' gap={3}>
                                                 <div className='feature-icon'>
                                                     <span className='icon-large'>{item.icon}</span>
                                                 </div>
-                                                <VerticalFlex gap={8}>
+                                                <FlexLayout direction='column' gap={2}>
                                                     <TextStyle as='h5' type='LgHeading'>
                                                         {item.title}
                                                     </TextStyle>
                                                     <TextStyle as='p' type='MdBody' textColor='Secondary'>
                                                         {item.description}
                                                     </TextStyle>
-                                                </VerticalFlex>
-                                            </VerticalFlex>
+                                                </FlexLayout>
+                                            </FlexLayout>
                                         </Card>
                                     )
                                 })}
                             </Grid>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </section>
         </>

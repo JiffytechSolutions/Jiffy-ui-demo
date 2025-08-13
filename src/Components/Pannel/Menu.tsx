@@ -1,6 +1,18 @@
 import React from 'react'
 export const AppMenu1 = [
     {
+        id: "pageTitle",
+        label: "PageTitle",
+        path: "PageTitle",
+
+    },
+    {
+        id: "card",
+        label: "Card",
+        path: "Card",
+
+    },
+    {
         id: "textStyle",
         label: "TextStyle",
         path: "TextStyle",
@@ -10,6 +22,11 @@ export const AppMenu1 = [
         id: "accordion",
         label: "Accordion",
         path: "Accordion",
+    },
+    {
+        id: "actionlist",
+        label: "ActionList",
+        path: "ActionList",
     },
     {
         id: "button",

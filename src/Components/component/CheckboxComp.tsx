@@ -1,4 +1,4 @@
-import { Button, Card, Checkbox, Divider, HorizontalFlex, Table, TextStyle, VerticalFlex } from 'jiffy-ui'
+import { Button, Card, Checkbox, Divider, FlexLayout, Table, TextStyle } from 'jiffy-ui'
 import React, { useState } from 'react'
 import { CopyBlock, dracula } from 'react-code-blocks'
 
@@ -11,8 +11,8 @@ const CheckboxComp = () => {
         <div className='component-layout'>
             <div className='component_left-layout'>
                 <div className='component_left-layout__content'>
-                    <VerticalFlex gap={20}>
-                        <TextStyle as='h4' type='XlHeading' fontWeight='Bold'>
+                    <FlexLayout direction='column' gap={4}>
+                        <TextStyle as='h4' type='XlHeading' fontWeight='bold'>
                             Checkbox
                         </TextStyle>
                         {/* Componenet description */}
@@ -29,16 +29,16 @@ const CheckboxComp = () => {
                                 codeBlock
                             />
                         </div>
-                    </VerticalFlex>
-                    <VerticalFlex>
+                    </FlexLayout>
+                    <FlexLayout direction='column'>
                         <div style={{ "height": "50px" }}></div>
                         <Divider thickness={'Thinner'} type='Dashed' />
                         <div style={{ "height": "50px" }}></div>
-                    </VerticalFlex>
+                    </FlexLayout>
                     <div>
 
-                        <VerticalFlex gap={12}>
-                            <TextStyle as={'h4'} type='LgHeading' fontWeight='Medium'>
+                        <FlexLayout direction='column' gap={3}>
+                            <TextStyle as={'h4'} type='LgHeading' fontWeight='medium'>
                                 label:
                             </TextStyle>
                             <div className='props_value'>
@@ -49,19 +49,19 @@ const CheckboxComp = () => {
                                 Prop description
                             </TextStyle>
                             <div className='demo_card'>
-                                <Card headerTitle="" type={'Borderd'}>
+                                <Card variant='elevated'>
                                     <Checkbox label="Checkbox label"
-                                        onChange={(newState) => {
+                                        onChange={(newState:any) => {
                                             setChecked(newState);
                                         }}
                                     />
-                                    <HorizontalFlex align={{ "lg": "end" }}>
+                                    <FlexLayout align={{ "lg": "end" }}>
                                         {isShowCode ?
                                             <Button
                                                 onClick={() => {
                                                     ShowCode("")
                                                 }}
-                                                variant='Secondry'
+                                                variant='Secondary'
                                                 icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
                                             >Hide code</Button>
                                             :
@@ -69,11 +69,11 @@ const CheckboxComp = () => {
                                                 onClick={() => {
                                                     ShowCode(true)
                                                 }}
-                                                variant='Secondry'
+                                                variant='Secondary'
                                                 icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
                                             >Show code</Button>
                                         }
-                                    </HorizontalFlex>
+                                    </FlexLayout>
                                 </Card>
                             </div>
                             {isShowCode && (
@@ -88,17 +88,17 @@ const CheckboxComp = () => {
                                     />
                                 </div>
                             )}
-                        </VerticalFlex>
+                        </FlexLayout>
 
-                        <VerticalFlex>
+                        <FlexLayout direction='column'>
                             <div style={{ "height": "50px" }}></div>
                             <Divider thickness={'Thinner'} type='Dashed' />
                             <div style={{ "height": "50px" }}></div>
-                        </VerticalFlex>
+                        </FlexLayout>
                     </div>
 
-                    <VerticalFlex gap={20}>
-                        <TextStyle as='h4' type='XlHeading' fontWeight='Bold'>
+                    <FlexLayout direction='column' gap={4}>
+                        <TextStyle as='h4' type='XlHeading' fontWeight='bold'>
                             API Reference
                         </TextStyle>
                         <TextStyle as='p' type='MdBody' textColor='Secondary'>
@@ -116,7 +116,7 @@ const CheckboxComp = () => {
                                 ""
                             </Table>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
 
                 </div>
             </div>

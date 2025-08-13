@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { HorizontalFlex, VerticalFlex, TextStyle, Button, Card } from 'jiffy-ui';
+import {  TextStyle, Button, Card, FlexLayout } from 'jiffy-ui';
 import { ArrowRight, Search } from 'jiffy-icons';
 import { useSearch } from '../../contexts/SearchContext';
 
@@ -65,24 +65,24 @@ const SearchResults = () => {
         return (
             <div className="search-results-container">
                 <div className="search-results-content">
-                    <VerticalFlex gap={32}>
+                    <FlexLayout direction='column' gap={4}>
                         <div className="search-empty-state">
                             <div className="search-empty-icon">
                                 <Search size={48} />
                             </div>
-                            <VerticalFlex gap={16}>
-                                <TextStyle as="h1" type="2XlHeading" alignment="Center">
+                            <FlexLayout direction='column' gap={4}>
+                                <TextStyle as="h1" type="2XlHeading" alignment="center">
                                     Search Documentation
                                 </TextStyle>
-                                <TextStyle as="p" type="LgBody" alignment="Center" textColor="Secondary">
+                                <TextStyle as="p" type="LgBody" alignment="center" textColor="Secondary">
                                     Enter a search term to find components, documentation, and examples.
                                 </TextStyle>
-                            </VerticalFlex>
+                            </FlexLayout>
                             <Button color="Primary" onClick={handleBackToHome}>
                                 Back to Home
                             </Button>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </div>
         );
@@ -91,11 +91,11 @@ const SearchResults = () => {
     return (
         <div className="search-results-container">
             <div className="search-results-content">
-                <VerticalFlex gap={32}>
+                <FlexLayout direction='column' gap={4}>
                     {/* Search Header */}
                     <div className="search-header">
-                        <VerticalFlex gap={16}>
-                            <VerticalFlex gap={8}>
+                        <FlexLayout direction='column' gap={4}>
+                            <FlexLayout direction='column' gap={4}>
                                 <TextStyle as="h1" type="2XlHeading">
                                     Search Results
                                 </TextStyle>
@@ -108,10 +108,10 @@ const SearchResults = () => {
                                         </>
                                     )}
                                 </TextStyle>
-                            </VerticalFlex>
+                            </FlexLayout>
                             
-                            <HorizontalFlex gap={12}>
-                                <Button variant="Secondry" onClick={handleBackToHome}>
+                            <FlexLayout gap={4}>
+                                <Button variant="Secondary" onClick={handleBackToHome}>
                                     Back to Home
                                 </Button>
                                 <Link to="/docs">
@@ -119,20 +119,20 @@ const SearchResults = () => {
                                         View Documentation
                                     </Button>
                                 </Link>
-                            </HorizontalFlex>
-                        </VerticalFlex>
+                            </FlexLayout>
+                        </FlexLayout>
                     </div>
 
                     {/* Loading State */}
                     {isSearching && (
                         <div className="search-loading">
-                            <Card type="Borderd" headerTitle="">
-                                <HorizontalFlex gap={12} blockAlign={{ "lg": "center" }}>
+                            <Card variant='outlined'>
+                                <FlexLayout gap={4} blockAlign={{ "lg": "center" }}>
                                     <div className="loading-spinner"></div>
                                     <TextStyle as="p" type="MdBody">
                                         Searching through components and documentation...
                                     </TextStyle>
-                                </HorizontalFlex>
+                                </FlexLayout>
                             </Card>
                         </div>
                     )}
@@ -140,24 +140,24 @@ const SearchResults = () => {
                     {/* Search Results */}
                     {!isSearching && searchResults.length > 0 && (
                         <div className="search-results-list">
-                            <VerticalFlex gap={16}>
+                            <FlexLayout direction='column' gap={4}>
                                 {searchResults.map((result) => (
-                                    <Card key={result.id} type="Borderd" headerTitle="">
+                                    <Card key={result.id} variant='outlined'>
                                         <Link to={result.url} className="search-result-link">
-                                            <VerticalFlex gap={12}>
-                                                <HorizontalFlex gap={12} blockAlign={{ "lg": "start" }}>
+                                            <FlexLayout direction='column' gap={4}>
+                                                <FlexLayout gap={4} blockAlign={{ "lg": "start" }}>
                                                     <div className="result-icon">
                                                         {getResultIcon(result.category)}
                                                     </div>
-                                                    <VerticalFlex gap={8}>
-                                                        <HorizontalFlex gap={12} blockAlign={{ "lg": "center" }}>
+                                                    <FlexLayout direction='column' gap={4}>
+                                                        <FlexLayout gap={4} blockAlign={{ "lg": "center" }}>
                                                             <TextStyle as="h3" type="LgHeading">
                                                                 {highlightText(result.title, urlQuery)}
                                                             </TextStyle>
                                                             <span className="result-category">
                                                                 {result.category}
                                                             </span>
-                                                        </HorizontalFlex>
+                                                        </FlexLayout>
                                                         <TextStyle as="p" type="MdBody" textColor="Secondary">
                                                             {highlightText(result.description, urlQuery)}
                                                         </TextStyle>
@@ -165,13 +165,13 @@ const SearchResults = () => {
                                                         {/* Tags */}
                                                         {result.tags.length > 0 && (
                                                             <div className="result-tags">
-                                                                <HorizontalFlex gap={8}>
+                                                                <FlexLayout gap={4}>
                                                                     {result.tags.slice(0, 4).map((tag) => (
                                                                         <span key={tag} className="result-tag">
                                                                             {tag}
                                                                         </span>
                                                                     ))}
-                                                                </HorizontalFlex>
+                                                                </FlexLayout>
                                                             </div>
                                                         )}
                                                         
@@ -180,43 +180,43 @@ const SearchResults = () => {
                                                                 {window.location.origin}{result.url}
                                                             </TextStyle>
                                                         </div>
-                                                    </VerticalFlex>
-                                                </HorizontalFlex>
+                                                    </FlexLayout>
+                                                </FlexLayout>
                                                 
                                                 <div className="result-hover-indicator">
                                                     <ArrowRight size={16} />
                                                 </div>
-                                            </VerticalFlex>
+                                            </FlexLayout>
                                         </Link>
                                     </Card>
                                 ))}
-                            </VerticalFlex>
+                            </FlexLayout>
                         </div>
                     )}
 
                     {/* No Results */}
                     {!isSearching && searchResults.length === 0 && urlQuery && (
                         <div className="search-no-results">
-                            <Card type="Shadow" headerTitle="">
-                                <VerticalFlex gap={20}>
+                            <Card variant='outlined'>
+                                <FlexLayout direction='column' gap={5}>
                                     <div className="no-results-icon">
                                         😔
                                     </div>
-                                    <VerticalFlex gap={12}>
-                                        <TextStyle as="h3" type="LgHeading" alignment="Center">
+                                    <FlexLayout direction='column' gap={4}>
+                                        <TextStyle as="h3" type="LgHeading" alignment="center">
                                             No results found
                                         </TextStyle>
-                                        <TextStyle as="p" type="MdBody" alignment="Center" textColor="Secondary">
+                                        <TextStyle as="p" type="MdBody" alignment="center" textColor="Secondary">
                                             We couldn't find anything matching "{urlQuery}". Try searching for:
                                         </TextStyle>
-                                    </VerticalFlex>
+                                    </FlexLayout>
                                     
                                     <div className="search-suggestions">
-                                        <VerticalFlex gap={12}>
+                                        <FlexLayout direction='column' gap={4}>
                                             <TextStyle as="h4" type="MdHeading">
                                                 Popular searches:
                                             </TextStyle>
-                                            <HorizontalFlex gap={8}>
+                                            <FlexLayout gap={3}>
                                                 {['Button', 'Card', 'Input', 'Modal', 'Installation'].map((suggestion) => (
                                                     <Link 
                                                         key={suggestion} 
@@ -226,27 +226,27 @@ const SearchResults = () => {
                                                         {suggestion}
                                                     </Link>
                                                 ))}
-                                            </HorizontalFlex>
-                                        </VerticalFlex>
+                                            </FlexLayout>
+                                        </FlexLayout>
                                     </div>
                                     
-                                    <HorizontalFlex gap={12} align={{ "lg": "center" }}>
+                                    <FlexLayout gap={4} align={{ "lg": "center" }}>
                                         <Link to="/docs">
                                             <Button color="Primary">
                                                 Browse Documentation
                                             </Button>
                                         </Link>
                                         <Link to="/pannel">
-                                            <Button variant="Secondry">
+                                            <Button variant="Secondary">
                                                 View Components
                                             </Button>
                                         </Link>
-                                    </HorizontalFlex>
-                                </VerticalFlex>
+                                    </FlexLayout>
+                                </FlexLayout>
                             </Card>
                         </div>
                     )}
-                </VerticalFlex>
+                </FlexLayout>
             </div>
         </div>
     );

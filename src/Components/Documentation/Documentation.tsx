@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HorizontalFlex, VerticalFlex, TextStyle, Button, Card } from 'jiffy-ui';
+import { TextStyle, Button, Card, FlexLayout } from 'jiffy-ui';
 import { ArrowRight, Copy, ExternalLink } from 'jiffy-icons';
 import { Link } from 'react-router-dom';
 
@@ -64,7 +64,7 @@ const Documentation = () => {
             {/* Sidebar */}
             <aside className='docs-sidebar'>
                 <div className='docs-sidebar-content'>
-                    <VerticalFlex gap={24}>
+                    <FlexLayout direction='column' gap={5}>
                         <div className='docs-search-mobile'>
                             {/* Search placeholder for mobile */}
                         </div>
@@ -74,7 +74,7 @@ const Documentation = () => {
                                 <TextStyle as='h4' type='MdHeading'>
                                     {section.title}
                                 </TextStyle>
-                                <VerticalFlex gap={4}>
+                                <FlexLayout direction='column' gap={4}>
                                     {section.items.map((item, itemIndex) => (
                                         <a 
                                             key={itemIndex}
@@ -86,20 +86,20 @@ const Documentation = () => {
                                             </TextStyle>
                                         </a>
                                     ))}
-                                </VerticalFlex>
+                                </FlexLayout>
                             </div>
                         ))}
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </aside>
 
             {/* Main Content */}
             <main className='docs-main'>
                 <div className='docs-content'>
-                    <VerticalFlex gap={36}>
+                    <FlexLayout direction='column' gap={4}>
                         {/* Introduction Section */}
                         <section id="introduction" className='docs-section'>
-                            <VerticalFlex gap={24}>
+                            <FlexLayout direction='column' gap={4}>
                                 <div className='docs-header'>
                                     <TextStyle as='h1' type='2XlHeading'>
                                         Documentation
@@ -110,8 +110,8 @@ const Documentation = () => {
                                     </TextStyle>
                                 </div>
 
-                                <Card type='Borderd' headerTitle=''>
-                                    <VerticalFlex gap={16}>
+                                <Card variant='outlined'>
+                                    <FlexLayout direction='column' gap={3}>
                                         <TextStyle as='h3' type='LgHeading'>
                                             🚀 What is Jiffy UI?
                                         </TextStyle>
@@ -158,14 +158,14 @@ const Documentation = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </VerticalFlex>
+                                    </FlexLayout>
                                 </Card>
-                            </VerticalFlex>
+                            </FlexLayout>
                         </section>
 
                         {/* Installation Section */}
                         <section id="installation" className='docs-section'>
-                            <VerticalFlex gap={24}>
+                            <FlexLayout direction='column' gap={4}>
                                 <div>
                                     <TextStyle as='h2' type='XlHeading'>
                                         Installation
@@ -175,7 +175,7 @@ const Documentation = () => {
                                     </TextStyle>
                                 </div>
 
-                                <VerticalFlex gap={20}>
+                                <FlexLayout direction='column' gap={4}>
                                     <div>
                                         <TextStyle as='h3' type='LgHeading'>
                                             Install the packages
@@ -199,9 +199,9 @@ const Documentation = () => {
                                         code="pnpm add jiffy-ui jiffy-icons"
                                         id="install-pnpm"
                                     />
-                                </VerticalFlex>
+                                </FlexLayout>
 
-                                <VerticalFlex gap={20}>
+                                <FlexLayout direction='column' gap={4}>
                                     <div>
                                         <TextStyle as='h3' type='LgHeading'>
                                             Import and use components
@@ -234,13 +234,13 @@ function App() {
 }`}
                                         id="usage-example"
                                     />
-                                </VerticalFlex>
-                            </VerticalFlex>
+                                </FlexLayout>
+                            </FlexLayout>
                         </section>
 
                         {/* Configuration Section */}
                         <section id="configuration" className='docs-section'>
-                            <VerticalFlex gap={24}>
+                            <FlexLayout direction='column' gap={4}>
                                 <div>
                                     <TextStyle as='h2' type='XlHeading'>
                                         Configuration
@@ -250,8 +250,8 @@ function App() {
                                     </TextStyle>
                                 </div>
 
-                                <Card type='Shadow' headerTitle=''>
-                                    <VerticalFlex gap={16}>
+                                <Card variant='outlined'>
+                                    <FlexLayout direction='column' gap={3}>
                                         <TextStyle as='h3' type='LgHeading'>
                                             TailwindCSS Integration
                                         </TextStyle>
@@ -282,14 +282,14 @@ module.exports = {
 }`}
                                             id="tailwind-config"
                                         />
-                                    </VerticalFlex>
+                                    </FlexLayout>
                                 </Card>
-                            </VerticalFlex>
+                            </FlexLayout>
                         </section>
 
                         {/* Component Examples */}
                         <section id="button" className='docs-section'>
-                            <VerticalFlex gap={24}>
+                            <FlexLayout direction='column' gap={4}>
                                 <div>
                                     <TextStyle as='h2' type='XlHeading'>
                                         Button Component
@@ -299,18 +299,18 @@ module.exports = {
                                     </TextStyle>
                                 </div>
 
-                                <Card type='Borderd' headerTitle=''>
-                                    <VerticalFlex gap={20}>
+                                <Card variant='outlined'>
+                                    <FlexLayout direction='column' gap={3}>
                                         <TextStyle as='h3' type='LgHeading'>
                                             Basic Usage
                                         </TextStyle>
                                         
                                         <div className='component-preview'>
-                                            <HorizontalFlex gap={12}>
+                                            <FlexLayout gap={2}>
                                                 <Button color='Primary'>Primary</Button>
-                                                <Button variant='Secondry'>Secondary</Button>
+                                                <Button variant='Secondary'>Secondary</Button>
                                                 <Button variant='Tertiary'>Tertiary</Button>
-                                            </HorizontalFlex>
+                                            </FlexLayout>
                                         </div>
 
                                         <CodeBlock 
@@ -326,7 +326,7 @@ module.exports = {
                                         </TextStyle>
 
                                         <div className='component-preview'>
-                                            <HorizontalFlex gap={12}>
+                                            <FlexLayout gap={2}>
                                                 <Button 
                                                     color='Primary' 
                                                     icon={<ArrowRight size={16} />}
@@ -335,13 +335,13 @@ module.exports = {
                                                     Next
                                                 </Button>
                                                 <Button 
-                                                    variant='Secondry'
+                                                    variant='Secondary'
                                                     icon={<ExternalLink size={16} />}
                                                     alignIcon='Left'
                                                 >
                                                     External
                                                 </Button>
-                                            </HorizontalFlex>
+                                            </FlexLayout>
                                         </div>
 
                                         <CodeBlock 
@@ -355,22 +355,22 @@ module.exports = {
 </Button>`}
                                             id="button-icons"
                                         />
-                                    </VerticalFlex>
+                                    </FlexLayout>
                                 </Card>
-                            </VerticalFlex>
+                            </FlexLayout>
                         </section>
 
                         {/* Quick Links */}
                         <section className='docs-section'>
-                            <Card type='Shadow' headerTitle=''>
-                                <VerticalFlex gap={20}>
+                            <Card variant='outlined'>
+                                <FlexLayout direction='column' gap={4}>
                                     <TextStyle as='h3' type='LgHeading'>
                                         Ready to explore more?
                                     </TextStyle>
                                     <TextStyle as='p' type='MdBody' textColor='Secondary'>
                                         Check out our component playground and examples to see Jiffy UI in action.
                                     </TextStyle>
-                                    <HorizontalFlex gap={12}>
+                                    <FlexLayout gap={2}>
                                         <Link to="/pannel">
                                             <Button color='Primary' icon={<ArrowRight size={16} />} alignIcon='Right'>
                                                 View Components
@@ -381,15 +381,15 @@ module.exports = {
                                             target="_blank" 
                                             rel="noopener noreferrer"
                                         >
-                                            <Button variant='Secondry' icon={<ExternalLink size={16} />} alignIcon='Right'>
+                                            <Button variant='Secondary' icon={<ExternalLink size={16} />} alignIcon='Right'>
                                                 GitHub
                                             </Button>
                                         </a>
-                                    </HorizontalFlex>
-                                </VerticalFlex>
+                                    </FlexLayout>
+                                </FlexLayout>
                             </Card>
                         </section>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </main>
 
@@ -399,12 +399,12 @@ module.exports = {
                     <TextStyle as='h4' type='MdHeading'>
                         On this page
                     </TextStyle>
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction='column' gap={2}>
                         <a href="#introduction" className='toc-link'>Introduction</a>
                         <a href="#installation" className='toc-link'>Installation</a>
                         <a href="#configuration" className='toc-link'>Configuration</a>
                         <a href="#button" className='toc-link'>Button Component</a>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </aside>
         </div>

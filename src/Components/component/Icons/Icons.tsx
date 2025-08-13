@@ -1,6 +1,6 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { Button, Card, Divider, Grid as Grid1, HorizontalFlex, Modal, Table, TextField, TextLink, TextStyle, VerticalFlex } from 'jiffy-ui'
+import { Button, Card, Divider, FlexLayout, Grid as Grid1, Modal, Table, TextField, TextLink, TextStyle } from 'jiffy-ui'
 import React, { useEffect, useState } from 'react'
 import { CopyBlock, dracula } from 'react-code-blocks';
 import { Search, UserMinus } from 'jiffy-icons';
@@ -116,15 +116,15 @@ const Icons = () => {
         <div className='component-layout'>
             <div className='component_left-layout'>
                 <div className='component_left-layout__content'>
-                    <VerticalFlex gap={20}>
-                        <TextStyle as='h4' type='XlHeading' fontWeight='Bold'>
+                    <FlexLayout direction='column' gap={4}>
+                        <TextStyle as='h4' type='XlHeading' fontWeight='bold'>
                             Icon
                         </TextStyle>
                         <TextStyle as='p' type='LgBody' textColor='Secondary'>
                             Semantic vector graphics.
                         </TextStyle>
-                        <VerticalFlex gap={12}>
-                            <TextStyle as='h4' fontWeight='Medium' type='LgHeading'>
+                        <FlexLayout direction='column' gap={3}>
+                            <TextStyle as='h4' fontWeight='medium' type='LgHeading'>
                                 How to use?
                             </TextStyle>
                             <TextStyle as='p' type='LgBody' textColor='Secondary'>
@@ -160,15 +160,15 @@ export default function App() {
                                     codeBlock
                                 />
                             </div>
-                        </VerticalFlex>
-                    </VerticalFlex>
-                    <VerticalFlex>
+                        </FlexLayout>
+                    </FlexLayout>
+                    <FlexLayout direction='column'>
                         <div style={{ "height": "50px" }}></div>
                         <Divider thickness={'Thinner'} type='Dashed' />
                         <div style={{ "height": "50px" }}></div>
-                    </VerticalFlex>
-                    <VerticalFlex gap={20}>
-                        <TextStyle as='h6' fontWeight='Medium' type='LgHeading'>
+                    </FlexLayout>
+                    <FlexLayout direction='column' gap={4}>
+                        <TextStyle as='h6' fontWeight='medium' type='LgHeading'>
                             Search your icons
                         </TextStyle>
                         <TextField
@@ -188,12 +188,12 @@ export default function App() {
                                                 return (
 
                                                     <div className='icon_wrapper' key={index} onClick={() => handleIconClick(item)}>
-                                                        <VerticalFlex gap={12} align='center'>
+                                                        <FlexLayout direction='column' gap={3}>
                                                             {React.createElement(item.compName, { key: index })}
                                                             <TextStyle as='p' type='MdBody'>
                                                                 {item.description}
                                                             </TextStyle>
-                                                        </VerticalFlex>
+                                                        </FlexLayout>
                                                     </div>
 
                                                 )
@@ -205,17 +205,17 @@ export default function App() {
                         ) : (
                             <>No data found</>
                         )}
-                    </VerticalFlex>
-                    <VerticalFlex>
+                    </FlexLayout>
+                    <FlexLayout direction='column'>
                         <div style={{ "height": "50px" }}></div>
                         <Divider thickness={'Thinner'} type='Dashed' />
                         <div style={{ "height": "50px" }}></div>
-                    </VerticalFlex>
+                    </FlexLayout>
                     {result[0]?.PropsDetail?.map((item: any, index: any) => {
                         return (
                             <>
-                                <VerticalFlex gap={12}>
-                                    <TextStyle as={'h4'} type='LgHeading' fontWeight='Medium'>{item.propName}:</TextStyle>
+                                <FlexLayout direction='column' gap={2}>
+                                    <TextStyle as={'h4'} type='LgHeading' fontWeight='medium'>{item.propName}:</TextStyle>
                                     <div className='props_value'>
                                         {(item?.propValues).map((item1: any, index: any) => {
                                             return <><code>{item1}</code>{index < (item?.propValues).length - 1 && '   '}</>
@@ -226,15 +226,15 @@ export default function App() {
                                         {item.propDescription}
                                     </TextStyle>
                                     <div className='demo_card'>
-                                        <Card headerTitle="" type={'Borderd'}>
+                                        <Card variant='elevated'>
                                             {item.propDemo}
-                                            <HorizontalFlex align={{ "lg": "end" }}>
+                                            <FlexLayout align={{ "lg": "end" }}>
                                                 {isShowCode === index ?
                                                     <Button
                                                         onClick={() => {
                                                             ShowCode("")
                                                         }}
-                                                        variant='Secondry'
+                                                        variant='Secondary'
                                                         icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
                                                     >Hide code</Button>
                                                     :
@@ -242,11 +242,11 @@ export default function App() {
                                                         onClick={() => {
                                                             ShowCode(index)
                                                         }}
-                                                        variant='Secondry'
+                                                        variant='Secondary'
                                                         icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
                                                     >Show code</Button>
                                                 }
-                                            </HorizontalFlex>
+                                            </FlexLayout>
                                         </Card>
                                     </div>
                                     {isShowCode === index && (
@@ -261,18 +261,18 @@ export default function App() {
                                             />
                                         </div>
                                     )}
-                                </VerticalFlex>
-                                <VerticalFlex>
+                                </FlexLayout>
+                                <FlexLayout direction='column'>
                                     <div style={{ "height": "50px" }}></div>
                                     <Divider thickness={'Thinner'} type='Dashed' />
                                     <div style={{ "height": "50px" }}></div>
-                                </VerticalFlex>
+                                </FlexLayout>
                             </>
                         )
 
                     })}
-                    <VerticalFlex gap={20}>
-                        <TextStyle as='h4' type='XlHeading' fontWeight='Bold'>
+                    <FlexLayout direction='column' gap={4}>
+                        <TextStyle as='h4' type='XlHeading' fontWeight='bold'>
                             API Reference
                         </TextStyle>
                         <TextStyle as='p' type='MdBody' textColor='Secondary'>
@@ -290,7 +290,7 @@ export default function App() {
                                 {tableRow}
                             </Table>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
 
                 </div>
             </div>
@@ -299,10 +299,10 @@ export default function App() {
                     <div className='modal-content'>
                         <CopyBlock
                             text={`
-                            <VerticalFlex gap={12} align='center'>
+                            <FlexLayout direction='column' gap={12} align='center'>
                                 <${ReactDOMServer.renderToString(selectedComponent.compName)} size="20" color="#333" />
                                 
-                                </VerticalFlex>
+                                </FlexLayout>
                             `}
                             language={"tsx"}
                             showLineNumbers={false}
@@ -310,7 +310,7 @@ export default function App() {
                             theme={dracula}
                             codeBlock
                         />
-                        <VerticalFlex gap={12} align='center'>
+                        <FlexLayout direction='column' gap={3}>
                             <div style={{ "width": "40px" }} className='icon_size'>
                                 {React.createElement(selectedComponent.compName)}
                             </div>
@@ -318,7 +318,7 @@ export default function App() {
                                 {selectedComponent.description}
                             </TextStyle>
 
-                        </VerticalFlex>
+                        </FlexLayout>
                     </div>
                 )}
 

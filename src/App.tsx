@@ -7,6 +7,10 @@ import Home from './Components/Home/Home';
 import Pannel from './Components/Pannel/Pannel';
 import Documentation from './Components/Documentation/Documentation';
 import SearchResults from './Components/SearchResults/SearchResults';
+import Blocks from './Components/Blocks/Blocks';
+import Charts from './Components/Charts/Charts';
+import Themes from './Components/Themes/Themes';
+import Colors from './Components/Colors/Colors';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { SearchProvider } from './contexts/SearchContext';
 
@@ -22,10 +26,10 @@ function App() {
                 <Route path="/docs" element={<Documentation />} />
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/pannel/*" element={<Pannel />} />
-                <Route path="/blocks" element={<div style={{ padding: '2rem', textAlign: 'center' }}>Blocks - Coming Soon</div>} />
-                <Route path="/charts" element={<div style={{ padding: '2rem', textAlign: 'center' }}>Charts - Coming Soon</div>} />
-                <Route path="/themes" element={<div style={{ padding: '2rem', textAlign: 'center' }}>Themes - Coming Soon</div>} />
-                <Route path="/colors" element={<div style={{ padding: '2rem', textAlign: 'center' }}>Colors - Coming Soon</div>} />
+                <Route path="/blocks" element={<Blocks />} />
+                <Route path="/charts" element={<Charts />} />
+                <Route path="/themes" element={<Themes />} />
+                <Route path="/colors" element={<Colors />} />
               </Route>
             </Routes>
           </BrowserRouter>

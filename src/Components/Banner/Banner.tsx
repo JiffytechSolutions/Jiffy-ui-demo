@@ -1,5 +1,5 @@
 import { Play } from 'jiffy-icons'
-import { Button, HorizontalFlex, TextStyle, VerticalFlex } from 'jiffy-ui'
+import { Button, FlexLayout, TextStyle } from 'jiffy-ui'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -28,7 +28,7 @@ const Banner = () => {
             <div className='hero-background-animation'></div>
             <div className='container'>
                 <div className='hero-container'>
-                    <VerticalFlex gap={36}>
+                    <FlexLayout direction='column' gap={4}>
                         {/* Interactive Badge */}
                         <div className={`hero-badge ${isVisible ? 'animate-fade-in' : ''}`}>
                             <span className='badge-text'>
@@ -37,9 +37,9 @@ const Banner = () => {
                         </div>
 
                         {/* Main Heading with Typewriter Effect */}
-                        <VerticalFlex gap={24}>
+                        <FlexLayout direction='column' gap={3}>
                             <div className='hero-title-container'>
-                                <TextStyle as='h1' type='2XlHeading' alignment='Center'>
+                                <TextStyle as='h1' type='2XlHeading' alignment='center'>
                                     Build Beautiful React Apps with 
                                     <span className='gradient-text'> Jiffy UI</span>
                                 </TextStyle>
@@ -55,14 +55,14 @@ const Banner = () => {
                                     ))}
                                 </div>
                             </div>
-                            <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
+                            <TextStyle as='p' type='MdBody' alignment='center' textColor='Secondary'>
                                 A modern, minimal, and accessible React UI library built with TailwindCSS. 
                                 Get started in minutes with TypeScript support and beautiful components.
                             </TextStyle>
-                        </VerticalFlex>
+                        </FlexLayout>
 
                         {/* Interactive Action Buttons */}
-                        <HorizontalFlex align={{ "lg": "center" }} gap={16}>
+                        <FlexLayout align={{ "lg": "center" }} gap={3}>
                             <Link to="/pannel" className='hero-btn-link'>
                                 <Button 
                                     color='Primary' 
@@ -76,40 +76,40 @@ const Banner = () => {
                             <Link to="/pannel" className='hero-btn-link'>
                                 <Button 
                                     size='Large' 
-                                    variant='Secondry' 
+                                    variant='Secondary' 
                                     alignIcon='Left'
                                 >
                                     View Components
                                 </Button>
                             </Link>
-                        </HorizontalFlex>
+                        </FlexLayout>
 
                         {/* Interactive Stats */}
                         <div className='hero-stats'>
-                            <HorizontalFlex align={{ "lg": "center" }} gap={36}>
+                            <FlexLayout align={{ "lg": "center" }} gap={3}>
                                 <div className='stat-item interactive-stat' onClick={() => {}}>
                                     <div className='stat-icon'>🚀</div>
-                                    <TextStyle as='label' type='LgHeading' alignment='Center'>35+</TextStyle>
-                                    <TextStyle as='p' type='SmBody' alignment='Center' textColor='Secondary'>Components</TextStyle>
+                                    <TextStyle as='label' type='LgHeading' alignment='center'>35+</TextStyle>
+                                    <TextStyle as='p' type='SmBody' alignment='center' textColor='Secondary'>Components</TextStyle>
                                 </div>
                                 <div className='stat-item interactive-stat' onClick={() => {}}>
                                     <div className='stat-icon'>📝</div>
-                                    <TextStyle as='label' type='LgHeading' alignment='Center'>100%</TextStyle>
-                                    <TextStyle as='p' type='SmBody' alignment='Center' textColor='Secondary'>TypeScript</TextStyle>
+                                    <TextStyle as='label' type='LgHeading' alignment='center'>100%</TextStyle>
+                                    <TextStyle as='p' type='SmBody' alignment='center' textColor='Secondary'>TypeScript</TextStyle>
                                 </div>
                                 <div className='stat-item interactive-stat' onClick={() => {}}>
                                     <div className='stat-icon'>♿</div>
-                                    <TextStyle as='label' type='LgHeading' alignment='Center'>A11y</TextStyle>
-                                    <TextStyle as='p' type='SmBody' alignment='Center' textColor='Secondary'>Accessible</TextStyle>
+                                    <TextStyle as='label' type='LgHeading' alignment='center'>A11y</TextStyle>
+                                    <TextStyle as='p' type='SmBody' alignment='center' textColor='Secondary'>Accessible</TextStyle>
                                 </div>
                                 <div className='stat-item interactive-stat' onClick={() => {}}>
                                     <div className='stat-icon'>⚡</div>
-                                    <TextStyle as='p' type='LgHeading' alignment='Center'>SSR</TextStyle>
-                                    <TextStyle as='p' type='SmBody' alignment='Center' textColor='Secondary'>Ready</TextStyle>
+                                    <TextStyle as='p' type='LgHeading' alignment='center'>SSR</TextStyle>
+                                    <TextStyle as='p' type='SmBody' alignment='center' textColor='Secondary'>Ready</TextStyle>
                                 </div>
-                            </HorizontalFlex>
+                            </FlexLayout>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </div>
         </section>

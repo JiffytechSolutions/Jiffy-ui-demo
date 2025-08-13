@@ -1,7 +1,7 @@
-import { Button, ButtonGroup, Checkbox, CheckboxGroup, FileUpload, HorizontalFlex, TextArea, TextField, TextLink, TextStyle, VerticalFlex } from "jiffy-ui";
+import { Actionlist, Button, ButtonGroup, Card, Checkbox, CheckboxGroup, FileUpload, FlexLayout, PageTitle, TextArea, TextField, TextLink, TextStyle } from "jiffy-ui";
 import React, { useContext } from "react";
-import { CheckboxGroup_direction, CheckboxGroup_helpIcon, CheckboxGroup_helpText, CheckboxGroup_name, CheckboxGroup_onChange, CheckboxGroup_options, CheckboxGroup_title, CheckboxGroup_value, Checkbox_checked, Checkbox_hasError, Checkbox_isDisabled, Checkbox_label, Checkbox_name, Checkbox_onChange, Checkbox_required, Checkbox_value, FileUpload_accept, FileUpload_helpIcon, FileUpload_helpText, FileUpload_isDisabled, FileUpload_isDragable, FileUpload_isFileUploaded, FileUpload_isMultiple, FileUpload_maxCount, FileUpload_maxSize, FileUpload_onChange, FileUpload_onError, FileUpload_onRemove, TextArea_error, TextArea_helpText, TextArea_label, TextArea_onChange, TextArea_placeholder, TextArea_readOnly, TextArea_required, TextArea_resize, TextArea_rows, TextArea_value, TextField_autoFocus, TextField_helpIcon, TextField_helpText, TextField_isClearable, TextField_isDisabled, TextField_isRequired, TextField_label, TextField_max, TextField_maxlength, TextField_min, TextField_onBlur, TextField_onChange, TextField_onClear, TextField_onFocus, TextField_onKeyUp, TextField_placeholder, TextField_prefix, TextField_size, TextField_step, TextField_suffix, TextField_type, TextField_value, TextField_variant, TextLink_customClass_prop, TextLink_iconAlign_prop, TextLink_icon_prop, TextLink_isDisabled_prop, TextLink_label_prop, TextLink_linkType_prop, TextLink_onClick_prop, TextLink_target_prop, TextLink_url_prop, TypeProp, alignmentProp, asProps, btnColorProps, btnGrpChildrenProp, btnGrpsegmentedProp, btnIsDisabledProp, btnSizeProps, btnVariantProps, btnalignIconProp, btniconProp, btnisFullWidthProp, btnisLoadingProp, btnonClickProp, childrenProp, fontweightProp, textColorProp, textDecorationProp, textStyleProp } from "./AllProps";
-import { AlertCircle, ExternalLink, Setting, Upload, User, UserMinus } from "jiffy-icons";
+import { ActionList_children, ActionList_className, ActionList_closeOnSelect, ActionList_disabled, ActionList_items, ActionList_maxHeight, ActionList_onItemSelect, ActionList_onOpenChange, ActionList_placement, ActionList_size, ActionList_style, ActionList_trigger, ActionList_variant, CardAction_disabled, CardAction_icon, CardAction_iconPosition, CardAction_label, CardAction_loading, CardAction_onClick, CardAction_size, CardAction_variant, CardSection_actions, CardSection_content, CardSection_subtitle, CardSection_title, Card_ariaLabel, Card_backgroundColor, Card_borderColor, Card_children, Card_className, Card_disabled, Card_divided, Card_footer, Card_header, Card_height, Card_interactive, Card_loading, Card_onClick, Card_onSelectionChange, Card_orientation, Card_padding, Card_radius, Card_selectable, Card_selected, Card_size, Card_style, Card_testId, Card_variant, Card_width, CheckboxGroup_direction, CheckboxGroup_helpIcon, CheckboxGroup_helpText, CheckboxGroup_name, CheckboxGroup_onChange, CheckboxGroup_options, CheckboxGroup_title, CheckboxGroup_value, Checkbox_checked, Checkbox_hasError, Checkbox_isDisabled, Checkbox_label, Checkbox_name, Checkbox_onChange, Checkbox_required, Checkbox_value, FileUpload_accept, FileUpload_helpIcon, FileUpload_helpText, FileUpload_isDisabled, FileUpload_isDragable, FileUpload_isFileUploaded, FileUpload_isMultiple, FileUpload_maxCount, FileUpload_maxSize, FileUpload_onChange, FileUpload_onError, FileUpload_onRemove, PageTitleAction_disabled, PageTitleAction_icon, PageTitleAction_label, PageTitleAction_loading, PageTitleAction_onClick, PageTitleAction_size, PageTitleAction_variant, PageTitleBadge_size, PageTitleBadge_subtle, PageTitleBadge_text, PageTitleBadge_variant, PageTitle_backButtonLabel, PageTitle_badge, PageTitle_className, PageTitle_onBackClick, PageTitle_primaryAction, PageTitle_secondaryActions, PageTitle_showBackButton, PageTitle_style, PageTitle_subtitle, PageTitle_testId, PageTitle_title, SecondaryActionItem_description, SecondaryActionItem_disabled, SecondaryActionItem_id, SecondaryActionItem_label, SecondaryActionItem_leading, SecondaryActionItem_onClick, SecondaryActionItem_variant, TextArea_error, TextArea_helpText, TextArea_label, TextArea_onChange, TextArea_placeholder, TextArea_readOnly, TextArea_required, TextArea_resize, TextArea_rows, TextArea_value, TextField_autoFocus, TextField_helpIcon, TextField_helpText, TextField_isClearable, TextField_isDisabled, TextField_isRequired, TextField_label, TextField_max, TextField_maxlength, TextField_min, TextField_onBlur, TextField_onChange, TextField_onClear, TextField_onFocus, TextField_onKeyUp, TextField_placeholder, TextField_prefix, TextField_size, TextField_step, TextField_suffix, TextField_type, TextField_value, TextField_variant, TextLink_customClass_prop, TextLink_iconAlign_prop, TextLink_icon_prop, TextLink_isDisabled_prop, TextLink_label_prop, TextLink_linkType_prop, TextLink_onClick_prop, TextLink_target_prop, TextLink_url_prop, TypeProp, alignmentProp, asProps, btnActiveProp, btnBadgeProp, btnBadgeVariantProp, btnClassNameProp, btnColorProps, btnCompactProp, btnElevatedProp, btnGrpChildrenProp, btnGrpsegmentedProp, btnHrefProp, btnIsDisabledProp, btnOutlinedProp, btnPressedProp, btnRelProp, btnRoundedProp, btnSizeProps, btnSuffixIconProp, btnTargetProp, btnTypeProp, btnVariantProps, btnalignIconProp, btniconOnlyProp, btniconProp, btnisFullWidthProp, btnisLoadingProp, btnonClickProp, btnchildrenProp, childrenProp, fontweightProp, textColorProp, textDecorationProp, textStyleProp } from "./AllProps";
+import { AlertCircle, ArrowLeft, Download, Edit, ExternalLink, Heart, Save, Setting, Share, Star, Trash, Upload, User, UserMinus } from "jiffy-icons";
 import { MyContext } from "../../context/Context";
 import { CheckBoxTitle, CheckboxGroupHelpText, CheckboxGroupHorizontal, CheckboxGroupVerical } from "../component/comp/CheckboxGroup/CheckBoxTitle";
 
@@ -80,7 +80,7 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "h4",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         <TextStyle as={'span'}>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'p'}>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'legend'}>Lorem ipsum dolor sit amet</TextStyle>
@@ -90,7 +90,7 @@ export const TextStyleData = [
                         <TextStyle as={'h1'}>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'p'}>....</TextStyle>
                         <TextStyle as={'h6'}>Lorem ipsum dolor sit amet</TextStyle>
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
@@ -115,7 +115,7 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "LgHeading",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         <TextStyle as={'h2'} type='2XlHeading'>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'h2'} type='XlHeading'>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'h2'} type='LgHeading'>Lorem ipsum dolor sit amet</TextStyle>
@@ -126,7 +126,7 @@ export const TextStyleData = [
                         <TextStyle as={'p'} type='MdBody'>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'legend'} type='SmBody'>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'label'} type='XsBody'>Lorem ipsum dolor sit amet</TextStyle>
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
@@ -151,58 +151,50 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Start",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
 
-                        <TextStyle as={'p'} type='LgBody' alignment="Start">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' alignment="Center">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' alignment="End">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' alignment="Justify">Lorem ipsum dolor sit amet</TextStyle>
-                    </VerticalFlex>
+                        <TextStyle as={'p'} type='LgBody' alignment="start">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="center">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="end">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="justify">Lorem ipsum dolor sit amet</TextStyle>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
                 export default function App() {
                     return (
-                        <TextStyle as={'p'} type='LgBody' alignment="Start">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' alignment="Center">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' alignment="End">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' alignment="Justify">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="start">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="center">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="end">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' alignment="justify">Lorem ipsum dolor sit amet</TextStyle>
                     );
                 }`
             },
             {
-                propName: 'textColor',
+                propName: 'tone',
                 propValues: textColorProp,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Dark",
                 propDemo:
-                    <VerticalFlex gap={8}>
-                        <TextStyle as={'p'} type='LgBody' textColor="Dark">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Secondary">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Disabled">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Primary">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Possitve">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Negative">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Waiting">Lorem ipsum dolor sit amet</TextStyle>
-                        <div style={{ "padding": '10px', "backgroundColor": "#000" }}>
-                            <TextStyle as={'p'} type='LgBody' textColor="Invert">Lorem ipsum dolor sit amet</TextStyle>
-                        </div>
-                    </VerticalFlex>
+                    <FlexLayout direction="column" gap={4}>
+                        <TextStyle as={'p'} type='LgBody' tone="critical">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="default">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="emphasis">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="subdued">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="success">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="warning">Lorem ipsum dolor sit amet</TextStyle>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
                 export default function App() {
                     return (
-                        <TextStyle as={'p'} type='LgBody' textColor="Dark">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Secondary">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Disabled">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Primary">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Possitve">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Negative">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textColor="Waiting">Lorem ipsum dolor sit amet</TextStyle>
-                        <div style={{ "padding": '10px', "backgroundColor": "#000" }}>
-                            <TextStyle as={'p'} type='LgBody' textColor="Invert">Lorem ipsum dolor sit amet</TextStyle>
-                        </div>
+                        <TextStyle as={'p'} type='LgBody' tone="critical">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="default">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="emphasis">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="subdued">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="success">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' tone="warning">Lorem ipsum dolor sit amet</TextStyle>
                     );
                 }`
             },
@@ -212,21 +204,21 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Regular",
                 propDemo:
-                    <VerticalFlex gap={8}>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Light">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Regular">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Medium">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Bold">Lorem ipsum dolor sit amet</TextStyle>
-                    </VerticalFlex>
+                    <FlexLayout direction="column" gap={4}>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="light">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="regular">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="medium">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="bold">Lorem ipsum dolor sit amet</TextStyle>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
                 export default function App() {
                     return (
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Light">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Regular">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Medium">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' fontWeight="Bold">Lorem ipsum dolor sit amet</TextStyle>
+                         <TextStyle as={'p'} type='LgBody' fontWeight="light">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="regular">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="medium">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' fontWeight="bold">Lorem ipsum dolor sit amet</TextStyle>
                     );
                 }`
             },
@@ -236,10 +228,10 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "None",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         <TextStyle as={'p'} type='LgBody' textStyle="Italic">Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'p'} type='LgBody' textStyle="None">Lorem ipsum dolor sit amet</TextStyle>
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
@@ -256,19 +248,19 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "None",
                 propDemo:
-                    <VerticalFlex gap={8}>
-                        <TextStyle as={'p'} type='LgBody' textDecoration="UnderLine">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textDecoration="lineThrough">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textDecoration="None">Lorem ipsum dolor sit amet</TextStyle>
-                    </VerticalFlex>
+                    <FlexLayout direction="column" gap={4}>
+                        <TextStyle as={'p'} type='LgBody' textDecoration="underline">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' textDecoration="line-through">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' textDecoration="none">Lorem ipsum dolor sit amet</TextStyle>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
                 export default function App() {
                     return (
-                        <TextStyle as={'p'} type='LgBody' textDecoration="UnderLine">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textDecoration="lineThrough">Lorem ipsum dolor sit amet</TextStyle>
-                        <TextStyle as={'p'} type='LgBody' textDecoration="None">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' textDecoration="underline">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' textDecoration="line-through">Lorem ipsum dolor sit amet</TextStyle>
+                        <TextStyle as={'p'} type='LgBody' textDecoration="none">Lorem ipsum dolor sit amet</TextStyle>
                     );
                 }`
             },
@@ -278,10 +270,10 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Demo",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         <TextStyle as={'p'} type='LgBody'>Lorem ipsum dolor sit amet</TextStyle>
                         <TextStyle as={'p'} type='LgBody' ><span>Lorem ipsum dolor sit amet</span></TextStyle>
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextStyle } from 'jiffy-ui';
@@ -305,21 +297,23 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component',
                 defaultPropValue: "Primary",
                 propDemo:
-                    <HorizontalFlex gap={8} align={{ "lg": "spaceBetween" }}>
+                    <FlexLayout gap={4}>
                         {btnVariantProps.map((item: any) => {
                             return <Button variant={item}>{item}</Button>
                         })}
 
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {Button} from 'jiffy-ui';
                 export default function App() {
                     return (
                         <Button variant="Primary">Primary</Button>
-                        <Button variant="Secondry">Secondry</Button>
+                        <Button variant="Secondary">Secondary</Button>
                         <Button variant="Tertiary">Tertiary</Button>
                         <Button variant="Link">Link</Button>
+                        <Button variant="Ghost">Ghost</Button>
+                        <Button variant="Danger">Danger</Button>
                     );
                   }`
 
@@ -330,11 +324,11 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "LgHeading",
                 propDemo:
-                    <HorizontalFlex gap={8} align={{ "lg": "spaceBetween", "md": "spaceBetween", "sm": "spaceBetween" }}>
+                    <FlexLayout gap={4}>
                         {btnSizeProps.map((item: any, index: any) => {
                             return <Button size={item} key={index}>{item}</Button>
                         })}
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {Button} from 'jiffy-ui';
@@ -344,6 +338,7 @@ export const TextStyleData = [
                         <Button size="Small">Small</Button>
                         <Button size="Medium">Medium</Button>
                         <Button size="Large">Large</Button>
+                        <Button size="XLarge">XLarge</Button>
                     );
                 }`
             },
@@ -353,11 +348,11 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Start",
                 propDemo:
-                    <HorizontalFlex gap={8} align={{ "lg": "spaceBetween", "md": "spaceBetween", "sm": "spaceBetween" }}>
+                    <FlexLayout gap={4}>
                         {btnColorProps.map((item: any, index: any) => {
                             return <Button color={item} key={item}>{item}</Button>
                         })}
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { Button } from 'jiffy-ui';
@@ -390,9 +385,9 @@ export const TextStyleData = [
                 propValues: btniconProp,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
-                propDemo: <HorizontalFlex gap={20}><Button icon={<Setting size={16} color="#fff" />}>Icon Button</Button>
+                propDemo: <FlexLayout gap={4}><Button icon={<Setting size={16} color="#fff" />}>Icon Button</Button>
                     <Button icon={<Setting size={16} color="#fff" />} children="" />
-                </HorizontalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { Button } from 'jiffy-ui';
                 export default function App() {
@@ -421,10 +416,10 @@ export const TextStyleData = [
                 propValues: btnisFullWidthProp,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "false",
-                propDemo: <VerticalFlex gap={20}>
+                propDemo: <FlexLayout direction="column" gap={4}>
                     <Button isFullWidth={true}>Full width button</Button>
                     <Button isFullWidth={false}>Normal button</Button>
-                </VerticalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { Button } from 'jiffy-ui';
                 export default function App() {
@@ -441,10 +436,10 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Left",
                 propDemo:
-                    <HorizontalFlex gap={8}>
+                    <FlexLayout gap={4}>
                         <Button icon={<Setting size={16} color="#fff" />} alignIcon="Left">Icon Button</Button>
                         <Button icon={<Setting size={16} color="#fff" />} alignIcon="Right">Icon Button</Button>
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { Button } from 'jiffy-ui';
@@ -471,12 +466,12 @@ export const TextStyleData = [
             },
             {
                 propName: 'children',
-                propValues: childrenProp,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "Demo",
+                propValues: btnchildrenProp,
+                propDescription: 'The content to display inside the button.',
+                defaultPropValue: "Button",
                 propDemo: <Button children="Children text" />,
                 propCode: `
-                import {TextStyle } from 'jiffy-ui';
+                import { Button } from 'jiffy-ui';
                 export default function App() {
                     return (
                         <Button children="Children text" />
@@ -537,10 +532,10 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component',
                 defaultPropValue: "Text link",
                 propDemo:
-                    <HorizontalFlex gap={8}>
+                    <FlexLayout gap={4}>
                         <TextLink label="Text Link label" onClick={() => { alert('Text Link alert') }} />
                         <TextLink label={<div>Text Link</div>} onClick={() => { alert('Text Link alert') }} />
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { TextLink } from 'jiffy-ui';
@@ -557,9 +552,9 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
                 propDemo:
-                    <HorizontalFlex gap={8} align={{ "lg": "spaceBetween", "md": "spaceBetween", "sm": "spaceBetween" }}>
+                    <FlexLayout gap={4} >
                         <TextLink icon={<ExternalLink size={16} />} label={<div>Text Link</div>} onClick={() => { alert('Text Link alert') }} />
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {Button} from 'jiffy-ui';
@@ -575,9 +570,9 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
                 propDemo:
-                    <HorizontalFlex gap={8} align={{ "lg": "spaceBetween", "md": "spaceBetween", "sm": "spaceBetween" }}>
+                    <FlexLayout gap={4}>
                         <TextLink icon={<ExternalLink size={16} />} label={<div>Text Link</div>} onClick={() => { alert('Text Link alert') }} />
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { Button } from 'jiffy-ui';
@@ -606,9 +601,9 @@ export const TextStyleData = [
                 propValues: TextLink_customClass_prop,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
-                propDemo: <HorizontalFlex gap={20}>
+                propDemo: <FlexLayout gap={4}>
                     <TextLink icon={<ExternalLink size={16} />} label={<div>Text Link</div>} customClass="dummy_class" />
-                </HorizontalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { Button } from 'jiffy-ui';
                 export default function App() {
@@ -622,10 +617,10 @@ export const TextStyleData = [
                 propValues: TextLink_isDisabled_prop,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "false",
-                propDemo: <HorizontalFlex gap={20}>
+                propDemo: <FlexLayout gap={4}>
                     <TextLink icon={<ExternalLink size={16} />} label={<div>Text Link</div>} isDisabled={false} />
                     <TextLink icon={<ExternalLink size={16} />} label={<div>Text Link</div>} isDisabled={true} />
-                </HorizontalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { TextLink } from 'jiffy-ui';
                 export default function App() {
@@ -640,12 +635,12 @@ export const TextStyleData = [
                 propValues: TextLink_target_prop,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "_blank",
-                propDemo: <HorizontalFlex gap={20}>
+                propDemo: <FlexLayout gap={4}>
                     {TextLink_target_prop.map((item: any, index: any) => (
                         <TextLink icon={<ExternalLink size={16} />} label={item} url="www.google.com" target={item} />
                     ))}
 
-                </HorizontalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { TextLink } from 'jiffy-ui';
                 export default function App() {
@@ -664,10 +659,10 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "Right",
                 propDemo:
-                    <HorizontalFlex gap={8}>
+                    <FlexLayout gap={4}>
                         <TextLink icon={<ExternalLink size={16} />} iconAlign="Left" label={"Text Link"} url="www.google.com" target={"_blank"} />
                         <TextLink icon={<ExternalLink size={16} />} iconAlign="Right" label={"Text Link"} url="www.google.com" target={"_blank"} />
-                    </HorizontalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { Button } from 'jiffy-ui';
@@ -683,12 +678,12 @@ export const TextStyleData = [
                 propValues: TextLink_linkType_prop,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
-                propDemo: <HorizontalFlex gap={12}>
+                propDemo: <FlexLayout gap={4}>
                     {TextLink_linkType_prop.map((item: any, index: any) => (
                         <TextLink icon={<ExternalLink size={16} />} linkType={item} label={item} onClick={() => { alert('alert') }} />
                     ))}
 
-                </HorizontalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { TextLink } from 'jiffy-ui';
                 export default function App() {
@@ -714,12 +709,12 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component',
                 defaultPropValue: "--",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         {TextField_size.map((item: any) => {
                             return <TextField size={item} placeholder="Enter your text" />
                         })}
 
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextField} from 'jiffy-ui';
@@ -738,11 +733,11 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         {TextField_type.map((item: any, index: any) => {
                             return <TextField size={"Medium"} placeholder={`Enter your ${item}`} type={item} />
                         })}
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import {TextField} from 'jiffy-ui';
@@ -763,12 +758,12 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
                 propDemo:
-                    <VerticalFlex gap={8}>
+                    <FlexLayout direction="column" gap={4}>
                         {TextField_variant.map((item: any, index: any) => {
                             return <TextField size={"Medium"} placeholder={`Enter your ${item}`} variant={item} />
                         })}
 
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { TextField } from 'jiffy-ui';
@@ -1023,12 +1018,12 @@ export const TextStyleData = [
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
                 propDemo:
-                    <VerticalFlex gap={8} >
+                    <FlexLayout direction="column" gap={4} >
                         {TextArea_resize.map((item: any, index: any) => {
                             return <TextArea value={"Textarea content"} label="TextArea label" resize={item} />
                         })}
 
-                    </VerticalFlex>
+                    </FlexLayout>
                 ,
                 propCode: `
                 import { Button } from 'jiffy-ui';
@@ -1195,12 +1190,12 @@ export const TextStyleData = [
                 propValues: Checkbox_checked,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
-                propDemo: <HorizontalFlex gap={20}>
+                propDemo: <FlexLayout gap={4}>
 
                     <Checkbox label="Checkbox label" checked={true} />
                     <Checkbox label="Checkbox label" checked={"indeterminate"} />
 
-                </HorizontalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { Checkbox } from 'jiffy-ui';
                 export default function App() {
@@ -1351,10 +1346,10 @@ export const TextStyleData = [
                 propValues: CheckboxGroup_direction,
                 propDescription: 'The default style of ActionIcon component.',
                 defaultPropValue: "--",
-                propDemo: <VerticalFlex gap={20}>
+                propDemo: <FlexLayout direction="column" gap={4}>
                     <CheckboxGroupHorizontal />
                     <CheckboxGroupVerical />
-                </VerticalFlex>,
+                </FlexLayout>,
                 propCode: `
                 import { CheckboxGroup } from 'jiffy-ui'
                 function App() {
@@ -1456,7 +1451,7 @@ export const TextStyleData = [
                 defaultPropValue: "--",
                 propDemo: <FileUpload
                     helpText=".jpg,.png,.pdf"
-                    onChange={(e, single) => { }}
+                    onChange={() => { }}
                     isMultiple
                     accept={["png"]}
                     isFileUploaded={[false, true]}
@@ -1466,7 +1461,7 @@ export const TextStyleData = [
                 function App() {
                     <FileUpload
                         helpText=".jpg,.png,.pdf"
-                        onChange={(e, single) => { }}
+                        onChange={() => { }}
                         accept={["png"]}
                         isFileUploaded={[false, true]}
                     />
@@ -1479,7 +1474,7 @@ export const TextStyleData = [
                 defaultPropValue: "--",
                 propDemo: <FileUpload
                     helpText=".jpg,.png,.pdf"
-                    onChange={(e, single) => { }}
+                    onChange={() => { }}
                     isMultiple
                     accept={["png"]}
                     isFileUploaded={[false, true]}
@@ -1489,7 +1484,7 @@ export const TextStyleData = [
                 function App() {
                     <FileUpload
                         helpText=".jpg,.png,.pdf"
-                        onChange={(e, single) => { }}
+                        onChange={() => { }}
                         isMultiple
                         accept={["png"]}
                         isFileUploaded={[false, true]}
@@ -1503,7 +1498,7 @@ export const TextStyleData = [
                 defaultPropValue: "--",
                 propDemo: <FileUpload
                     helpText=".jpg,.png,.pdf"
-                    onChange={(e, single) => { }}
+                    onChange={() => { }}
                     isMultiple
                     isDragable
                     accept={["png"]}
@@ -1529,7 +1524,7 @@ export const TextStyleData = [
                 defaultPropValue: "false",
                 propDemo: <FileUpload
                     helpText=".jpg,.png,.pdf"
-                    onChange={(e, single) => { }}
+                    onChange={() => { }}
                     isDisabled={true}
                     accept={["png"]}
                     isFileUploaded={[false, true]}
@@ -1569,7 +1564,7 @@ export const TextStyleData = [
                 defaultPropValue: "--",
                 propDemo: <FileUpload
                     helpText=".jpg,.png,.pdf"
-                    onChange={(e, single) => { }}
+                    onChange={() => { }}
                     isFileUploaded={[false, true]}
                 />,
                 propCode: `
@@ -1590,7 +1585,7 @@ export const TextStyleData = [
                 defaultPropValue: "--",
                 propDemo: <FileUpload
                     helpText=".jpg,.png,.pdf"
-                    onChange={(e, single) => { }}
+                    onChange={() => { }}
                     isFileUploaded={[false, true]}
                     helpIcon={<Upload size={16} />}
                 />,
@@ -1599,7 +1594,7 @@ export const TextStyleData = [
                 function App() {
                     <FileUpload
                         helpText=".jpg,.png,.pdf"
-                        onChange={(e, single) => { }}
+                        onChange={() => { }}
                         isFileUploaded={[false, true]}
                         helpIcon={<Upload size={16} />}
                     />
@@ -1640,6 +1635,684 @@ export const TextStyleData = [
                 propCode: ``
             },
 
+        ]
+    },
+    {
+        componentName: "PageTitle",
+        componentDescription: "A modern and flexible page title component with support for primary actions, secondary actions, badges, and back navigation.",
+        compImport: "import { PageTitle } from 'jiffy-ui'",
+        PropsDetail: [
+            {
+                propName: 'title',
+                propValues: PageTitle_title,
+                propDescription: 'The main page title text or React element',
+                defaultPropValue: "--",
+                propDemo: <PageTitle title="Dashboard" />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle title="Dashboard" />
+                    );
+                }`
+            },
+            {
+                propName: 'subtitle',
+                propValues: PageTitle_subtitle,
+                propDescription: 'Optional subtitle or description text below the title',
+                defaultPropValue: "--",
+                propDemo: <PageTitle 
+                    title="User Dashboard" 
+                    subtitle="Manage your account settings and preferences" 
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="User Dashboard" 
+                            subtitle="Manage your account settings and preferences" 
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'showBackButton',
+                propValues: PageTitle_showBackButton,
+                propDescription: 'Whether to display the back navigation button with chevron icon',
+                defaultPropValue: "false",
+                propDemo: <PageTitle 
+                    title="User Details" 
+                    subtitle="View and edit user information"
+                    showBackButton={true}
+                    onBackClick={() => alert('Back button clicked!')}
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="User Details" 
+                            subtitle="View and edit user information"
+                            showBackButton={true}
+                            onBackClick={() => alert('Back button clicked!')}
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'backButtonLabel',
+                propValues: PageTitle_backButtonLabel,
+                propDescription: 'Custom label text for the back button',
+                defaultPropValue: "Back",
+                propDemo: <PageTitle 
+                    title="User Details" 
+                    showBackButton={true}
+                    backButtonLabel="Back to Users"
+                    onBackClick={() => alert('Back to users!')}
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="User Details" 
+                            showBackButton={true}
+                            backButtonLabel="Back to Users"
+                            onBackClick={() => alert('Back to users!')}
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'badge',
+                propValues: PageTitle_badge,
+                propDescription: 'Badge configuration to display next to the title',
+                defaultPropValue: "--",
+                propDemo: <FlexLayout direction="column" gap={4}>
+                    <PageTitle 
+                        title="Project Alpha" 
+                        subtitle="E-commerce platform development"
+                        badge={{
+                            text: "In Progress",
+                            variant: "warning"
+                        }}
+                    />
+                    <PageTitle 
+                        title="User Account" 
+                        badge={{
+                            text: "Active",
+                            variant: "success"
+                        }}
+                    />
+                </FlexLayout>,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="Project Alpha" 
+                            subtitle="E-commerce platform development"
+                            badge={{
+                                text: "In Progress",
+                                variant: "warning"
+                            }}
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'primaryAction',
+                propValues: PageTitle_primaryAction,
+                propDescription: 'Primary action button configuration object',
+                defaultPropValue: "--",
+                propDemo: <PageTitle 
+                    title="Settings" 
+                    subtitle="Configure your application"
+                    primaryAction={{
+                        label: "Save Changes",
+                        variant: "Primary",
+                        onClick: () => alert('Save changes!'),
+                        icon: <Setting size={16} />
+                    }}
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                import { Setting } from 'jiffy-icons';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="Settings" 
+                            subtitle="Configure your application"
+                            primaryAction={{
+                                label: "Save Changes",
+                                variant: "Primary",
+                                onClick: () => alert('Save changes!'),
+                                icon: <Setting size={16} />
+                            }}
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'secondaryActions',
+                propValues: PageTitle_secondaryActions,
+                propDescription: 'Array of secondary actions displayed in ActionList dropdown',
+                defaultPropValue: "[]",
+                propDemo: <PageTitle 
+                    title="Document Editor" 
+                    subtitle="Edit and collaborate on documents"
+                    primaryAction={{
+                        label: "Save",
+                        variant: "Primary",
+                        onClick: () => alert('Document saved!')
+                    }}
+                    secondaryActions={[
+                        {
+                            id: "share",
+                            label: "Share Document",
+                            onClick: () => alert('Share dialog opened'),
+                            leading: <Share size={16} />,
+                            description: "Share with team members"
+                        },
+                        {
+                            id: "edit",
+                            label: "Edit Settings",
+                            onClick: () => alert('Settings opened'),
+                            leading: <Edit size={16} />
+                        },
+                        {
+                            id: "delete",
+                            label: "Delete Document",
+                            onClick: () => alert('Delete confirmed'),
+                            leading: <Trash size={16} />,
+                            variant: "destructive"
+                        }
+                    ]}
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                import { Share, Edit, Trash } from 'jiffy-icons';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="Document Editor" 
+                            subtitle="Edit and collaborate on documents"
+                            primaryAction={{
+                                label: "Save",
+                                variant: "Primary",
+                                onClick: () => alert('Document saved!')
+                            }}
+                            secondaryActions={[
+                                {
+                                    id: "share",
+                                    label: "Share Document",
+                                    onClick: () => alert('Share dialog opened'),
+                                    leading: <Share size={16} />,
+                                    description: "Share with team members"
+                                },
+                                {
+                                    id: "edit",
+                                    label: "Edit Settings",
+                                    onClick: () => alert('Settings opened'),
+                                    leading: <Edit size={16} />
+                                },
+                                {
+                                    id: "delete",
+                                    label: "Delete Document",
+                                    onClick: () => alert('Delete confirmed'),
+                                    leading: <Trash size={16} />,
+                                    variant: "destructive"
+                                }
+                            ]}
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'className',
+                propValues: PageTitle_className,
+                propDescription: 'Additional CSS classes to apply to the container',
+                defaultPropValue: '""',
+                propDemo: <PageTitle 
+                    title="Custom Styled Page" 
+                    className="custom-page-title"
+                    subtitle="With custom CSS classes"
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="Custom Styled Page" 
+                            className="custom-page-title"
+                            subtitle="With custom CSS classes"
+                        />
+                    );
+                }`
+            },
+            {
+                propName: 'testId',
+                propValues: PageTitle_testId,
+                propDescription: 'Test identifier for testing frameworks',
+                defaultPropValue: "--",
+                propDemo: <PageTitle 
+                    title="Dashboard" 
+                    subtitle="Main application dashboard"
+                    testId="main-dashboard-title"
+                />,
+                propCode: `
+                import { PageTitle } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <PageTitle 
+                            title="Dashboard" 
+                            subtitle="Main application dashboard"
+                            testId="main-dashboard-title"
+                        />
+                    );
+                }`
+            }
+        ]
+    },
+    {
+        componentName: "Card",
+        componentDescription: "A flexible card component for displaying content with optional headers, footers, and actions.",
+        compImport: "import { Card } from 'jiffy-ui'",
+        PropsDetail: [
+            {
+                propName: 'variant',
+                propValues: Card_variant,
+                propDescription: 'Visual variant of the card',
+                defaultPropValue: "default",
+                propDemo: <FlexLayout direction="column" gap={4}>
+                    <FlexLayout gap={4}>
+                        <Card variant="default">Default card</Card>
+                        <Card variant="outlined">Outlined card</Card>
+                        <Card variant="elevated">Elevated card</Card>
+                    </FlexLayout>
+                    <FlexLayout gap={4}>
+                        <Card variant="filled">Filled card</Card>
+                        <Card variant="ghost">Ghost card</Card>
+                    </FlexLayout>
+                </FlexLayout>,
+                propCode: `
+                import { Card } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <Card variant="default">Default card</Card>
+                    );
+                }`
+            },
+            {
+                propName: 'size',
+                propValues: Card_size,
+                propDescription: 'Size affects padding and text sizes',
+                defaultPropValue: "medium",
+                propDemo: <FlexLayout direction="column" gap={4}>
+                    <Card size="small" variant="outlined" header={{ title: "Small Card" }}>Small card content</Card>
+                    <Card size="medium" variant="outlined" header={{ title: "Medium Card" }}>Medium card content</Card>
+                    <Card size="large" variant="outlined" header={{ title: "Large Card" }}>Large card content</Card>
+                </FlexLayout>,
+                propCode: `
+                import { Card } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <Card size="medium" variant="outlined" header={{ title: "Medium Card" }}>
+                            Medium card content
+                        </Card>
+                    );
+                }`
+            },
+            {
+                propName: 'header',
+                propValues: Card_header,
+                propDescription: 'Card header configuration with title, subtitle, and actions',
+                defaultPropValue: "--",
+                propDemo: <Card 
+                    variant="outlined" 
+                    header={{ 
+                        title: "Settings", 
+                        subtitle: "Configure your preferences",
+                        actions: [
+                            { label: "Edit", icon: <Edit size={16} />, onClick: () => alert("Edit clicked") },
+                            { label: "Save", icon: <Save size={16} />, variant: "Primary", onClick: () => alert("Save clicked") }
+                        ]
+                    }}
+                >
+                    Card with header actions.
+                </Card>,
+                propCode: `
+                import { Card } from 'jiffy-ui';
+                import { Edit, Save } from 'jiffy-icons';
+                export default function App() {
+                    return (
+                        <Card 
+                            variant="outlined" 
+                            header={{ 
+                                title: "Settings", 
+                                subtitle: "Configure your preferences",
+                                actions: [
+                                    { label: "Edit", icon: <Edit size={16} />, onClick: () => alert("Edit clicked") }
+                                ]
+                            }}
+                        >
+                            Card content here
+                        </Card>
+                    );
+                }`
+            },
+            {
+                propName: 'interactive',
+                propValues: Card_interactive,
+                propDescription: 'Adds hover effects and makes card interactive',
+                defaultPropValue: "false",
+                propDemo: <Card 
+                    interactive 
+                    variant="outlined" 
+                    header={{ title: "Hover Me" }}
+                    onClick={() => alert("Card clicked!")}
+                >
+                    This card has hover effects and click handling.
+                </Card>,
+                propCode: `
+                import { Card } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <Card 
+                            interactive 
+                            variant="outlined" 
+                            header={{ title: "Hover Me" }}
+                            onClick={() => alert("Card clicked!")}
+                        >
+                            This card has hover effects.
+                        </Card>
+                    );
+                }`
+            },
+            {
+                propName: 'loading',
+                propValues: Card_loading,
+                propDescription: 'Shows loading state with overlay and spinner',
+                defaultPropValue: "false",
+                propDemo: <FlexLayout gap={4}>
+                    <Card variant="outlined" header={{ title: "Normal State" }}>Normal card.</Card>
+                    <Card variant="outlined" loading header={{ title: "Loading State" }}>Loading card.</Card>
+                </FlexLayout>,
+                propCode: `
+                import { Card } from 'jiffy-ui';
+                export default function App() {
+                    return (
+                        <Card variant="outlined" loading header={{ title: "Loading State" }}>
+                            This card is loading.
+                        </Card>
+                    );
+                }`
+            }
+        ]
+    },
+    {
+        componentName: "ActionList",
+        componentDescription: "A flexible dropdown component for displaying actionable items with support for icons, badges, shortcuts, and grouping.",
+        compImport: "import { Actionlist } from 'jiffy-ui'",
+        PropsDetail: [
+            {
+                propName: 'children',
+                propValues: ActionList_children,
+                propDescription: 'The trigger element for the ActionList',
+                defaultPropValue: "--",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            items={[
+                                { id: "edit", label: "Edit", leading: <Edit size={16} /> },
+                                { id: "share", label: "Share", leading: <Share size={16} /> },
+                                { id: "delete", label: "Delete", leading: <Trash size={16} />, variant: "destructive" }
+                            ]}
+                        >
+                            <Button variant="Secondary">Actions</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { Edit, Share, Trash } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            items={[
+                                { id: "edit", label: "Edit", leading: <Edit size={16} /> },
+                                { id: "share", label: "Share", leading: <Share size={16} /> },
+                                { id: "delete", label: "Delete", leading: <Trash size={16} />, variant: "destructive" }
+                            ]}
+                        >
+                            <Button variant="Secondary">Actions</Button>
+                        </Actionlist>
+                    );
+                }`
+            },
+            {
+                propName: 'items',
+                propValues: ActionList_items,
+                propDescription: 'Array of action items or groups to display',
+                defaultPropValue: "[]",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            items={[
+                                { id: "copy", label: "Copy", leading: <Setting size={16} /> },
+                                { id: "download", label: "Download", leading: <Download size={16} /> },
+                                { id: "upload", label: "Upload", leading: <Upload size={16} /> }
+                            ]}
+                        >
+                            <Button variant="Secondary">File Actions</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { Setting, Download, Upload } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            items={[
+                                { id: "copy", label: "Copy", leading: <Setting size={16} /> },
+                                { id: "download", label: "Download", leading: <Download size={16} /> },
+                                { id: "upload", label: "Upload", leading: <Upload size={16} /> }
+                            ]}
+                        >
+                            <Button variant="Secondary">File Actions</Button>
+                        </Actionlist>
+                    );
+                }`
+            },
+            {
+                propName: 'size',
+                propValues: ActionList_size,
+                propDescription: 'Size variant of the ActionList',
+                defaultPropValue: "Medium",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            size="Small"
+                            items={[{ id: "small", label: "Small ActionList", leading: <User size={16} /> }]}
+                        >
+                            <Button size="Small" variant="Secondary">Small</Button>
+                        </Actionlist>
+                        <Actionlist
+                            size="Medium"
+                            items={[{ id: "medium", label: "Medium ActionList", leading: <User size={16} /> }]}
+                        >
+                            <Button size="Medium" variant="Secondary">Medium</Button>
+                        </Actionlist>
+                        <Actionlist
+                            size="Large"
+                            items={[{ id: "large", label: "Large ActionList", leading: <User size={16} /> }]}
+                        >
+                            <Button size="Large" variant="Secondary">Large</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { User } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            size="Large"
+                            items={[{ id: "large", label: "Large ActionList", leading: <User size={16} /> }]}
+                        >
+                            <Button size="Large" variant="Secondary">Large</Button>
+                        </Actionlist>
+                    );
+                }`
+            },
+            {
+                propName: 'variant',
+                propValues: ActionList_variant,
+                propDescription: 'Visual variant of the ActionList',
+                defaultPropValue: "Default",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            variant="Default"
+                            items={[{ id: "default", label: "Default Variant", leading: <Heart size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Default</Button>
+                        </Actionlist>
+                        <Actionlist
+                            variant="Bordered"
+                            items={[{ id: "bordered", label: "Bordered Variant", leading: <Heart size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Bordered</Button>
+                        </Actionlist>
+                        <Actionlist
+                            variant="Elevated"
+                            items={[{ id: "elevated", label: "Elevated Variant", leading: <Heart size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Elevated</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { Heart } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            variant="Elevated"
+                            items={[{ id: "elevated", label: "Elevated Variant", leading: <Heart size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Elevated</Button>
+                        </Actionlist>
+                    );
+                }`
+            },
+            {
+                propName: 'trigger',
+                propValues: ActionList_trigger,
+                propDescription: 'How the ActionList is triggered',
+                defaultPropValue: "click",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            trigger="click"
+                            items={[{ id: "click", label: "Click to activate", leading: <Star size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Click Trigger</Button>
+                        </Actionlist>
+                        <Actionlist
+                            trigger="hover"
+                            items={[{ id: "hover", label: "Hover to activate", leading: <Star size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Hover Trigger</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { Star } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            trigger="hover"
+                            items={[{ id: "hover", label: "Hover to activate", leading: <Star size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Hover Trigger</Button>
+                        </Actionlist>
+                    );
+                }`
+            },
+            {
+                propName: 'placement',
+                propValues: ActionList_placement,
+                propDescription: 'Position of the dropdown relative to trigger',
+                defaultPropValue: "bottom-start",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            placement="bottom-start"
+                            items={[{ id: "bottom", label: "Bottom placement", leading: <ArrowLeft size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Bottom Start</Button>
+                        </Actionlist>
+                        <Actionlist
+                            placement="top-start"
+                            items={[{ id: "top", label: "Top placement", leading: <ArrowLeft size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Top Start</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { ArrowLeft } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            placement="top-start"
+                            items={[{ id: "top", label: "Top placement", leading: <ArrowLeft size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Top Start</Button>
+                        </Actionlist>
+                    );
+                }`
+            },
+            {
+                propName: 'disabled',
+                propValues: ActionList_disabled,
+                propDescription: 'Whether the ActionList is disabled',
+                defaultPropValue: "false",
+                propDemo:
+                    <FlexLayout direction="column" gap={4}>
+                        <Actionlist
+                            disabled={false}
+                            items={[{ id: "enabled", label: "Enabled ActionList", leading: <Save size={16} /> }]}
+                        >
+                            <Button variant="Secondary">Enabled</Button>
+                        </Actionlist>
+                        <Actionlist
+                            disabled={true}
+                            items={[{ id: "disabled", label: "Disabled ActionList", leading: <Save size={16} /> }]}
+                        >
+                            <Button variant="Secondary" isDisabled>Disabled</Button>
+                        </Actionlist>
+                    </FlexLayout>,
+                propCode: `
+                import { Actionlist, Button } from 'jiffy-ui';
+                import { Save } from 'jiffy-icons';
+                
+                export default function App() {
+                    return (
+                        <Actionlist
+                            disabled={true}
+                            items={[{ id: "disabled", label: "Disabled ActionList", leading: <Save size={16} /> }]}
+                        >
+                            <Button variant="Secondary" isDisabled>Disabled</Button>
+                        </Actionlist>
+                    );
+                }`
+            }
         ]
     },
 ]

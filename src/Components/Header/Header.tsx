@@ -1,6 +1,6 @@
-import { Hithub, Search, Menu } from 'jiffy-icons';
-import { HorizontalFlex, TextStyle } from 'jiffy-ui'
-import React, { useState } from 'react'
+import { Hithub, Search, Menu, Sun, Moon } from 'jiffy-icons';
+import { FlexLayout, TextStyle, Button } from 'jiffy-ui'
+import React, { useState, useEffect } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useSearch } from '../../contexts/SearchContext';
@@ -8,10 +8,26 @@ import { useSearch } from '../../contexts/SearchContext';
 const Header = () => {
     const [value, setValue] = useState("");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchFocused, setIsSearchFocused] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const { theme, toggleTheme } = useTheme();
     const { performSearch, clearSearch } = useSearch();
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname]);
 
     const navigation = [
         { name: 'Docs', href: '/docs' },
@@ -75,121 +91,147 @@ const Header = () => {
 
     return (
         <>
-            <header className='modern-header'>
-                <div className='header-container'>
-                    <HorizontalFlex blockAlign={{ "lg": "center" }} align={{ "lg": "spaceBetween" }}>
-                        {/* Logo and Brand */}
-                        <HorizontalFlex gap={24} blockAlign={{ "lg": "center" }}>
-                            <Link to="/" className='brand-link'>
-                                <div className='brand'>
-                                    <div className='brand-icon'>
-                                        <div className='brand-icon-inner'></div>
+            <header className={`redesigned-header ${isScrolled ? 'scrolled' : ''}`}>
+                <div className='header-content'>
+                    <div className='header-main'>
+                        {/* Left Section - Logo & Navigation */}
+                        <div className='header-left'>
+                            <Link to="/" className='brand-container'>
+                                <div className='brand-logo'>
+                                    <div className='logo-gradient'>
+                                        <span className='logo-icon'>✨</span>
                                     </div>
-                                    <TextStyle as='span' type='LgHeading'>
-                                        jiffy/ui
-                                    </TextStyle>
+                                    <div className='brand-text'>
+                                        <TextStyle as='span' type='LgHeading' className='brand-name'>
+                                            Jiffy
+                                        </TextStyle>
+                                        <span className='brand-accent'>UI</span>
+                                    </div>
                                 </div>
                             </Link>
 
                             {/* Desktop Navigation */}
-                            <nav className='desktop-nav'>
-                                <HorizontalFlex gap={8}>
+                            <nav className='nav-desktop'>
+                                <div className='nav-links'>
                                     {navigation.map((item) => (
                                         <Link
                                             key={item.name}
                                             to={item.href}
-                                            className={`nav-link ${isActiveRoute(item.href) ? 'active' : ''}`}
+                                            className={`nav-item ${isActiveRoute(item.href) ? 'active' : ''}`}
                                         >
-                                            <TextStyle as='span' type='MdBody'>
-                                                {item.name}
-                                            </TextStyle>
+                                            <span className='nav-text'>{item.name}</span>
+                                            {isActiveRoute(item.href) && <div className='nav-indicator' />}
                                         </Link>
                                     ))}
-                                </HorizontalFlex>
+                                </div>
                             </nav>
-                        </HorizontalFlex>
+                        </div>
 
-                        {/* Right Side Actions */}
-                        <HorizontalFlex gap={16} blockAlign={{ "lg": "center" }}>
-                            {/* Search */}
-                            <div className='search-container'>
-                                <div className='search-input-wrapper'>
-                                    <div className='search-field-wrapper'>
-                                        <form onSubmit={(e) => { e.preventDefault(); if (value.trim()) handleSearch(value); }} className='custom-search-field'>
-                                            <div style={{ cursor: 'pointer' }} onClick={handleSearchButtonClick}>
-                                            <Search size={16}  />
-                                            </div>
-                                            <input
-                                                type="text"
-                                                value={value}
-                                                onChange={(e) => setValue(e.target.value)}
-                                                onKeyDown={handleSearchSubmit}
-                                                placeholder='Search documentation...'
-className='search-input'
-                                            />
-                                            {value && (
-                                                <button 
-                                                    className='search-clear-btn'
-                                                    onClick={handleSearchClear}
-                                                    type="button"
-                                                >
-                                                    X
-                                                </button>
-                                            )}
-                                            <button type="submit" style={{ display: 'none' }}>Search</button>
-                                        </form>
-                                    </div>
-                                    <div className='search-shortcut'>
-                                        <TextStyle as='span' type='SmBody' textColor='Secondary'>
-                                            ⌘K
-                                        </TextStyle>
+                        {/* Right Section - Search & Actions */}
+                        <div className='header-right'>
+                            {/* Enhanced Search */}
+                            <div className={`search-enhanced ${isSearchFocused ? 'focused' : ''}`}>
+                                <div className='search-wrapper'>
+                                    <Search size={18} />
+                                    <input
+                                        type="text"
+                                        value={value}
+                                        onChange={(e) => setValue(e.target.value)}
+                                        onKeyDown={handleSearchSubmit}
+                                        onFocus={() => setIsSearchFocused(true)}
+                                        onBlur={() => setIsSearchFocused(false)}
+                                        placeholder='Search docs, components...'
+                                        className='search-field'
+                                    />
+                                    {value && (
+                                        <button 
+                                            className='search-clear'
+                                            onClick={handleSearchClear}
+                                            type="button"
+                                        >
+                                            ×
+                                        </button>
+                                    )}
+                                    <div className='search-kbd'>
+                                        <span>⌘</span>
+                                        <span>K</span>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* GitHub Link */}
-                            <a 
-                                href="https://github.com/jiffytechsolutions/JiffyDemo" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className='github-link'
-                            >
-                                <Hithub size={20} />
-                            </a>
+                            {/* Action Buttons */}
+                            <div className='action-buttons'>
+                                <button
+                                    className='action-btn github-btn'
+                                    onClick={() => window.open('https://github.com/jiffytechsolutions/JiffyDemo', '_blank')}
+                                    title="View on GitHub"
+                                >
+                                    <Hithub size={16} />
+                                </button>
+                                
+                                <button
+                                    className='action-btn theme-btn'
+                                    onClick={toggleTheme}
+                                    title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+                                >
+                                    {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+                                </button>
 
-                            {/* Theme Toggle */}
-                            <button className='theme-toggle' onClick={toggleTheme} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
-                                {theme === 'light' ? '🌙' : '☀️'}
-                            </button>
-
-                            {/* Mobile Menu Toggle */}
-                            <button 
-                                className='mobile-menu-toggle'
-                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            >
-                                {isMobileMenuOpen ? "X" : <Menu size={20} />}
-                            </button>
-                        </HorizontalFlex>
-                    </HorizontalFlex>
-
-                    {/* Mobile Navigation */}
-                    {isMobileMenuOpen && (
-                        <div className='mobile-nav'>
-                            <div className='mobile-nav-content'>
-                                {navigation.map((item) => (
-                                    <Link
-                                        key={item.name}
-                                        to={item.href}
-                                        className={`mobile-nav-link ${isActiveRoute(item.href) ? 'active' : ''}`}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                        <TextStyle as='span' type='MdBody'>
-                                            {item.name}
-                                        </TextStyle>
-                                    </Link>
-                                ))}
+                                <button
+                                    className='action-btn mobile-toggle'
+                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                >
+                                    {isMobileMenuOpen ? '×' : <Menu size={18} />}
+                                </button>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Mobile Navigation Overlay */}
+                    {isMobileMenuOpen && (
+                        <>
+                            <div className='mobile-overlay' onClick={() => setIsMobileMenuOpen(false)} />
+                            <div className='mobile-navigation'>
+                                <div className='mobile-nav-header'>
+                                    <TextStyle as='h3' type='MdHeading'>
+                                        Navigation
+                                    </TextStyle>
+                                </div>
+                                <div className='mobile-nav-body'>
+                                    {navigation.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            to={item.href}
+                                            className={`mobile-nav-item ${isActiveRoute(item.href) ? 'active' : ''}`}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            <span className='mobile-nav-text'>{item.name}</span>
+                                            {isActiveRoute(item.href) && <div className='mobile-nav-indicator' />}
+                                        </Link>
+                                    ))}
+                                </div>
+                                <div className='mobile-nav-footer'>
+                                    <div className='mobile-actions'>
+                                        <Button
+                                            variant="Secondary"
+                                            size="Small"
+                                            onClick={() => window.open('https://github.com/jiffytechsolutions/JiffyDemo', '_blank')}
+                                            icon={<Hithub size={16} />}
+                                        >
+                                            GitHub
+                                        </Button>
+                                        <Button
+                                            variant="Secondary"
+                                            size="Small"
+                                            onClick={toggleTheme}
+                                            icon={theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+                                        >
+                                            {theme === 'light' ? 'Dark' : 'Light'} Mode
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
                     )}
                 </div>
             </header>

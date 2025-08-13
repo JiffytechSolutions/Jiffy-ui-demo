@@ -9,6 +9,12 @@ function Routes1() {
         <Routes>
 
             <Route path="/TextStyle" element={<TextStyleComp component="TextStyle" />} />
+            <Route path="/PageTitle" element={<TextStyleComp component="PageTitle" />} />
+            <Route path="/Card" element={<TextStyleComp component="Card" />} />
+            <Route path="/ActionList" element={<TextStyleComp component="ActionList" />} />
+
+            
+            
             <Route path="/Accordion" element={<TextStyleComp component="Accordion" />} />
 
             <Route path="/Button" element={<TextStyleComp component="Button" />} />

@@ -1,5 +1,5 @@
 import { ArrowRight, Hithub, Copy } from 'jiffy-icons'
-import { Button, HorizontalFlex, TextStyle, VerticalFlex } from 'jiffy-ui'
+import { Button, TextStyle, FlexLayout } from 'jiffy-ui'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -32,16 +32,16 @@ const CallToAction = () => {
             {/* Interactive Demo Section */}
             <section className='demo-preview-section'>
                 <div className='container'>
-                    <VerticalFlex gap={36}>
+                    <FlexLayout direction='column' gap={5}>
                         <div className='section_heading'>
-                            <VerticalFlex gap={16}>
-                                <TextStyle as='h2' type='2XlHeading' alignment='Center'>
+                            <FlexLayout direction='column' gap={3}>
+                                <TextStyle as='h2' type='2XlHeading' alignment='center'>
                                     See Jiffy UI in Action
                                 </TextStyle>
-                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>
+                                <TextStyle as='p' type='LgBody' alignment='center' textColor='Secondary'>
                                     Experience the power and simplicity of our components
                                 </TextStyle>
-                            </VerticalFlex>
+                            </FlexLayout>
                         </div>
                         
                         <div className='interactive-demo-container'>
@@ -69,8 +69,8 @@ const CallToAction = () => {
                             <div className='demo-content'>
                                 {activeTab === 'live' && (
                                     <div className='demo-preview'>
-                                        <VerticalFlex gap={20}>
-                                            <HorizontalFlex gap={12}>
+                                        <FlexLayout direction='column' gap={3}>
+                                            <FlexLayout gap={3}>
                                                 <Button 
                                                     color='Primary' 
                                                     size='Medium'
@@ -79,7 +79,7 @@ const CallToAction = () => {
                                                     Primary
                                                 </Button>
                                                 <Button 
-                                                    variant='Secondry' 
+                                                    variant='Secondary' 
                                                     size='Medium'
                                                     onClick={() => alert('Secondary button clicked!')}
                                                 >
@@ -92,11 +92,11 @@ const CallToAction = () => {
                                                 >
                                                     Tertiary
                                                 </Button>
-                                            </HorizontalFlex>
-                                            <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
+                                            </FlexLayout>
+                                            <TextStyle as='p' type='MdBody' alignment='center' textColor='Secondary'>
                                                 ✨ Click the buttons above to see them in action!
                                             </TextStyle>
-                                        </VerticalFlex>
+                                        </FlexLayout>
                                     </div>
                                 )}
                                 
@@ -123,7 +123,7 @@ function MyComponent() {
 }`}</code>
                                             </pre>
                                         </div>
-                                        <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
+                                        <TextStyle as='p' type='MdBody' alignment='center' textColor='Secondary'>
                                             💻 Copy this code to use in your project
                                         </TextStyle>
                                     </div>
@@ -132,8 +132,8 @@ function MyComponent() {
                                 {activeTab === 'props' && (
                                     <div className='demo-props'>
                                         <div className='props-table'>
-                                            <VerticalFlex gap={16}>
-                                                <TextStyle as='h4' type='MdHeading' alignment='Center'>
+                                            <FlexLayout direction='column' gap={3}>
+                                                <TextStyle as='h4' type='MdHeading' alignment='center'>
                                                     Button Props
                                                 </TextStyle>
                                                 <div className='props-grid'>
@@ -162,16 +162,16 @@ function MyComponent() {
                                                         </TextStyle>
                                                     </div>
                                                 </div>
-                                            </VerticalFlex>
+                                            </FlexLayout>
                                         </div>
-                                        <TextStyle as='p' type='MdBody' alignment='Center' textColor='Secondary'>
+                                        <TextStyle as='p' type='MdBody' alignment='center' textColor='Secondary'>
                                             📚 Complete API documentation for Button component
                                         </TextStyle>
                                     </div>
                                 )}
                             </div>
                         </div>
-                    </VerticalFlex>
+                    </FlexLayout>
                 </div>
             </section>
 
@@ -180,24 +180,24 @@ function MyComponent() {
                 <div className='cta-particles'></div>
                 <div className='container'>
                     <div className='cta-container'>
-                        <VerticalFlex gap={32}>
-                            <VerticalFlex gap={16}>
+                        <FlexLayout direction='column' gap={4}>
+                            <FlexLayout direction='column' gap={3}>
                                 <div className='cta-icon'>
                                     ✨
                                 </div>
-                                <TextStyle as='h2' type='2XlHeading' alignment='Center'>
+                                <TextStyle as='h2' type='2XlHeading' alignment='center'>
                                     Ready to Build Something Amazing?
                                 </TextStyle>
-                                <TextStyle as='p' type='LgBody' alignment='Center' textColor='Secondary'>
+                                <TextStyle as='p' type='LgBody' alignment='center' textColor='Secondary'>
                                     Join thousands of developers building beautiful React applications with Jiffy UI. 
                                     Start your journey in just 3 simple steps.
                                 </TextStyle>
-                            </VerticalFlex>
+                            </FlexLayout>
                             
                             {/* Interactive Installation Steps */}
                             <div className='installation-steps'>
-                                <VerticalFlex gap={20}>
-                                    <TextStyle as='h3' type='LgHeading' alignment='Center'>
+                                <FlexLayout direction='column' gap={5}>
+                                    <TextStyle as='h3' type='LgHeading' alignment='center'>
                                         Get Started in 3 Steps
                                     </TextStyle>
                                     <div className='steps-container'>
@@ -226,10 +226,10 @@ function MyComponent() {
                                             </div>
                                         ))}
                                     </div>
-                                </VerticalFlex>
+                                </FlexLayout>
                             </div>
                             
-                            <HorizontalFlex align={{ "lg": "center" }} gap={16}>
+                            <FlexLayout align={{ "lg": "center" }} gap={3}>
                                 <Link to="/pannel">
                                     <Button 
                                         color='Primary' 
@@ -242,14 +242,14 @@ function MyComponent() {
                                 </Link>
                                 <Button 
                                     size='Large' 
-                                    variant='Secondry' 
+                                    variant='Secondary' 
                                     icon={<Hithub size={16} />} 
                                     alignIcon='Left'
                                 >
                                     View on GitHub
                                 </Button>
-                            </HorizontalFlex>
-                        </VerticalFlex>
+                            </FlexLayout>
+                        </FlexLayout>
                     </div>
                 </div>
             </section>

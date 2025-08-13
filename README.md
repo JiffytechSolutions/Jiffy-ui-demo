@@ -1,4 +1,4 @@
-# 🚀 Jiffy UI Demo
+# 🚀 Jiffy UI
 
 > A modern, minimal, and accessible React UI library built with TailwindCSS
 
@@ -53,7 +53,7 @@ function App() {
 
 ## 🎮 Demo & Documentation
 
-🔗 **[Live Demo](https://jiffytechsolutions.github.io/JiffyDemo/)**
+🔗 **[Live Demo](https://jiffytechsolutions.github.io/Jiffy-ui-demo/)**
 
 Explore our interactive component playground to see all components in action with live code examples.
 
@@ -97,10 +97,10 @@ Explore our interactive component playground to see all components in action wit
 
 ```bash
 # Clone the repository
-git clone https://github.com/JiffytechSolutions/JiffyDemo.git
+git clone https://github.com/JiffytechSolutions/jiffy-ui
 
 # Navigate to project directory
-cd JiffyDemo
+cd jiffy-ui
 
 # Install dependencies
 npm install
