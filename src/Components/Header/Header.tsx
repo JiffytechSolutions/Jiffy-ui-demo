@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useSearch } from '../../contexts/SearchContext';
+import Footer from '../Footer/Footer';
+import logo from '../../assets/uiLogo.png'
 
 const Header = () => {
     const [value, setValue] = useState("");
@@ -31,9 +33,9 @@ const Header = () => {
 
     const navigation = [
         { name: 'Docs', href: '/docs' },
-        { name: 'Components', href: '/pannel' },
-        { name: 'Blocks', href: '/blocks' },
-        { name: 'Charts', href: '/charts' },
+        { name: 'Components', href: '/pannel/PageTitle' },
+        // { name: 'Blocks', href: '/blocks' },
+        // { name: 'Charts', href: '/charts' },
         { name: 'Themes', href: '/themes' },
         { name: 'Colors', href: '/colors' }
     ];
@@ -97,7 +99,7 @@ const Header = () => {
                         {/* Left Section - Logo & Navigation */}
                         <div className='header-left'>
                             <Link to="/" className='brand-container'>
-                                <div className='brand-logo'>
+                                {/* <div className='brand-logo'>
                                     <div className='logo-gradient'>
                                         <span className='logo-icon'>✨</span>
                                     </div>
@@ -107,7 +109,8 @@ const Header = () => {
                                         </TextStyle>
                                         <span className='brand-accent'>UI</span>
                                     </div>
-                                </div>
+                                </div> */}
+                                <img src={logo} alt='Jiffy UI' />
                             </Link>
 
                             {/* Desktop Navigation */}
@@ -235,7 +238,10 @@ const Header = () => {
                     )}
                 </div>
             </header>
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
+            <Footer />
         </>
     )
 }

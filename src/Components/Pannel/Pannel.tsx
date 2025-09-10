@@ -6,10 +6,17 @@ import Header from '../Header/Header'
 
 const Pannel = () => {
     return (
-        <AppWrapper
-            sideBar={<AppSidebar />}
-         
-            content={Routes1()} />
+        <div className='docs-layout component-listing_page'>
+            {/* Sidebar */}
+            <aside className='components-listing docs-sidebar'>
+                <AppSidebar />
+            </aside>
+            
+            {/* Main Content Area */}
+            {/* <main className='component-list-main '> */}
+                {Routes1()}
+            {/* </main> */}
+        </div>
     )
 }
 

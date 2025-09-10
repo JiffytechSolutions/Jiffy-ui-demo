@@ -7,8 +7,8 @@ import Home from './Components/Home/Home';
 import Pannel from './Components/Pannel/Pannel';
 import Documentation from './Components/Documentation/Documentation';
 import SearchResults from './Components/SearchResults/SearchResults';
-import Blocks from './Components/Blocks/Blocks';
-import Charts from './Components/Charts/Charts';
+// import Blocks from './Components/Blocks/Blocks';
+// import Charts from './Components/Charts/Charts';
 import Themes from './Components/Themes/Themes';
 import Colors from './Components/Colors/Colors';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -26,8 +26,8 @@ function App() {
                 <Route path="/docs" element={<Documentation />} />
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/pannel/*" element={<Pannel />} />
-                <Route path="/blocks" element={<Blocks />} />
-                <Route path="/charts" element={<Charts />} />
+                {/* <Route path="/blocks" element={<Blocks />} /> */}
+                {/* <Route path="/charts" element={<Charts />} /> */}
                 <Route path="/themes" element={<Themes />} />
                 <Route path="/colors" element={<Colors />} />
               </Route>

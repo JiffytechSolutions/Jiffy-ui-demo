@@ -1,85 +1,80 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface ThemeContextType {
-    theme: Theme;
-    toggleTheme: () => void;
-    setTheme: (theme: Theme) => void;
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+  theme: 'light' | 'dark';
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const useTheme = () => {
-    const context = useContext(ThemeContext);
-    if (context === undefined) {
-        throw new Error('useTheme must be used within a ThemeProvider');
-    }
-    return context;
-};
-
 interface ThemeProviderProps {
-    children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setThemeState] = useState<Theme>(() => {
-        // Check localStorage first
-        const savedTheme = localStorage.getItem('jiffy-ui-theme') as Theme;
-        if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-            return savedTheme;
-        }
-        
-        // Check system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        
-        return 'light';
-    });
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check for saved theme preference or default to light mode
+    const saved = localStorage.getItem('theme');
+    return saved === 'dark';
+  });
 
-    const setTheme = (newTheme: Theme) => {
-        console.log('Setting theme to:', newTheme);
-        setThemeState(newTheme);
-        localStorage.setItem('jiffy-ui-theme', newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
-        console.log('Document theme attribute set to:', document.documentElement.getAttribute('data-theme'));
-    };
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        console.log('Toggling theme from', theme, 'to', newTheme);
-        setTheme(newTheme);
-    };
+  const theme = isDarkMode ? 'dark' : 'light';
 
-    useEffect(() => {
-        // Set initial theme
-        console.log('useEffect: Setting initial theme to:', theme);
-        document.documentElement.setAttribute('data-theme', theme);
-        console.log('useEffect: Document theme attribute:', document.documentElement.getAttribute('data-theme'));
-        
-        // Listen for system theme changes
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const handleChange = (e: MediaQueryListEvent) => {
-            if (!localStorage.getItem('jiffy-ui-theme')) {
-                console.log('System theme changed to:', e.matches ? 'dark' : 'light');
-                setTheme(e.matches ? 'dark' : 'light');
-            }
-        };
+  useEffect(() => {
+    // Save theme preference
+    localStorage.setItem('theme', theme);
+    
+    // Apply theme to document
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Apply CSS variables for theme
+    const root = document.documentElement;
+    
+    if (isDarkMode) {
+      root.style.setProperty('--bg-primary', '#1f1f1f');
+      root.style.setProperty('--bg-secondary', '#2d2d2d');
+      root.style.setProperty('--bg-tertiary', '#3a3a3a');
+      root.style.setProperty('--text-primary', '#ffffff');
+      root.style.setProperty('--text-secondary', '#b3b3b3');
+      root.style.setProperty('--text-tertiary', '#8c8c8c');
+      root.style.setProperty('--border-color', '#404040');
+      root.style.setProperty('--shadow-light', 'rgba(255, 255, 255, 0.1)');
+      root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.3)');
+      root.style.setProperty('--card-bg', '#262626');
+      root.style.setProperty('--gradient-primary', 'linear-gradient(135deg, #1890ff, #722ed1)');
+      root.style.setProperty('--gradient-secondary', 'linear-gradient(135deg, #2d2d2d, #1f1f1f)');
+    } else {
+      root.style.setProperty('--bg-primary', '#ffffff');
+      root.style.setProperty('--bg-secondary', '#fafafa');
+      root.style.setProperty('--bg-tertiary', '#f5f5f5');
+      root.style.setProperty('--text-primary', '#262626');
+      root.style.setProperty('--text-secondary', '#595959');
+      root.style.setProperty('--text-tertiary', '#8c8c8c');
+      root.style.setProperty('--border-color', '#f0f0f0');
+      root.style.setProperty('--shadow-light', 'rgba(0, 0, 0, 0.04)');
+      root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.15)');
+      root.style.setProperty('--card-bg', '#ffffff');
+      root.style.setProperty('--gradient-primary', 'linear-gradient(135deg, #1890ff, #722ed1)');
+      root.style.setProperty('--gradient-secondary', 'linear-gradient(135deg, #f5f7fa, #c3cfe2)');
+    }
+  }, [isDarkMode, theme]);
 
-        mediaQuery.addEventListener('change', handleChange);
-        return () => mediaQuery.removeEventListener('change', handleChange);
-    }, [theme]);
+  return (
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme, theme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
-    const value = {
-        theme,
-        toggleTheme,
-        setTheme
-    };
-
-    return (
-        <ThemeContext.Provider value={value}>
-            {children}
-        </ThemeContext.Provider>
-    );
+export const useTheme = (): ThemeContextType => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
 };

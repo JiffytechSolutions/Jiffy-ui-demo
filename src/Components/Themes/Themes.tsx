@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextStyle, Button, Card, FlexLayout, Grid } from 'jiffy-ui';
+import { TextStyle, Button, Card, FlexLayout, Grid, FlexLayoutItem } from 'jiffy-ui';
 import { ArrowRight, Copy, ExternalLink, Sun, Moon, Monitor, Download, Eye, EyeOff } from 'jiffy-icons';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -211,16 +211,17 @@ ${cssVars}
                 <div className="page-header">
                     <FlexLayout direction="column" gap={4}>
                         <div>
-                            <TextStyle as="h1" type="2XlHeading">
+                            <TextStyle as="h1" size='2xl'  alignment='start'>
                                 Theme System
                             </TextStyle>
-                            <TextStyle as="p" type="LgBody" textColor="Secondary">
+                            <TextStyle as="p" size='md' tone='subdued' alignment='start'>
                                 Explore and customize themes for your Jiffy UI components. Switch between light and dark modes,
                                 or create your own custom color palette to match your brand.
                             </TextStyle>
                         </div>
                         
                         <FlexLayout gap={3}>
+                            <FlexLayoutItem>
                             <Button 
                                 color="Primary" 
                                 icon={theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
@@ -229,11 +230,14 @@ ${cssVars}
                             >
                                 Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
                             </Button>
+                            </FlexLayoutItem>
+                            <FlexLayoutItem>
                             <Link to="/pannel">
                                 <Button variant="Secondary" icon={<EyeOff size={16} />} alignIcon="Left">
                                     View Components
                                 </Button>
                             </Link>
+                            </FlexLayoutItem>
                         </FlexLayout>
                     </FlexLayout>
                 </div>
@@ -343,7 +347,7 @@ ${cssVars}
                 </section>
 
                 {/* Custom Themes */}
-                <section className="theme-section">
+                {/* <section className="theme-section">
                     <div className="section-header">
                         <TextStyle as="h2" type="XlHeading">
                             Custom Themes
@@ -427,10 +431,10 @@ ${cssVars}
                             </Card>
                         ))}
                     </Grid>
-                </section>
+                </section> */}
 
                 {/* Implementation Guide */}
-                <section className="implementation-section">
+                {/* <section className="implementation-section">
                     <Card variant="outlined" className="implementation-card">
                         <FlexLayout direction="column" gap={4}>
                             <div className="section-header">
@@ -461,7 +465,6 @@ ${cssVars}
                                         <code>{`:root {
   --bg-primary: #ffffff;
   --text-primary: #0f172a;
-  /* Add more variables */
 }`}</code>
                                     </pre>
                                 </div>
@@ -512,7 +515,7 @@ ${cssVars}
                             </Grid>
                         </FlexLayout>
                     </Card>
-                </section>
+                </section> */}
 
                 {/* Call to Action */}
                 <div className="themes-cta">

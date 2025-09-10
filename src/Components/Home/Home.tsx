@@ -1,12 +1,14 @@
 import React from 'react'
-import Banner from '../Banner/Banner'
+
 import ComponentList from '../ComponentList/ComponentList'
 import CallToAction from '../CallToAction/CallToAction'
+import InteractiveHero from './InteractiveHero'
+import './Home.css'
 
 const Home = () => {
     return (
         <div className='home-page'>
-            <Banner />
+            <InteractiveHero />
             <ComponentList />
             <CallToAction />
         </div>

@@ -1,9 +1,8 @@
-import { Actionlist, Button, ButtonGroup, Card, Checkbox, CheckboxGroup, FileUpload, FlexLayout, PageTitle, TextArea, TextField, TextLink, TextStyle } from "jiffy-ui";
+import { Actionlist, Button, ButtonGroup, Card, Checkbox, FileUpload, FlexLayout, PageTitle, TextArea, TextField, TextLink, TextStyle } from "jiffy-ui";
 import React, { useContext } from "react";
 import { ActionList_children, ActionList_className, ActionList_closeOnSelect, ActionList_disabled, ActionList_items, ActionList_maxHeight, ActionList_onItemSelect, ActionList_onOpenChange, ActionList_placement, ActionList_size, ActionList_style, ActionList_trigger, ActionList_variant, CardAction_disabled, CardAction_icon, CardAction_iconPosition, CardAction_label, CardAction_loading, CardAction_onClick, CardAction_size, CardAction_variant, CardSection_actions, CardSection_content, CardSection_subtitle, CardSection_title, Card_ariaLabel, Card_backgroundColor, Card_borderColor, Card_children, Card_className, Card_disabled, Card_divided, Card_footer, Card_header, Card_height, Card_interactive, Card_loading, Card_onClick, Card_onSelectionChange, Card_orientation, Card_padding, Card_radius, Card_selectable, Card_selected, Card_size, Card_style, Card_testId, Card_variant, Card_width, CheckboxGroup_direction, CheckboxGroup_helpIcon, CheckboxGroup_helpText, CheckboxGroup_name, CheckboxGroup_onChange, CheckboxGroup_options, CheckboxGroup_title, CheckboxGroup_value, Checkbox_checked, Checkbox_hasError, Checkbox_isDisabled, Checkbox_label, Checkbox_name, Checkbox_onChange, Checkbox_required, Checkbox_value, FileUpload_accept, FileUpload_helpIcon, FileUpload_helpText, FileUpload_isDisabled, FileUpload_isDragable, FileUpload_isFileUploaded, FileUpload_isMultiple, FileUpload_maxCount, FileUpload_maxSize, FileUpload_onChange, FileUpload_onError, FileUpload_onRemove, PageTitleAction_disabled, PageTitleAction_icon, PageTitleAction_label, PageTitleAction_loading, PageTitleAction_onClick, PageTitleAction_size, PageTitleAction_variant, PageTitleBadge_size, PageTitleBadge_subtle, PageTitleBadge_text, PageTitleBadge_variant, PageTitle_backButtonLabel, PageTitle_badge, PageTitle_className, PageTitle_onBackClick, PageTitle_primaryAction, PageTitle_secondaryActions, PageTitle_showBackButton, PageTitle_style, PageTitle_subtitle, PageTitle_testId, PageTitle_title, SecondaryActionItem_description, SecondaryActionItem_disabled, SecondaryActionItem_id, SecondaryActionItem_label, SecondaryActionItem_leading, SecondaryActionItem_onClick, SecondaryActionItem_variant, TextArea_error, TextArea_helpText, TextArea_label, TextArea_onChange, TextArea_placeholder, TextArea_readOnly, TextArea_required, TextArea_resize, TextArea_rows, TextArea_value, TextField_autoFocus, TextField_helpIcon, TextField_helpText, TextField_isClearable, TextField_isDisabled, TextField_isRequired, TextField_label, TextField_max, TextField_maxlength, TextField_min, TextField_onBlur, TextField_onChange, TextField_onClear, TextField_onFocus, TextField_onKeyUp, TextField_placeholder, TextField_prefix, TextField_size, TextField_step, TextField_suffix, TextField_type, TextField_value, TextField_variant, TextLink_customClass_prop, TextLink_iconAlign_prop, TextLink_icon_prop, TextLink_isDisabled_prop, TextLink_label_prop, TextLink_linkType_prop, TextLink_onClick_prop, TextLink_target_prop, TextLink_url_prop, TypeProp, alignmentProp, asProps, btnActiveProp, btnBadgeProp, btnBadgeVariantProp, btnClassNameProp, btnColorProps, btnCompactProp, btnElevatedProp, btnGrpChildrenProp, btnGrpsegmentedProp, btnHrefProp, btnIsDisabledProp, btnOutlinedProp, btnPressedProp, btnRelProp, btnRoundedProp, btnSizeProps, btnSuffixIconProp, btnTargetProp, btnTypeProp, btnVariantProps, btnalignIconProp, btniconOnlyProp, btniconProp, btnisFullWidthProp, btnisLoadingProp, btnonClickProp, btnchildrenProp, childrenProp, fontweightProp, textColorProp, textDecorationProp, textStyleProp } from "./AllProps";
 import { AlertCircle, ArrowLeft, Download, Edit, ExternalLink, Heart, Save, Setting, Share, Star, Trash, Upload, User, UserMinus } from "jiffy-icons";
 import { MyContext } from "../../context/Context";
-import { CheckBoxTitle, CheckboxGroupHelpText, CheckboxGroupHorizontal, CheckboxGroupVerical } from "../component/comp/CheckboxGroup/CheckBoxTitle";
 
 export function CheckboxComp(props?: any) {
     const { id } = props;
@@ -43,30 +42,30 @@ const options = [
         value: "Checkbox3",
     },
 ];
-export function CheckboxGroupComp(props?: any) {
-    const { id } = props;
-    const { flag, setFlag } = useContext<any>(MyContext);
-    const handleCheck = () => {
-        const new1 = new Set(flag);
-        if (new1.has(id)) {
-            new1.delete(id)
-        }
-        else {
-            new1.add(id)
-        }
-        setFlag(new1)
-    }
-    return (
-        <CheckboxGroup
-            key={props.index}
-            title={props.title}
-            onChange={handleCheck}
-            options={options}
-        // checked={flag.has(id)}
-        // required={props.required}
-        />
-    )
-}
+// export function CheckboxGroupComp(props?: any) {
+//     const { id } = props;
+//     const { flag, setFlag } = useContext<any>(MyContext);
+//     const handleCheck = () => {
+//         const new1 = new Set(flag);
+//         if (new1.has(id)) {
+//             new1.delete(id)
+//         }
+//         else {
+//             new1.add(id)
+//         }
+//         setFlag(new1)
+//     }
+//     return (
+//         <CheckboxGroup
+//             key={props.index}
+//             title={props.title}
+//             onChange={handleCheck}
+//             options={options}
+//         // checked={flag.has(id)}
+//         // required={props.required}
+//         />
+//     )
+// }
 
 export const TextStyleData = [
     {
@@ -1234,211 +1233,211 @@ export const TextStyleData = [
         ]
     },
 
-    {
-        componentName: "CheckboxGroup",
-        componentDescription: "Lorem ipsum",
-        compImport: "import { CheckboxGroup } from 'jiffy-ui'",
-        PropsDetail: [
-            {
-                propName: 'title',
-                propValues: CheckboxGroup_title,
-                propDescription: 'The default style of ActionIcon component',
-                defaultPropValue: "--",
-                propDemo: <CheckBoxTitle />,
-                propCode: `
-                import { CheckboxGroup } from 'jiffy-ui'
-                function App() {
-                    const options = [
-                        {
-                            label: "Checkbox1",
-                            value: "Checkbox1",
-                        },
-                        {
-                            label: "Checkbox2",
-                            value: "Checkbox2",
-                        },
-                        {
-                            label: "Checkbox3",
-                            value: "Checkbox3",
-                        },
-                    ];
-                    const [grpVal, setGrpVal] = useState<any[]>([]);
-                    const handleCheckboxGroupChange = useCallback((val: any[]) => {
-                        setGrpVal([...val]);
-                    }, []);
-                    return (
-                        <CheckboxGroup
-                            title="Checkbox group"
-                            value={[...grpVal]}
-                            name="name"
-                            options={options}
-                            onChange={handleCheckboxGroupChange}
-                            helpText="This is help text."
-                        />
-                    )
-                }`
-            },
-            {
-                propName: 'name',
-                propValues: CheckboxGroup_name,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "--",
-                propDemo: '',
-                propCode: ``
-            },
-            {
-                propName: 'value',
-                propValues: CheckboxGroup_value,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "--",
-                propDemo: '',
-                propCode: ``
-            },
-            {
-                propName: 'onChange',
-                propValues: CheckboxGroup_onChange,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "false",
-                propDemo: '',
-                propCode: ``
-            },
-            {
-                propName: 'options',
-                propValues: CheckboxGroup_options,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "--",
-                propDemo: <CheckBoxTitle />,
-                propCode: `
-                import { CheckboxGroup } from 'jiffy-ui'
-                function App() {
-                    const options = [
-                        {
-                            label: "Checkbox1",
-                            value: "Checkbox1",
-                        },
-                        {
-                            label: "Checkbox2",
-                            value: "Checkbox2",
-                        },
-                        {
-                            label: "Checkbox3",
-                            value: "Checkbox3",
-                        },
-                    ];
-                    const [grpVal, setGrpVal] = useState<any[]>([]);
-                    const handleCheckboxGroupChange = useCallback((val: any[]) => {
-                        setGrpVal([...val]);
-                    }, []);
-                    return (
-                        <CheckboxGroup
-                            title="Checkbox group"
-                            value={[...grpVal]}
-                            name="name"
-                            options={options}
-                            onChange={handleCheckboxGroupChange}
-                            helpText="This is help text."
-                        />
-                    )
-                }`
-            },
-            {
-                propName: 'direction',
-                propValues: CheckboxGroup_direction,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "--",
-                propDemo: <FlexLayout direction="column" gap={4}>
-                    <CheckboxGroupHorizontal />
-                    <CheckboxGroupVerical />
-                </FlexLayout>,
-                propCode: `
-                import { CheckboxGroup } from 'jiffy-ui'
-                function App() {
-                    const options = [
-                        {
-                            label: "Checkbox1",
-                            value: "Checkbox1",
-                        },
-                        {
-                            label: "Checkbox2",
-                            value: "Checkbox2",
-                        },
-                        {
-                            label: "Checkbox3",
-                            value: "Checkbox3",
-                        },
-                    ];
-                    const [grpVal, setGrpVal] = useState<any[]>([]);
-                    const handleCheckboxGroupChange = useCallback((val: any[]) => {
-                        setGrpVal([...val]);
-                    }, []);
-                    return (
-                        <CheckboxGroup
-                            direction='horizontal'
-                            title="Checkbox group"
-                            value={[...grpVal]}
-                            name="name"
-                            options={options}
-                            onChange={handleCheckboxGroupChange}
-                            helpText="This is help text."
-                        />
-                    )
-                }
-                `
-            },
-            {
-                propName: 'helpText',
-                propValues: CheckboxGroup_helpText,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "--",
-                propDemo: '',
-                propCode: `
-                import { CheckboxGroup } from 'jiffy-ui'
-                function App() {
-                    const options = [
-                        {
-                            label: "Checkbox1",
-                            value: "Checkbox1",
-                        },
-                        {
-                            label: "Checkbox2",
-                            value: "Checkbox2",
-                        },
-                        {
-                            label: "Checkbox3",
-                            value: "Checkbox3",
-                        },
-                    ];
-                    const [grpVal, setGrpVal] = useState<any[]>([]);
-                    const handleCheckboxGroupChange = useCallback((val: any[]) => {
-                        setGrpVal([...val]);
-                    }, []);
-                    return (
-                        <CheckboxGroup
-                            direction='horizontal'
-                            title="Checkbox group"
-                            value={[...grpVal]}
-                            name="name"
-                            options={options}
-                            onChange={handleCheckboxGroupChange}
-                            helpText="This is help text."
-                            helpIcon={<Setting size={14} />}
-                        />
-                    )
-                }
-                `
-            },
+    // {
+    //     componentName: "CheckboxGroup",
+    //     componentDescription: "Lorem ipsum",
+    //     compImport: "import { CheckboxGroup } from 'jiffy-ui'",
+    //     PropsDetail: [
+    //         {
+    //             propName: 'title',
+    //             propValues: CheckboxGroup_title,
+    //             propDescription: 'The default style of ActionIcon component',
+    //             defaultPropValue: "--",
+    //             propDemo: <CheckBoxTitle />,
+    //             propCode: `
+    //             import { CheckboxGroup } from 'jiffy-ui'
+    //             function App() {
+    //                 const options = [
+    //                     {
+    //                         label: "Checkbox1",
+    //                         value: "Checkbox1",
+    //                     },
+    //                     {
+    //                         label: "Checkbox2",
+    //                         value: "Checkbox2",
+    //                     },
+    //                     {
+    //                         label: "Checkbox3",
+    //                         value: "Checkbox3",
+    //                     },
+    //                 ];
+    //                 const [grpVal, setGrpVal] = useState<any[]>([]);
+    //                 const handleCheckboxGroupChange = useCallback((val: any[]) => {
+    //                     setGrpVal([...val]);
+    //                 }, []);
+    //                 return (
+    //                     <CheckboxGroup
+    //                         title="Checkbox group"
+    //                         value={[...grpVal]}
+    //                         name="name"
+    //                         options={options}
+    //                         onChange={handleCheckboxGroupChange}
+    //                         helpText="This is help text."
+    //                     />
+    //                 )
+    //             }`
+    //         },
+    //         {
+    //             propName: 'name',
+    //             propValues: CheckboxGroup_name,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "--",
+    //             propDemo: '',
+    //             propCode: ``
+    //         },
+    //         {
+    //             propName: 'value',
+    //             propValues: CheckboxGroup_value,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "--",
+    //             propDemo: '',
+    //             propCode: ``
+    //         },
+    //         {
+    //             propName: 'onChange',
+    //             propValues: CheckboxGroup_onChange,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "false",
+    //             propDemo: '',
+    //             propCode: ``
+    //         },
+    //         {
+    //             propName: 'options',
+    //             propValues: CheckboxGroup_options,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "--",
+    //             propDemo: <CheckBoxTitle />,
+    //             propCode: `
+    //             import { CheckboxGroup } from 'jiffy-ui'
+    //             function App() {
+    //                 const options = [
+    //                     {
+    //                         label: "Checkbox1",
+    //                         value: "Checkbox1",
+    //                     },
+    //                     {
+    //                         label: "Checkbox2",
+    //                         value: "Checkbox2",
+    //                     },
+    //                     {
+    //                         label: "Checkbox3",
+    //                         value: "Checkbox3",
+    //                     },
+    //                 ];
+    //                 const [grpVal, setGrpVal] = useState<any[]>([]);
+    //                 const handleCheckboxGroupChange = useCallback((val: any[]) => {
+    //                     setGrpVal([...val]);
+    //                 }, []);
+    //                 return (
+    //                     <CheckboxGroup
+    //                         title="Checkbox group"
+    //                         value={[...grpVal]}
+    //                         name="name"
+    //                         options={options}
+    //                         onChange={handleCheckboxGroupChange}
+    //                         helpText="This is help text."
+    //                     />
+    //                 )
+    //             }`
+    //         },
+    //         {
+    //             propName: 'direction',
+    //             propValues: CheckboxGroup_direction,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "--",
+    //             propDemo: <FlexLayout direction="column" gap={4}>
+    //                 <CheckboxGroupHorizontal />
+    //                 <CheckboxGroupVerical />
+    //             </FlexLayout>,
+    //             propCode: `
+    //             import { CheckboxGroup } from 'jiffy-ui'
+    //             function App() {
+    //                 const options = [
+    //                     {
+    //                         label: "Checkbox1",
+    //                         value: "Checkbox1",
+    //                     },
+    //                     {
+    //                         label: "Checkbox2",
+    //                         value: "Checkbox2",
+    //                     },
+    //                     {
+    //                         label: "Checkbox3",
+    //                         value: "Checkbox3",
+    //                     },
+    //                 ];
+    //                 const [grpVal, setGrpVal] = useState<any[]>([]);
+    //                 const handleCheckboxGroupChange = useCallback((val: any[]) => {
+    //                     setGrpVal([...val]);
+    //                 }, []);
+    //                 return (
+    //                     <CheckboxGroup
+    //                         direction='horizontal'
+    //                         title="Checkbox group"
+    //                         value={[...grpVal]}
+    //                         name="name"
+    //                         options={options}
+    //                         onChange={handleCheckboxGroupChange}
+    //                         helpText="This is help text."
+    //                     />
+    //                 )
+    //             }
+    //             `
+    //         },
+    //         {
+    //             propName: 'helpText',
+    //             propValues: CheckboxGroup_helpText,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "--",
+    //             propDemo: '',
+    //             propCode: `
+    //             import { CheckboxGroup } from 'jiffy-ui'
+    //             function App() {
+    //                 const options = [
+    //                     {
+    //                         label: "Checkbox1",
+    //                         value: "Checkbox1",
+    //                     },
+    //                     {
+    //                         label: "Checkbox2",
+    //                         value: "Checkbox2",
+    //                     },
+    //                     {
+    //                         label: "Checkbox3",
+    //                         value: "Checkbox3",
+    //                     },
+    //                 ];
+    //                 const [grpVal, setGrpVal] = useState<any[]>([]);
+    //                 const handleCheckboxGroupChange = useCallback((val: any[]) => {
+    //                     setGrpVal([...val]);
+    //                 }, []);
+    //                 return (
+    //                     <CheckboxGroup
+    //                         direction='horizontal'
+    //                         title="Checkbox group"
+    //                         value={[...grpVal]}
+    //                         name="name"
+    //                         options={options}
+    //                         onChange={handleCheckboxGroupChange}
+    //                         helpText="This is help text."
+    //                         helpIcon={<Setting size={14} />}
+    //                     />
+    //                 )
+    //             }
+    //             `
+    //         },
 
-            {
-                propName: 'helpIcon',
-                propValues: CheckboxGroup_helpIcon,
-                propDescription: 'The default style of ActionIcon component.',
-                defaultPropValue: "--",
-                propDemo: <CheckboxGroupHelpText />,
-                propCode: ``
-            },
+    //         {
+    //             propName: 'helpIcon',
+    //             propValues: CheckboxGroup_helpIcon,
+    //             propDescription: 'The default style of ActionIcon component.',
+    //             defaultPropValue: "--",
+    //             propDemo: <CheckboxGroupHelpText />,
+    //             propCode: ``
+    //         },
 
-        ]
-    },
+    //     ]
+    // },
     {
         componentName: "FileUpload",
         componentDescription: "Lorem ipsum",
@@ -1735,14 +1734,14 @@ export const TextStyleData = [
                         subtitle="E-commerce platform development"
                         badge={{
                             text: "In Progress",
-                            variant: "warning"
+                            color: "Notice"
                         }}
                     />
                     <PageTitle 
                         title="User Account" 
                         badge={{
                             text: "Active",
-                            variant: "success"
+                            color: "Positive"
                         }}
                     />
                 </FlexLayout>,

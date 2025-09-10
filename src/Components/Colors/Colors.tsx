@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextStyle, Button, Card, FlexLayout, Grid } from 'jiffy-ui';
+import { TextStyle, Button, Card, FlexLayout, Grid, FlexLayoutItem } from 'jiffy-ui';
 import { ArrowRight, Copy, ExternalLink, Eye, Download, EyeOff } from 'jiffy-icons';
 import { Link } from 'react-router-dom';
 
@@ -179,6 +179,7 @@ const Colors = () => {
                         </div>
                         
                         <FlexLayout gap={3}>
+                            <FlexLayoutItem>
                             <Button 
                                 color="Primary" 
                                 icon={<Download size={16} />}
@@ -187,16 +188,21 @@ const Colors = () => {
                             >
                                 Download Palette
                             </Button>
+                            </FlexLayoutItem>
+                            <FlexLayoutItem>
                             <Link to="/themes">
                                 <Button variant="Secondary" alignIcon="Left">
                                     View Themes
                                 </Button>
                             </Link>
+                            </FlexLayoutItem>
+                            <FlexLayoutItem>
                             <Link to="/pannel">
                                 <Button variant="Tertiary" alignIcon="Left">
                                     Components
                                 </Button>
                             </Link>
+                            </FlexLayoutItem>
                         </FlexLayout>
                     </FlexLayout>
                 </div>
@@ -205,90 +211,100 @@ const Colors = () => {
                 <div className="colors-content">
                     <FlexLayout direction="column" gap={3}>
                         {colorCategories.map((category, categoryIndex) => (
+                            <FlexLayoutItem>
                             <section key={categoryIndex} className="color-category">
                                 <FlexLayout direction="column" gap={4}>
+                                    <FlexLayoutItem>
                                     <div className="category-header">
-                                        <TextStyle as="h2" type="XlHeading">
+                                        <TextStyle as="h2" size='2xl' fontWeight='bold'>
                                             {category.name}
                                         </TextStyle>
-                                        <TextStyle as="p" type="MdBody" textColor="Secondary">
+                                        <TextStyle as="p" size='md' tone='subdued'>
                                             {category.description}
                                         </TextStyle>
                                     </div>
-
-                                    <div className="color-grid">
+                                    </FlexLayoutItem>
+                                    <FlexLayoutItem>
+                                    <FlexLayout gap={4}>
                                         {category.colors.map((color, colorIndex) => (
-                                            <Card key={colorIndex} variant="outlined" className="color-card">
-                                                <FlexLayout direction="column" gap={3}>
-                                                    <div 
-                                                        className="color-swatch-large"
-                                                        style={{ backgroundColor: color.hex }}
-                                                    >
-                                                        <div className="swatch-overlay">
-                                                            <Button
-                                                                variant="Tertiary"
-                                                                size="Small"
-                                                                icon={<Eye size={14} />}
-                                                                className="preview-btn"
-                                                            />
+                                            <FlexLayoutItem cols={{sm:'12',md:'6',lg:'3'}}>
+                                                <Card key={colorIndex} variant="outlined" className="color-card">
+                                                    <FlexLayout direction="column" gap={3}>
+                                                        <FlexLayoutItem>
+                                                        <div 
+                                                            className="color-swatch-large"
+                                                            style={{ backgroundColor: color.hex }}
+                                                        >
+                                                            {/* <div className="swatch-overlay">
+                                                                <Button
+                                                                    variant="Tertiary"
+                                                                    size="Small"
+                                                                    icon={<Eye size={14} />}
+                                                                    className="preview-btn"
+                                                                />
+                                                            </div> */}
                                                         </div>
-                                                    </div>
-
-                                                    <div className="color-info">
-                                                        <TextStyle as="h4" type="MdHeading">
-                                                            {color.name}
-                                                        </TextStyle>
-                                                        
-                                                        <div className="color-values">
-                                                            <div className="value-row">
-                                                                <span className="value-label">HEX</span>
-                                                                <div className="value-container">
-                                                                    <code className="value-code">{color.hex}</code>
-                                                                    <Button
-                                                                        variant="Tertiary"
-                                                                        size="Small"
-                                                                        icon={copiedColor === `${categoryIndex}-${colorIndex}-hex` ? 
-                                                                            <span>✓</span> : <Copy size={12} />}
-                                                                        onClick={() => copyToClipboard(color.hex, `${categoryIndex}-${colorIndex}-hex`)}
-                                                                    />
-                                                                </div>
-                                                            </div>
+                                                        </FlexLayoutItem>
+                                                        <FlexLayoutItem>
+                                                        <div className="color-info">
+                                                            <TextStyle as="h4" size='md' fontWeight='semibold'>
+                                                                {color.name}
+                                                            </TextStyle>
                                                             
-                                                            <div className="value-row">
-                                                                <span className="value-label">RGB</span>
-                                                                <div className="value-container">
-                                                                    <code className="value-code">{color.rgb}</code>
-                                                                    <Button
-                                                                        variant="Tertiary"
-                                                                        size="Small"
-                                                                        icon={copiedColor === `${categoryIndex}-${colorIndex}-rgb` ? 
-                                                                            <span>✓</span> : <Copy size={12} />}
-                                                                        onClick={() => copyToClipboard(`rgb(${color.rgb})`, `${categoryIndex}-${colorIndex}-rgb`)}
-                                                                    />
+                                                            <div className="color-values">
+                                                                <div className="value-row">
+                                                                    <span className="value-label">HEX</span>
+                                                                    <div className="value-container">
+                                                                        <code className="value-code">{color.hex}</code>
+                                                                        {/* <Button
+                                                                            variant="Tertiary"
+                                                                            size="Small"
+                                                                            icon={copiedColor === `${categoryIndex}-${colorIndex}-hex` ? 
+                                                                                <span>✓</span> : <Copy size={12} />}
+                                                                            onClick={() => copyToClipboard(color.hex, `${categoryIndex}-${colorIndex}-hex`)}
+                                                                        /> */}
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            
-                                                            <div className="value-row">
-                                                                <span className="value-label">HSL</span>
-                                                                <div className="value-container">
-                                                                    <code className="value-code">{color.hsl}</code>
-                                                                    <Button
-                                                                        variant="Tertiary"
-                                                                        size="Small"
-                                                                        icon={copiedColor === `${categoryIndex}-${colorIndex}-hsl` ? 
-                                                                            <span>✓</span> : <Copy size={12} />}
-                                                                        onClick={() => copyToClipboard(`hsl(${color.hsl})`, `${categoryIndex}-${colorIndex}-hsl`)}
-                                                                    />
+                                                                
+                                                                <div className="value-row">
+                                                                    <span className="value-label">RGB</span>
+                                                                    <div className="value-container">
+                                                                        <code className="value-code">{color.rgb}</code>
+                                                                        {/* <Button
+                                                                            variant="Tertiary"
+                                                                            size="Small"
+                                                                            icon={copiedColor === `${categoryIndex}-${colorIndex}-rgb` ? 
+                                                                                <span>✓</span> : <Copy size={12} />}
+                                                                            onClick={() => copyToClipboard(`rgb(${color.rgb})`, `${categoryIndex}-${colorIndex}-rgb`)}
+                                                                        /> */}
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div className="value-row">
+                                                                    <span className="value-label">HSL</span>
+                                                                    <div className="value-container">
+                                                                        <code className="value-code">{color.hsl}</code>
+                                                                        {/* <Button
+                                                                            variant="Tertiary"
+                                                                            size="Small"
+                                                                            icon={copiedColor === `${categoryIndex}-${colorIndex}-hsl` ? 
+                                                                                <span>✓</span> : <Copy size={12} />}
+                                                                            onClick={() => copyToClipboard(`hsl(${color.hsl})`, `${categoryIndex}-${colorIndex}-hsl`)}
+                                                                        /> */}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </FlexLayout>
-                                            </Card>
+                                                        </FlexLayoutItem>
+                                                    </FlexLayout>
+                                                </Card>
+                                            </FlexLayoutItem>
                                         ))}
-                                    </div>
+                                    </FlexLayout>
+                                    </FlexLayoutItem>
                                 </FlexLayout>
                             </section>
+                            </FlexLayoutItem>
                         ))}
                     </FlexLayout>
                 </div>
