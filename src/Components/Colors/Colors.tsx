@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextStyle, Button, Card, FlexLayout, Grid, FlexLayoutItem } from 'jiffy-ui';
-import { ArrowRight, Copy, ExternalLink, Eye, Download, EyeOff } from 'jiffy-icons';
+import { ArrowRight, Download, EyeOff } from 'jiffy-icons';
 import { Link } from 'react-router-dom';
 
 const Colors = () => {
-    const [copiedColor, setCopiedColor] = useState('');
+    // const [copiedColor, setCopiedColor] = useState('');
 
     const colorCategories = [
         {
@@ -135,11 +135,11 @@ const Colors = () => {
         }
     ];
 
-    const copyToClipboard = (text: string, colorId: string) => {
-        navigator.clipboard.writeText(text);
-        setCopiedColor(colorId);
-        setTimeout(() => setCopiedColor(''), 2000);
-    };
+    // const copyToClipboard = (text: string, colorId: string) => {
+    //     navigator.clipboard.writeText(text);
+    //     setCopiedColor(colorId);
+    //     setTimeout(() => setCopiedColor(''), 2000);
+    // };
 
     const downloadColorPalette = () => {
         const cssVariables = colorCategories.map(category => 

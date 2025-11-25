@@ -1,5 +1,5 @@
 import { Hithub, Search, Menu, Sun, Moon } from 'jiffy-icons';
-import { FlexLayout, TextStyle, Button } from 'jiffy-ui'
+import {  TextStyle, Button } from 'jiffy-ui'
 import React, { useState, useEffect } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -74,14 +74,7 @@ const Header = () => {
         }
     };
 
-    const handleSearchButtonClick = () => {
-        console.log('Search button clicked, value:', value);
-        if (value.trim()) {
-            handleSearch(value);
-        } else {
-            console.log('No search value to search for');
-        }
-    };
+   
 
     const handleSearchClear = () => {
         setValue('');

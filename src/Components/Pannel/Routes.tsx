@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import TextStyleComp from "../component/TextStyleComp";
 import Icons from "../component/Icons/Icons";
-import CheckboxComp from "../component/CheckboxComp";
 
 function Routes1() {
     return (
@@ -26,7 +25,7 @@ function Routes1() {
             <Route path="/Checkbox" element={<TextStyleComp component="Checkbox" />} />
             <Route path="/CheckboxGroup" element={<TextStyleComp component="CheckboxGroup" />} />
             <Route path="/FileUpload" element={<TextStyleComp component="FileUpload" />} />
-            {/* <Route path="/Checkbox" element={<CheckboxComp  />} /> */}
+
 
             {/* Icons */}
             <Route path="/Icons" element={<Icons />} />

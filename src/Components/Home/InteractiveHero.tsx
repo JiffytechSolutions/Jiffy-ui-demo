@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../contexts/ThemeContext';
 import './InteractiveHero.css';
 
 const InteractiveHero: React.FC = () => {
-  // const { isDarkMode } = useTheme();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+ const mousePosition = { x: 0, y: 0 };
   const [isVisible, setIsVisible] = useState(false);
 
 

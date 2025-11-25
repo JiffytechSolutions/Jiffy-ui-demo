@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextStyle, Button, Card, FlexLayout, FlexLayoutItem, VerticalStack, InlineStack } from 'jiffy-ui';
+import { TextStyle, Button, Card, FlexLayout, VerticalStack, InlineStack } from 'jiffy-ui';
 import { ArrowRight, Copy, ExternalLink, ChevronDown, ChevronRight, Bookmark, Hithub } from 'jiffy-icons';
 import { Link } from 'react-router-dom';
 
@@ -15,27 +15,14 @@ const Documentation = () => {
                 { title: 'Introduction', href: '#introduction' },
                 { title: 'Installation', href: '#installation' },
                 { title: 'Configuration', href: '#configuration' },
-                // { title: 'Theming', href: '#theming' }
             ]
         },
         {
             title: 'Example',
             items: [
                 { title: 'Button', href: '#button' },
-                // { title: 'Card', href: '#card' },
-                // { title: 'Input', href: '#input' },
-                // { title: 'Modal', href: '#modal' },
-                // { title: 'Table', href: '#table' }
             ]
         },
-        // {
-        //     title: 'Layout',
-        //     items: [
-        //         { title: 'Grid', href: '#grid' },
-        //         { title: 'Flex', href: '#flex' },
-        //         { title: 'Container', href: '#container' }
-        //     ]
-        // }
     ];
 
     // Track active section based on scroll position

@@ -1,5 +1,5 @@
 
-import { SideBar, FlexLayout, TextStyle } from 'jiffy-ui'
+import { SideBar, TextStyle } from 'jiffy-ui'
 import React, { useState } from 'react'
 import { Search } from 'jiffy-icons'
 import { useNavigate } from 'react-router-dom'
@@ -11,7 +11,6 @@ const AppSidebar = () => {
     const [isSearchFocused, setIsSearchFocused] = useState(false)
 
     // Combine all menu items for search filtering
-    const allMenuItems = [...AppMenu1, ...InputMenu, ...AppMenu2]
     
     // Filter menu items based on search query
     const filteredAppMenu1 = AppMenu1.filter(item => 

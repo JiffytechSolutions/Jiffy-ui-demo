@@ -1,15 +1,15 @@
-import {TextStyle, Card, Button, Divider, Table, Tag, Badge, FlexLayout, FlexLayoutItem, VerticalStack, Checkbox, InlineStack } from 'jiffy-ui'
-import React, { useEffect, useState } from 'react'
+import {TextStyle, Card, Divider, Table, FlexLayout, FlexLayoutItem, VerticalStack, Checkbox, InlineStack } from 'jiffy-ui'
+import React, { useEffect, useMemo, useState } from 'react'
 import { CopyBlock, dracula } from 'react-code-blocks';
-import { ArrowRight, Copy, Bookmark } from 'jiffy-icons';
+import {  Copy, Bookmark } from 'jiffy-icons';
 import { TextStyleData } from '../Data/ComponenetData';
-import { TypeProp, alignmentProp, asProps, childrenProp, textColorProp, textDecorationProp, textStyleProp } from '../Data/AllProps';
+
 import PagelayoutSkeleton from './PagelayoutSkeleton';
 
 const TextStyleComp = ({ component }: any) => {
-  const [language, changeLanguage] = useState("tsx");
+  const language = "tsx";
   const [isShowCode, ShowCode] = useState<any>("");
-  const [updatedComp, setUpdatedComp] = useState(component);
+
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('introduction');
   const [copiedCode, setCopiedCode] = useState('');
@@ -21,8 +21,17 @@ const TextStyleComp = ({ component }: any) => {
   const result = filterByComponentName(component);
   
   // Create section list for table of contents
-  const sections = ['introduction', ...(result[0]?.PropsDetail?.filter((item: any) => item.propDemo).map((item: any, index: number) => `prop-${index}`) || []), 'api-reference'];
-  
+ const sections = useMemo(() => {
+  return [
+    'introduction',
+    ...(
+      result[0]?.PropsDetail
+        ?.filter((item: any) => item.propDemo)
+        .map((item: any, index: number) => `prop-${index}`) || []
+    ),
+    'api-reference'
+  ];
+}, [result]);
   const copyToClipboard = (code: string, codeId: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(codeId);

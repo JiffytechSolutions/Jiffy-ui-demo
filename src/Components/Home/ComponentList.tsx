@@ -1,11 +1,8 @@
-import { Button, Card, FlexLayout, FlexLayoutItem, Grid, InlineStack, Select, TextStyle, VerticalStack } from 'jiffy-ui'
-import React, { useState } from 'react'
+import { Button, Card, FlexLayout, FlexLayoutItem, Grid, InlineStack, TextStyle, VerticalStack } from 'jiffy-ui'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'jiffy-icons'
-
-
 import accordion from '../../assets/Accordion.png'
-import card from '../../assets/Card.png'
 import button from '../../assets/button.png'
 import alert from '../../assets/Alert.png'
 import lightingurl from '../../assets/lightning.svg'
@@ -13,9 +10,6 @@ import lightingurl from '../../assets/lightning.svg'
 import { CopyBlock, dracula } from 'react-code-blocks'
 
 const ComponentList = () => {
-    const [hoveredComponent, setHoveredComponent] = useState<number | null>(null)
-    const [selectedCategory, setSelectedCategory] = useState('All')
-
     const component = [
         {
             compName: "Button",
@@ -52,12 +46,7 @@ const ComponentList = () => {
         },
     ]
 
-    const categories = ['All', ...Array.from(new Set(component.map(c => c.category)))]
-    const filteredComponents = selectedCategory === 'All'
-        ? component
-        : component.filter(c => c.category === selectedCategory)
 
-    
 
     const codeed = `
     import { PageTitle } from 'jiffy-ui';
@@ -151,12 +140,11 @@ const ComponentList = () => {
                             <VerticalStack  gap={5}>
                                 
                                     <Grid gap={{ "lg": "16px" }} columns={3}>
-                                        {filteredComponents.map((item, index) => {
+                                        {component.map((item, index) => {
                                             return (
                                                 <div key={index}
                                                     className='interactive-component-card'
-                                                    onMouseEnter={() => setHoveredComponent(index)}
-                                                    onMouseLeave={() => setHoveredComponent(null)} >
+                                                   >
                                                     <Link to={item.url} className='component-card-link'>
                                                         <Card variant='outlined'>
                                                             <VerticalStack gap={3} padding={3}>
@@ -207,5 +195,4 @@ const ComponentList = () => {
         </>
     )
 }
-
 export default ComponentList

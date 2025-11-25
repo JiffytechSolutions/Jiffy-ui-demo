@@ -78,7 +78,7 @@ const Icons = () => {
     };
     // Props details
     const [isShowCode, ShowCode] = useState<any>("");
-    const [language, changeLanguage] = useState("tsx");
+    const language = "tsx";
 
     const tableRow = result[0]?.PropsDetail.map((item: any, index: any
     ) => (

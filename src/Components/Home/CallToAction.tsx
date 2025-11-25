@@ -1,4 +1,4 @@
-import { ArrowRight, Hithub, Copy, Setting, Pocket, File, ChevronRight } from 'jiffy-icons'
+import { Setting, Pocket, File, ChevronRight } from 'jiffy-icons'
 import { FlexLayout, Card, FlexLayoutItem, TextStyle, VerticalStack, InlineStack } from 'jiffy-ui'
 const CallToAction = () => {
     const callToAction = [

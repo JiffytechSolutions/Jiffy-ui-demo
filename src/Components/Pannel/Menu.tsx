@@ -1,4 +1,4 @@
-import React from 'react'
+
 export const AppMenu1 = [
     {
         id: "pageTitle",
