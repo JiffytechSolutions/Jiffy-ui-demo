@@ -1,4 +1,4 @@
-import {TextStyle, Card, Button, Divider, Table, Tag, Badge, FlexLayout, FlexLayoutItem, VerticalStack } from 'jiffy-ui'
+import {TextStyle, Card, Button, Divider, Table, Tag, Badge, FlexLayout, FlexLayoutItem, VerticalStack, Checkbox, InlineStack } from 'jiffy-ui'
 import React, { useEffect, useState } from 'react'
 import { CopyBlock, dracula } from 'react-code-blocks';
 import { ArrowRight, Copy, Bookmark } from 'jiffy-icons';
@@ -75,7 +75,7 @@ const TextStyleComp = ({ component }: any) => {
       <Table.Cell>
         <div className='description_width props_value'>
           {item?.propValues?.map((item1: any, index1: any) => (
-            <code key={index1} style={{ marginRight: '8px' }}>
+            <code key={index1}>
               {item1}
             </code>
           ))}
@@ -141,10 +141,10 @@ const TextStyleComp = ({ component }: any) => {
         {/* Main Content */}
         <main className='docs-main' style={{ flex: 1, padding: '24px', maxWidth: 'calc(100% - 300px)' }}>
           <div className='docs-content'>
-            <VerticalStack  gap={4} align={"stretch"}>
+            <VerticalStack  gap={3} align={"stretch"}>
               {/* Introduction Section */}
               <section id="introduction" className='docs-section'>
-                <FlexLayout direction='column' gap={4}>
+                <VerticalStack gap={4} align={"stretch"}>
                   {result.map((item, index) => (
                     <div key={index} className='docs-header'>
                       <TextStyle as='h1' size='2xl' fontWeight='bold'>
@@ -168,105 +168,98 @@ const TextStyleComp = ({ component }: any) => {
                       </Card>
                     </div>
                   ))}
-                </FlexLayout>
+                </VerticalStack>
               </section>
+              <div style={{marginTop: "20px", marginBottom: "20px"}}>
+                <Divider thickness={'Thinner'} />
+              </div>
               {/* Property Sections */}
-              {result[0]?.PropsDetail.map((item: any, index: any) => {
-                if (!item.propDemo) return null;
-                
-                return (
-                  <section key={index} id={`prop-${index}`} className='docs-section'>
-                    <VerticalStack gap={4} align={"stretch"}>
-                      <VerticalStack gap={1} align={"stretch"}>
-                        <VerticalStack gap={1}>
-                          <TextStyle as='h2' size='lg' fontWeight='bold'>
-                            {item.propName}
-                          </TextStyle>
-                          <TextStyle as='p' size='md' tone='subdued'>
-                            {item.propDescription}
-                          </TextStyle>
+              <VerticalStack gap={4} align={'stretch'}>
+                {result[0]?.PropsDetail.map((item: any, index: any) => {
+                  if (!item.propDemo) return null;
+                  
+                  return (
+                    <VerticalStack gap={4} align={'stretch'}>
+                    <section key={index} id={`prop-${index}`} className='docs-section'>
+                      <VerticalStack gap={4} align={"stretch"}>
+                        <VerticalStack gap={1} align={"stretch"}>
+                          <VerticalStack gap={1}>
+                            <TextStyle as='h2' size='lg' fontWeight='bold'>
+                              {item.propName}
+                            </TextStyle>
+                            <TextStyle as='p' size='md' tone='subdued'>
+                              {item.propDescription}
+                            </TextStyle>
+                          </VerticalStack>
+
+                          <div className='props_value' style={{ marginBottom: '16px' }}>
+                            {(item?.propValues || []).map((item1: any, propIndex: any) => (
+                              <code key={propIndex}>
+                                {item1}
+                              </code>
+                            ))}
+                          </div>
                         </VerticalStack>
 
-                        <div className='props_value' style={{ marginBottom: '16px' }}>
-                          {(item?.propValues || []).map((item1: any, propIndex: any) => (
-                            <code key={propIndex} style={{ marginRight: '12px', padding: '4px 8px', backgroundColor: '#f1f5f9', borderRadius: '4px' }}>
-                              {item1}
-                            </code>
-                          ))}
-                        </div>
-                      </VerticalStack>
-
-                        <FlexLayout align={{ "lg": "end" }} style={{ padding: '16px' }}>
-                          <FlexLayoutItem>
-                            {isShowCode === index ?
-                              <Button
-                                onClick={() => ShowCode("")}
-                                variant='Secondary'
-                                suffixIcon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
-                              >
-                                Hide code
-                              </Button>
-                              :
-                              <Button
-                                onClick={() => ShowCode(index)}
-                                variant='Secondary'
-                                suffixIcon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" style={{ 'width': "16px", "height": "16px" }}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path></svg>}
-                              >
-                                Show code
-                              </Button>
-                            }
-                          </FlexLayoutItem>
-                        </FlexLayout>
-                        <FlexLayout direction='column' gap={3}>
-                          {isShowCode === index ? (
-                            <CodeBlock
-                              code={item.propCode}
-                              language={language}
-                              id={`prop-code-${index}`}
-                            />
-                          ): (
-                            <div className='component-preview' style={{ padding: '24px', borderBottom: '1px solid #e2e8f0' }}>
-                              {item.propDemo}
-                            </div>
-                          )}
+                        
+                            
+                              
+                        <InlineStack gap={3} align={'center'} fullWidth justifyContent={'end'}>
+                          <TextStyle as='span' size='sm' variant='heading' fontWeight='medium' style={{ marginRight: '12px' }}>
+                            Toggle between live preview and code view
+                          </TextStyle>
+                          <Checkbox variant="Switch" checked={isShowCode === index} 
+                            onChange={(checked:any) => ShowCode(checked ? index : "")}
+                          />
+                        </InlineStack>
                           
-                         
-                        </FlexLayout>
-                      
-                      
-                      
+                        
+                        
+                        {isShowCode === index ? (
+                          <CodeBlock
+                            code={item.propCode}
+                            language={language}
+                            id={`prop-code-${index}`}
+                          />
+                        ): (
+                          <div className='component-preview' style={{ padding: '24px', borderBottom: '1px solid #e2e8f0' }}>
+                            {item.propDemo}
+                          </div>
+                        )}
+                      </VerticalStack>
+                    </section>
+                    <Divider thickness='Thinner' />
                     </VerticalStack>
-                  </section>
-                );
-              })}
-
+                  );
+                })}
+              </VerticalStack>
               {/* API Reference Section */}
+              <div style={{marginTop: "20px", marginBottom: "20px"}}>
+                <Divider thickness={'Thinner'} />
+              </div>
               <section id="api-reference" className='docs-section'>
-                <FlexLayout direction='column' gap={4}>
-                  <div>
+                <VerticalStack  gap={4}>
+                  <VerticalStack gap={2}>
                     <TextStyle as='h2' size='lg' fontWeight='bold'>
                       API Reference
                     </TextStyle>
                     <TextStyle as='p' size='md' tone='subdued'>
                       Complete list of props and their configurations for the {result[0]?.componentName} component.
                     </TextStyle>
+                  </VerticalStack>
+                  <div className='props_table'>
+                    <Table
+                      headings={[
+                        { title: "Props" },
+                        { title: "Type" },
+                        { title: "Description" },
+                        { title: "Default" },
+                      ]}
+                    >
+                      {tableRow}
+                    </Table>
                   </div>
-                  
-                  <Card variant='outlined'>
-                    <div className='props_table'>
-                      <Table
-                        headings={[
-                          { title: "Props" },
-                          { title: "Type" },
-                          { title: "Description" },
-                          { title: "Default" },
-                        ]}
-                      >
-                        {tableRow}
-                      </Table>
-                    </div>
-                  </Card>
-                </FlexLayout>
+                </VerticalStack>
               </section>
             </VerticalStack>
           </div>

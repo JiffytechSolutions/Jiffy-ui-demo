@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ComponentList from '../ComponentList/ComponentList'
-import CallToAction from '../CallToAction/CallToAction'
+import ComponentList from './ComponentList'
+import CallToAction from './CallToAction'
 import InteractiveHero from './InteractiveHero'
 import './Home.css'
 

@@ -55,16 +55,16 @@ const Footer = () => {
                 { name: 'Getting Started', to: '/docs#installation' },
                 { name: 'Examples', to: '/blocks' },
                 { name: 'Charts', to: '/charts' },
-                { name: 'GitHub', url: 'https://github.com/jiffytechsolutions/JiffyDemo', external: true }
+                { name: 'GitHub', url: '#', external: true }
             ]
         },
         {
             title: 'Company',
             links: [
-                { name: 'About', url: 'https://jiffytech.com/about', external: true },
-                { name: 'Blog', url: 'https://jiffytech.com/blog', external: true },
-                { name: 'Careers', url: 'https://jiffytech.com/careers', external: true },
-                { name: 'Contact', url: 'https://jiffytech.com/contact', external: true }
+                { name: 'About', url: 'https://jiffytechsolutions.com/about', external: true },
+                { name: 'Blog', url: 'https://jiffytechsolutions.com/blog', external: true },
+                { name: 'Careers', url: 'https://jiffytechsolutions.com/careers', external: true },
+                { name: 'Contact', url: 'https://jiffytechsolutions.com/contact', external: true }
             ]
         }
     ];

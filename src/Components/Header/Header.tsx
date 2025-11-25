@@ -99,17 +99,6 @@ const Header = () => {
                         {/* Left Section - Logo & Navigation */}
                         <div className='header-left'>
                             <Link to="/" className='brand-container'>
-                                {/* <div className='brand-logo'>
-                                    <div className='logo-gradient'>
-                                        <span className='logo-icon'>✨</span>
-                                    </div>
-                                    <div className='brand-text'>
-                                        <TextStyle as='span' type='LgHeading' className='brand-name'>
-                                            Jiffy
-                                        </TextStyle>
-                                        <span className='brand-accent'>UI</span>
-                                    </div>
-                                </div> */}
                                 <img src={logo} alt='Jiffy UI' />
                             </Link>
 

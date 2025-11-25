@@ -711,10 +711,14 @@ section.section-padding.bg-color {
   letter-spacing: 0.5px;
   font-size: 14px;
 }
-
+.props_value {
+    display: flex;
+    gap: 3px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
 .props_value code {
   display: inline-block;
-  font-size: 11px;
   font-weight: 600;
   margin: .125rem;
   padding: .1rem .375rem;
@@ -722,6 +726,11 @@ section.section-padding.bg-color {
   color: rgb(41 53 72 / var(--tw-text-opacity));
   border: .1rem solid #0000001a;
   border-radius: 4px;
+}
+.props_value code {
+    background: #f1ecec;
+    padding: 2px 8px;
+    font-size: 12px;
 }
 
 .description_width {
@@ -1582,11 +1591,11 @@ a.brand-container img {
 }
 
 .docs-section {
-    margin-bottom: 48px;
+    /* margin-bottom: 48px; */
 }
 
 .docs-header {
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
 }
 
 /* Table of Contents */
@@ -3159,3 +3168,6 @@ aside.components-listing.docs-sidebar {
 .Pixel-sideBar__list>.Pixel-sideBar__listItem>.Pixel-sideBar__itemBody {
     padding: 9px 10px;
 }
+
+
+

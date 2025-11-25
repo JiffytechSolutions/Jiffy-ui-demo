@@ -3,14 +3,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'jiffy-icons'
 
-import autocomplete from '../../assets/Autocomplete.png'
-import checkBox from '../../assets/CheckBox.png'
-import checkBoxgrp from '../../assets/checkboxGroup.png'
+
 import accordion from '../../assets/Accordion.png'
-import grid from '../../assets/Grid.png'
 import card from '../../assets/Card.png'
 import button from '../../assets/button.png'
-import sidebar from '../../assets/Sidebar.png'
 import alert from '../../assets/Alert.png'
 import lightingurl from '../../assets/lightning.svg'
 
@@ -54,63 +50,6 @@ const ComponentList = () => {
             downloads: "9.3k",
             interactive: true
         },
-        // {
-        //     compName: "AutoComplete",
-        //     url: "/pannel/AutoComplete",
-        //     image: autocomplete,
-        //     description: "Smart input field with auto-suggestion and search capabilities.",
-        //     category: "Input",
-        //     story: "Essential for search forms and user-friendly data entry",
-        //     usage: "78%",
-        //     downloads: "8.2k",
-        //     interactive: true
-        // },
-        // {
-        //     compName: "Checkbox",
-        //     url: "/pannel/Checkbox",
-        //     image: checkBox,
-        //     description: "Boolean input control for single selections and toggles.",
-        //     category: "Input",
-        //     story: "Fundamental component for forms and settings panels",
-        //     usage: "89%",
-        //     downloads: "15.1k",
-        //     interactive: true
-        // },
-        // {
-        //     compName: "Checkbox Group",
-        //     url: "/pannel/CheckboxGroup",
-        //     image: checkBoxgrp,
-        //     description: "Multiple checkbox controls grouped together for multi-selection.",
-        //     category: "Input",
-        //     story: "Ideal for filter interfaces and multi-option selections",
-        //     usage: "67%",
-        //     downloads: "6.8k",
-        //     interactive: true
-        // },
-       
-        // {
-        //     compName: "Grid",
-        //     url: "/pannel/Grid",
-        //     image: grid,
-        //     description: "Responsive grid system for creating flexible layouts.",
-        //     category: "Layout",
-        //     story: "Foundation for responsive design and content organization",
-        //     usage: "91%",
-        //     downloads: "18.7k",
-        //     interactive: true
-        // },
-        // {
-        //     compName: "Sidebar",
-        //     url: "/pannel/Sidebar",
-        //     image: sidebar,
-        //     description: "Navigation sidebar with hierarchical menu structure.",
-        //     category: "Navigation",
-        //     story: "Essential for dashboards and admin interfaces",
-        //     usage: "56%",
-        //     downloads: "4.9k",
-        //     interactive: true
-        // },
-        
     ]
 
     const categories = ['All', ...Array.from(new Set(component.map(c => c.category)))]
@@ -132,10 +71,6 @@ const ComponentList = () => {
     }`
     return (
         <>
-
-            
-
-
             <section className='components-section'>
                 <div className='container'>
                     <FlexLayout gap={4}>
@@ -198,9 +133,7 @@ const ComponentList = () => {
                     </FlexLayout>
                 </div>
             </section>
-
-
-            {/* Interactive Components Showcase Section */}
+           
             <section className='components-showcase'>
                 <div className='container'>
                     <FlexLayout direction='column' gap={4}>
@@ -271,10 +204,6 @@ const ComponentList = () => {
                     </FlexLayout>
                 </div>
             </section>
-
-           
-
-            
         </>
     )
 }

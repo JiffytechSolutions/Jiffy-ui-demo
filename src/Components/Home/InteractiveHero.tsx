@@ -7,39 +7,19 @@ const InteractiveHero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
-  const features = [
-    { icon: '⚡', text: 'Lightning Fast' },
-    { icon: '🎨', text: 'Beautiful Design' },
-    { icon: '📱', text: 'Responsive' },
-    { icon: '🔧', text: 'Customizable' },
-    { icon: '🚀', text: 'Production Ready' },
-    { icon: '💡', text: 'Developer Friendly' }
-  ];
-
-  const [currentFeature, setCurrentFeature] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
     
     const interval = setInterval(() => {
-      // setCurrentFeature(prev => (prev + 1) % features.length);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [features.length]);
-
-  // const handleMouseMove = (e: React.MouseEvent) => {
-  //   const rect = e.currentTarget.getBoundingClientRect();
-  //   setMousePosition({
-  //     x: (e.clientX - rect.left) / rect.width,
-  //     y: (e.clientY - rect.top) / rect.height
-  //   });
-  // };
+  }, []);
 
   return (
     <section 
       className={`interactive-hero  ${isVisible ? 'visible' : ''}`}
-      // onMouseMove={handleMouseMove}
     >
       {/* Animated Background */}
       <div className="hero-background">
@@ -93,28 +73,6 @@ const InteractiveHero: React.FC = () => {
           </button>
         </div>
       </div>
-          
-      {/* Floating Elements */}
-      {/* <div className="floating-elements">
-        <div className="floating-card card-1">
-          <div className="card-content">
-            <div className="card-icon">🎯</div>
-            <div className="card-text">TypeScript</div>
-          </div>
-        </div>
-        <div className="floating-card card-2">
-          <div className="card-content">
-            <div className="card-icon">⚡</div>
-            <div className="card-text">Performance</div>
-          </div>
-        </div>
-        <div className="floating-card card-3">
-          <div className="card-content">
-            <div className="card-icon">🎨</div>
-            <div className="card-text">Design</div>
-          </div>
-        </div>
-      </div> */}
     </section>
   );
 };
